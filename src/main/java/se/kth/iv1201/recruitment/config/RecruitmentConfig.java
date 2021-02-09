@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -18,6 +19,8 @@ import nz.net.ultraq.thymeleaf.LayoutDialect;
 /**
  * Loads all configuration for the entire bank web app.
  */
+@EnableTransactionManagement // Needed for @Transactional attribute outside
+
 @EnableWebMvc
 @Configuration
 public class RecruitmentConfig implements WebMvcConfigurer, ApplicationContextAware {
