@@ -9,8 +9,28 @@ import javax.persistence.Table;
 @Table(name = "ACCOUNT")
 public class Account implements AccountDTO{
     @Id
-    @Column(name = "ACCT_USERNAME")
+    @Column(name = "ACCOUNT_USERNAME")
     private String username;
+
+    @Column(name = "ACCOUNT_PASSWORD")
+    private String password;
+
+    @Column(name= "ACCOUNT_FIRSTNAME")
+    private String firstName;
+
+    @Column(name = "ACCOUNT_LASTNAME")
+    private String lastName;
+
+    @Column(name = "ACCOUNT_EMAIL")
+    private String emailAddress;
+
+    @Column(name = "ACCOUNT_DATEOFBIRTH")
+    private String dateOfBirth;
+
+    /**
+     * Constructor
+     */
+    public Account()
 
     @Override
     public String getFirstName() {
