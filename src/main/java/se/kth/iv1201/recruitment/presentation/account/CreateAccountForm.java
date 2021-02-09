@@ -19,26 +19,16 @@ class CreateAccountForm {
     @Size(min = 2, max = 30, message = "{create-acct.last-name.length}")
     private String lastName;
 
+    @NotNull(message = "{create-acct.date-of-birth.missing}")
+    private Integer dateOfBirth;
+
     @Pattern(regexp = "^[\\p{L}\\p{M}*]*$", message = "{create-acct" + ".email" + ".invalid-char}")
     @Size(min = 2, max = 30, message = "{create-acct.email.length}")
     private String email;
 
-    @NotNull(message = "{create-acct.date-of-birth.missing}")
-    private Integer dateOfBirth;
-
-    /**
-     * @return The initial balance of the account that will be created.
-     */
-    public Integer getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    /**
-     * @param dateOfBirth The initial balance of the account that will be created.
-     */
-    public void setDateOfBirth(Integer dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
+    @Pattern(regexp = "^[\\p{L}\\p{M}*]*$", message = "{create-acct" + ".password" + ".invalid-char}")
+    @Size(min = 2, max = 30, message = "{create-acct.password.length}")
+    private String password;
 
     /**
      * @return The name of the first name of the account that will be created.
@@ -48,7 +38,7 @@ class CreateAccountForm {
     }
 
     /**
-     * @param firstName The name of the holderName of the account that will be
+     * @param firstName The name of the firstName of the account that will be
      *                   created.
      */
     public void setFirstName(String firstName) {
@@ -63,11 +53,25 @@ class CreateAccountForm {
     }
 
     /**
-     * @param lastName The name of the holderName of the account that will be
+     * @param lastName The name of the lastName of the account that will be
      *                   created.
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    /**
+     * @return The date of birth of the account that will be created.
+     */
+    public Integer getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    /**
+     * @param dateOfBirth The dateOfBirth of the account that will be created.
+     */
+    public void setDateOfBirth(Integer dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     /**
@@ -78,11 +82,26 @@ class CreateAccountForm {
     }
 
     /**
-     * @param email The name of the holderName of the account that will be
+     * @param email The name of the email of the account that will be
      *                   created.
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    /**
+     * @return The password of the account that will be created.
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * @param password The password of the account that will be
+     *                   created.
+     */
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
