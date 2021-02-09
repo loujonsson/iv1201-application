@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * https://spring.io/guides/gs/accessing-data-jpa/
+ */
 @Entity
 // @Table(name = "APPLICANT")
 public class Applicant implements ApplicantDTO {
