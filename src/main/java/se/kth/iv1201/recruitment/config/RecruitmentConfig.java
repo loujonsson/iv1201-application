@@ -4,6 +4,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.validation.Validator;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -98,5 +100,13 @@ public class RecruitmentConfig implements WebMvcConfigurer, ApplicationContextAw
         registry.addResourceHandler("/**").addResourceLocations(rootDirForStaticFiles)
                 .setCachePeriod(cachePeriodForStaticFilesInSecs).resourceChain(true)
                 .addResolver(new PathResourceResolver());
+    }
+
+    /**
+     * Creates a bean with all server related properties from application.properties
+     */
+    @Bean
+    public ServerProperties serverProperties(){
+        return new ServerProperties();
     }
 }

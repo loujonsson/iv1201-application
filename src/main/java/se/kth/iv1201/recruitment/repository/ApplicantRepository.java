@@ -9,4 +9,10 @@ public interface ApplicantRepository extends CrudRepository<Applicant, Long> {
     Applicant findApplicantByUsername(String username);
 
     List<Applicant> findByDateOfBirth(long dateOfBirth);
+
+    @Override
+    Applicant save(Applicant applicant);
+
+    @Override
+    List<Applicant> findAll();
 }
