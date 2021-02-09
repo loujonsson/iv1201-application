@@ -2,11 +2,13 @@ package se.kth.iv1201.recruitment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@SpringBootApplication
+// added the exclude 9/2
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 @RestController
 public class Main {
 
