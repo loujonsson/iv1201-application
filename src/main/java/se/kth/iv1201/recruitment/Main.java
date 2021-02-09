@@ -4,62 +4,49 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import se.kth.iv1201.recruitment.config.Greeting;
+import se.kth.iv1201.recruitment.config.GreetingRepository;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @SpringBootApplication
-@RestController
 public class Main {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Main.class, args);
+
 	}
 
-	@GetMapping("/hello")
-	public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return String.format("Hello %s!", name);
+	@Bean
+	ApplicationRunner applicationRunner(GreetingRepository greetingRepository){
+		return args -> {
+			greetingRepository.save(new Greeting("Hello"));
+
+			greetingRepository.save(new Greeting("Hi"));
+		};
 	}
 
-	@Value("${spring.datasource.url}")
-	private String dbUrl;
-
-	@Autowired
-	private DataSource dataSource;
-
-	@RequestMapping("/db")
-	String db(Map<String, Object> model) {
-		try (Connection connection = dataSource.getConnection()) {
-			Statement stmt = connection.createStatement();
-			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-			stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-			ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
-
-			ArrayList<String> output = new ArrayList<String>();
-			while (rs.next()) {
-				output.add("Read from DB: " + rs.getTimestamp("tick"));
-			}
-
-			model.put("records", output);
-			return "db";
-		} catch (Exception e) {
-			model.put("message", e.getMessage());
-			return "error";
-		}
-	}
-
+/*
 	@Bean
 	public DataSource dataSource() throws SQLException {
 		if (dbUrl == null || dbUrl.isEmpty()) {
@@ -69,5 +56,41 @@ public class Main {
 			config.setJdbcUrl(dbUrl);
 			return new HikariDataSource(config);
 		}
+	}*/
+}
+
+@RestController
+class HelloController() {
+	private final GreetingRepository greetingRepository;
+
+	@GetMapping("/hello")
+	String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
+		return String.format("Hello %s!", name);
+	}
+
+	@GetMapping("/greeting")
+	List<Greeting> greetings() {
+		return greetingRepository.findAll();
+	}
+
+	HelloController(GreetingRepository  greetingRepository){
+		this.greetingRepository = greetingRepository;
+	}
+}
+
+@Entity
+class Greetings{
+	@Id
+	@GeneratedValue
+	private Long id;
+
+	@Column
+	private String message;
+
+	public Greeting(){
+
+	}
+	public Greeting(String message){
+		this.message = message;
 	}
 }

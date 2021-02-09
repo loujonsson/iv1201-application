@@ -1,7 +1,5 @@
 package se.kth.iv1201.recruitment.config;
 
-import org.springframework.context.annotation.Configuration;
-
 import com.zaxxer.hikari.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
@@ -9,7 +7,7 @@ import javax.sql.DataSource;
 
 @Configuration
 public class DatabaseConfig {
-/*
+
     @Value("${spring.datasource.url}")
     private String dbUrl;
 
@@ -20,21 +18,25 @@ public class DatabaseConfig {
         return new HikariDataSource(config);
     }
 }
+/*
+    @RequestMapping("/db")
+    String db(Map<String, Object> model) {
+        try (Connection connection = dataSource.getConnection()) {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
+            stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
+            ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
 
-@Configuration
-public class DatabaseConfig {
+            ArrayList<String> output = new ArrayList<String>();
+            while (rs.next()) {
+                output.add("Read from DB: " + rs.getTimestamp("tick"));
+            }
 
-    @Bean
-    public BasicDataSource dataSource() throws URISyntaxException {
-        String dbUrl = System.getenv("JDBC_DATABASE_URL");
-        String username = System.getenv("JDBC_DATABASE_USERNAME");
-        String password = System.getenv("JDBC_DATABASE_PASSWORD");
-
-        BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setUrl(dbUrl);
-        basicDataSource.setUsername(username);
-        basicDataSource.setPassword(password);
-
-        return basicDataSource;
+            model.put("records", output);
+            return "db";
+        } catch (Exception e) {
+            model.put("message", e.getMessage());
+            return "error";
+        }
     }*/
-}
+
