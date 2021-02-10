@@ -25,4 +25,32 @@ public class RecruitmentService {
     @Autowired
     private ApplicantRepository applicantRepo;
 
+    /**
+     * Creates a new applicant with the specified username, password, first name, last name, email address and date of birth.
+     *
+     * @param username The applicant's username
+     * @param password The applicant's password
+     * @param firstName The applicant's first name
+     * @param lastName The applicant's last name
+     * @param emailAddress The applicant's email
+     * @param dateOfBirth The applicant's date of birth
+     * @return the newly created applicant
+     */
+    public ApplicantDTO createApplicant(String username, String password, String firstName, String lastName, String emailAddress, Integer dateOfBirth) {
+        if (username == null) {
+            throw new IllegalArgumentException("Please enter a valid username");
+        }if (password == null) {
+            throw new IllegalArgumentException("Please enter a valid password");
+        }if (firstName == null) {
+            throw new IllegalArgumentException("Please enter a valid first name");
+        }if (lastName == null) {
+            throw new IllegalArgumentException("Please enter a valid last name");
+        }if (emailAddress == null) {
+            throw new IllegalArgumentException("Please enter a valid email address");
+        }if (dateOfBirth <= 0) {
+            throw new IllegalArgumentException("Please enter a valid date of birth");
+        }
+        return applicantRepo.save(new Applicant(username, password, firstName, lastName, emailAddress, dateOfBirth));
+    }
+
 }

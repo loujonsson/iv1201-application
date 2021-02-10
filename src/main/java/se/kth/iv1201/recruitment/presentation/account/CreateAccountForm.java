@@ -11,6 +11,13 @@ import se.kth.iv1201.recruitment.util.Util;
  * A form bean for the account creation form.
  */
 class CreateAccountForm {
+    @NotBlank(message = "{create-account.username.missing}")
+    // The regex below should permit only characters, but asterisk is
+    // unfortunately also valid.
+    @Pattern(regexp = "^[\\p{L}\\p{M}*]*$", message = "{create-account" + ".username" + ".invalid-char}")
+    @Size(min = 2, max = 30, message = "{create-account.username.length}")
+    private String username;
+
     @NotBlank(message = "{create-account.holder-name.missing}")
     // The regex below should permit only characters, but asterisk is
     // unfortunately also valid.
@@ -32,6 +39,21 @@ class CreateAccountForm {
     @Pattern(regexp = "^[\\p{L}\\p{M}*]*$", message = "{create-account" + ".password" + ".invalid-char}")
     @Size(min = 2, max = 30, message = "{create-account.password.length}")
     private String password;
+
+    /**
+     * @return The name of the first name of the account that will be created.
+     */
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * @param username The name of the firstName of the account that will be
+     *                   created.
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     /**
      * @return The name of the first name of the account that will be created.
