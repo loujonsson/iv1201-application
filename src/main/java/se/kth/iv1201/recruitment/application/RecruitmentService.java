@@ -12,9 +12,14 @@ import se.kth.iv1201.recruitment.repository.ApplicantRepository;
 @Service
 public class RecruitmentService {
     @Autowired
-    private ApplicantRepository applicantRepo;
+    private static ApplicantRepository applicantRepo;
 
-    public ApplicantDTO createApplicant(String username, String password, String firstName, String lastName, String email, long dateOfBirth) {
-        return applicantRepo.save(new Applicant(username, password, firstName, lastName, email, dateOfBirth));
+    public static ApplicantDTO createApplicant(String firstName, String lastName, Integer dateOfBirth, String email, String password) {
+        return applicantRepo.save(new Applicant(firstName, password, firstName, lastName, email, dateOfBirth));
     }
+
+    /*
+    public ApplicantDTO createApplicant(String username, String password, String firstName, String lastName, String email, Integer dateOfBirth) {
+        return applicantRepo.save(new Applicant(username, password, firstName, lastName, email, dateOfBirth));
+    }*/
 }

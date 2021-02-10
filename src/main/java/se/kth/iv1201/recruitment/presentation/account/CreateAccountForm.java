@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 import se.kth.iv1201.recruitment.util.Util;
 
 class CreateAccountForm {
-    @NotBlank(message = "{create-account.holder-name.missing}")
+    @NotBlank(message = "{create-account.first-name.missing}")
     // The regex below should permit only characters, but asterisk is
     // unfortunately also valid.
     @Pattern(regexp = "^[\\p{L}\\p{M}*]*$", message = "{create-account" + ".first-name" + ".invalid-char}")
@@ -22,11 +22,9 @@ class CreateAccountForm {
     @NotNull(message = "{create-account.date-of-birth.missing}")
     private Integer dateOfBirth;
 
-    @Pattern(regexp = "^[\\p{L}\\p{M}*]*$", message = "{create-account" + ".email" + ".invalid-char}")
     @Size(min = 2, max = 30, message = "{create-account.email.length}")
     private String email;
 
-    @Pattern(regexp = "^[\\p{L}\\p{M}*]*$", message = "{create-account" + ".password" + ".invalid-char}")
     @Size(min = 2, max = 30, message = "{create-account.password.length}")
     private String password;
 
