@@ -39,6 +39,7 @@ public class Applicant implements ApplicantDTO {
     /**
      * Constructor
      */
+
     public Applicant(String username, String password, String firstName, String lastName, String emailAddress, long dateOfBirth){
         this.username = username;
         this.password = password;
