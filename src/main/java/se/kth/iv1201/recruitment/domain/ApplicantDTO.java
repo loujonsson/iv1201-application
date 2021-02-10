@@ -1,7 +1,8 @@
 package se.kth.iv1201.recruitment.domain;
 
 /**
- * DTO collects data from Account class
+ * Defines all operation that can be performed on a {@link Applicant} outside the
+ * application and domain layers.
  */
 public interface ApplicantDTO {
     /**
@@ -22,7 +23,7 @@ public interface ApplicantDTO {
     /**
      * Returns the date of birth of the applicant
      */
-    long getDateOfBirth();
+    int getDateOfBirth();
 
     /**
      * Returns the username of the applicant

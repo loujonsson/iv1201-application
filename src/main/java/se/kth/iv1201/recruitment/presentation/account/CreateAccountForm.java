@@ -7,6 +7,9 @@ import javax.validation.constraints.Size;
 
 import se.kth.iv1201.recruitment.util.Util;
 
+/**
+ * A form bean for the account creation form.
+ */
 class CreateAccountForm {
     @NotBlank(message = "{create-account.holder-name.missing}")
     // The regex below should permit only characters, but asterisk is

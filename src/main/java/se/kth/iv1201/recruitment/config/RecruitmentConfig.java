@@ -18,7 +18,7 @@ import org.thymeleaf.templatemode.TemplateMode;
 import nz.net.ultraq.thymeleaf.LayoutDialect;
 
 /**
- * Loads all configuration for the entire bank web app.
+ * Loads all configuration for the entire recruitment web app.
  */
 @EnableWebMvc
 @Configuration
