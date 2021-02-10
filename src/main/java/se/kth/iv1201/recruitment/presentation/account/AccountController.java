@@ -22,6 +22,7 @@ public class AccountController {
     static final String DEFAULT_PAGE_URL = "/";
     static final String CREATE_ACCOUNT_PAGE_URL = "create-account";
     static final String ACCT_PAGE_URL = "applicant-account";
+    static final String SUCCESS_PAGE_URL = "create-account-success";
     private static final String CURRENT_ACCT_OBJ_NAME = "currentAcct";
 
     @Autowired
@@ -62,7 +63,18 @@ public class AccountController {
         else {
             //userRepository.save(users);
             service.createApplicant(createAcctForm.getUsername(), createAcctForm.getPassword(), createAcctForm.getFirstName(), createAcctForm.getLastName(), createAcctForm.getEmail(), createAcctForm.getDateOfBirth());
-            return CREATE_ACCOUNT_PAGE_URL;
+            return "redirect:" + SUCCESS_PAGE_URL;
         }
     }
+
+    /**
+     * View consisting a success page when account has been successfully created
+     *
+     * @return url for success page view
+     */
+    @GetMapping("/" + SUCCESS_PAGE_URL)
+    public String showSuccessView(){
+        return SUCCESS_PAGE_URL;
+    }
+
 }
