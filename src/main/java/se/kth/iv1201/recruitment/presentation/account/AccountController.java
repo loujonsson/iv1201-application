@@ -46,6 +46,7 @@ public class AccountController {
     public String showCreateAccountView(CreateAccountForm createAccountForm){
         return CREATE_ACCOUNT_PAGE_URL;
     }
+<<<<<<< Updated upstream
 
     /**
      * The create account form has been submitted.
@@ -59,6 +60,8 @@ public class AccountController {
         currentApplicant = service.createApplicant(createAcctForm.getUsername(), createAcctForm.getPassword(), createAcctForm.getFirstName(), createAcctForm.getLastName(), createAcctForm.getEmail(), createAcctForm.getDateOfBirth());
         return showAcctPage(model);
     }
+=======
+>>>>>>> Stashed changes
 
     private String showAcctPage(Model model) {
         if (currentApplicant != null) {
@@ -73,21 +76,8 @@ public class AccountController {
             return CREATE_ACCOUNT_PAGE_URL;
         }
         else {
-            //userRepository.save(users);
             service.createApplicant(createAcctForm.getUsername(), createAcctForm.getPassword(), createAcctForm.getFirstName(), createAcctForm.getLastName(), createAcctForm.getEmail(), createAcctForm.getDateOfBirth());
             return ACCT_PAGE_URL;
         }
     }
-
-    /*
-    @RequestMapping(method = RequestMethod.GET, value = "create-account")
-    public String addUser(Model model) {
-        if (!model.containsAttribute("wrongLink")) {
-            System.out.println("not wrong Link");
-            model.addAttribute(new UserBean());
-        } else {
-            System.out.println("wrong Link");
-        }
-        return "user/register";
-    }*/
 }
