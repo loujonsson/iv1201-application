@@ -24,8 +24,5 @@ import se.kth.iv1201.recruitment.repository.ApplicantRepository;
 public class RecruitmentService {
     @Autowired
     private ApplicantRepository applicantRepo;
-/*
-    public ApplicantDTO createApplicant(String username, String password, String firstName, String lastName, String email, int dateOfBirth) {
-        return applicantRepo.save(new Applicant(username, password, firstName, lastName, email, dateOfBirth));
-    } */
+
 }
