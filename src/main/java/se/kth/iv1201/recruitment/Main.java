@@ -35,7 +35,7 @@ public class Main {
 	public CommandLineRunner demo(ApplicantRepository repository){
 		return (args) -> {
 			// save some applicants
-		/*	repository.save(new Applicant("loujons", "123", "Lou", "Jönsson", "loujons@kth.se", 990717));
+			repository.save(new Applicant("loujons", "123", "Lou", "Jönsson", "loujons@kth.se", 990717));
 			repository.save(new Applicant("agnesal", "234", "Agnes", "Altin", "agnesal@kth.se", 990101));
 			repository.save(new Applicant("person", "234", "Person", "Personsson", "person@kth.se", 990101));
 			repository.save(new Applicant("vernic", "345", "Veronika", "Nicolaou", "vernic@kth.se", 940101));
@@ -61,7 +61,7 @@ public class Main {
 	    	repository.findByDateOfBirth(990101).forEach(birth -> {
 				log.info(birth.toString());
 			});
-			log.info(""); */
+			log.info("");
 		};
 	}
 	@GetMapping("/hello")
