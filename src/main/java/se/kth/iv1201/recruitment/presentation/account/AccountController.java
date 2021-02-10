@@ -30,7 +30,7 @@ public class AccountController {
      * @return The create account page url
      */
     @GetMapping("/" + CREATE_ACCOUNT_PAGE_URL)
-    public String showCreateAccountView(){
+    public String showCreateAccountView(CreateAccountForm createAccountForm){
         return CREATE_ACCOUNT_PAGE_URL;
     }
 
