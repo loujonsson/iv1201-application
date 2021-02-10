@@ -7,6 +7,11 @@ import javax.validation.constraints.Size;
 
 import se.kth.iv1201.recruitment.util.Util;
 
+import java.util.Date;
+
+/**
+ * A form bean for the account creation form.
+ */
 class CreateAccountForm {
     @NotBlank(message = "{create-account.holder-name.missing}")
     // The regex below should permit only characters, but asterisk is
@@ -20,13 +25,11 @@ class CreateAccountForm {
     private String lastName;
 
     @NotNull(message = "{create-account.date-of-birth.missing}")
-    private Integer dateOfBirth;
+    private Date dateOfBirth;
 
-    @Pattern(regexp = "^[\\p{L}\\p{M}*]*$", message = "{create-account" + ".email" + ".invalid-char}")
     @Size(min = 2, max = 30, message = "{create-account.email.length}")
     private String email;
 
-    @Pattern(regexp = "^[\\p{L}\\p{M}*]*$", message = "{create-account" + ".password" + ".invalid-char}")
     @Size(min = 2, max = 30, message = "{create-account.password.length}")
     private String password;
 
@@ -63,14 +66,14 @@ class CreateAccountForm {
     /**
      * @return The date of birth of the account that will be created.
      */
-    public Integer getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
     /**
      * @param dateOfBirth The dateOfBirth of the account that will be created.
      */
-    public void setDateOfBirth(Integer dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
