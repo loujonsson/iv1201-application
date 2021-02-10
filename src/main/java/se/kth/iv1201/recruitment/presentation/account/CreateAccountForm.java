@@ -11,6 +11,10 @@ class CreateAccountForm {
     @NotBlank(message = "{create-account.first-name.missing}")
     // The regex below should permit only characters, but asterisk is
     // unfortunately also valid.
+    @Pattern(regexp = "^[\\p{L}\\p{M}*]*$", message = "{create-account" + ".username" + ".invalid-char}")
+    @Size(min = 2, max = 30, message = "{create-account.username.length}")
+    private String username;
+
     @Pattern(regexp = "^[\\p{L}\\p{M}*]*$", message = "{create-account" + ".first-name" + ".invalid-char}")
     @Size(min = 2, max = 30, message = "{create-account.first-name.length}")
     private String firstName;
@@ -20,13 +24,28 @@ class CreateAccountForm {
     private String lastName;
 
     @NotNull(message = "{create-account.date-of-birth.missing}")
-    private Integer dateOfBirth;
+    private long dateOfBirth;
 
     @Size(min = 2, max = 30, message = "{create-account.email.length}")
     private String email;
 
     @Size(min = 2, max = 30, message = "{create-account.password.length}")
     private String password;
+
+    /**
+     * @return The username of the account that will be created.
+     */
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * @param username The name of the username of the account that will be
+     *                   created.
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     /**
      * @return The name of the first name of the account that will be created.
@@ -61,7 +80,7 @@ class CreateAccountForm {
     /**
      * @return The date of birth of the account that will be created.
      */
-    public Integer getDateOfBirth() {
+    public long getDateOfBirth() {
         return dateOfBirth;
     }
 

@@ -12,6 +12,10 @@
         <p>Enter account details.</p>
         <form th:action="@{/create-account}" th:object="${createAccountForm}" method="post">
             <p>
+                <label for="username">Username</label>:
+                <input type="text" th:field="*{username}" id="username">
+            </p>
+            <p>
                 <label for="first-name">First name</label>:
                 <input type="text" th:field="*{firstName}" id="first-name">
             </p>

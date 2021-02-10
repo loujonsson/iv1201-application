@@ -14,8 +14,8 @@ public class RecruitmentService {
     @Autowired
     private static ApplicantRepository applicantRepo;
 
-    public ApplicantDTO createApplicant(String firstName, String lastName, Integer dateOfBirth, String email, String password) {
-        return applicantRepo.save(new Applicant(firstName, password, firstName, lastName, email, dateOfBirth));
+    public ApplicantDTO createApplicant(String username, String firstName, String lastName, long dateOfBirth, String email, String password) {
+        return applicantRepo.save(new Applicant(username, password, firstName, lastName, email, dateOfBirth));
     }
 
     /*

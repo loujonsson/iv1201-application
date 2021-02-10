@@ -45,16 +45,15 @@ public class AccountController {
      * The create account form has been submitted.
      *
      * @param createAccountForm Content of the create account form.
-     * @return
      */
     @PostMapping("/" + CREATE_ACCOUNT_PAGE_URL)
-    public String createAccount(CreateAccountForm createAccountForm) {
+    public void createAccount(CreateAccountForm createAccountForm) {
         System.out.println(createAccountForm.getFirstName());
 
-        currentApplicant = service.createApplicant(createAccountForm.getFirstName(), createAccountForm.getLastName(),
+        currentApplicant = service.createApplicant(createAccountForm.getUsername(), createAccountForm.getFirstName(), createAccountForm.getLastName(),
                 createAccountForm.getDateOfBirth(), createAccountForm.getEmail(), createAccountForm.getPassword());
 
-        return "redirect:" + CREATE_ACCOUNT_PAGE_URL;
+        //return "redirect:" + CREATE_ACCOUNT_PAGE_URL;
     }
 
 }
