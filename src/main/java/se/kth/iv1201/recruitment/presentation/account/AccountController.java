@@ -23,6 +23,7 @@ public class AccountController {
     static final String CREATE_ACCOUNT_PAGE_URL = "create-account";
     static final String ACCT_PAGE_URL = "applicant-account";
     static final String SUCCESS_PAGE_URL = "create-account-success";
+    static final String FAVICON_GET = "favicon.ico";
     private static final String CURRENT_ACCT_OBJ_NAME = "currentAcct";
 
     @Autowired
@@ -35,6 +36,16 @@ public class AccountController {
      */
     @GetMapping(DEFAULT_PAGE_URL)
     public String showDefaultView() {
+        return "redirect:" + CREATE_ACCOUNT_PAGE_URL;
+    }
+
+    /**
+     * Currently default view is Create account
+     *
+     * @return A response that redirects the browser to the Create account page
+     */
+    @GetMapping(FAVICON_GET)
+    public String faviconRedirection() {
         return "redirect:" + CREATE_ACCOUNT_PAGE_URL;
     }
 
