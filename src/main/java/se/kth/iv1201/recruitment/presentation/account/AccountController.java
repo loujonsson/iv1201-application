@@ -46,20 +46,6 @@ public class AccountController {
     public String showCreateAccountView(CreateAccountForm createAccountForm){
         return CREATE_ACCOUNT_PAGE_URL;
     }
-    /*
-    /**
-     * The create account form has been submitted.
-     *
-     * @param createAcctForm Content of the create account form.
-     * @param model          Model objects used by the account page.
-     * @return The account page url if validation succeeds.
-     */
-    /*
-    @PostMapping("/" + CREATE_ACCOUNT_PAGE_URL)
-    public String createAccount(@Valid CreateAccountForm createAcctForm, Model model) {
-        currentApplicant = service.createApplicant(createAcctForm.getUsername(), createAcctForm.getPassword(), createAcctForm.getFirstName(), createAcctForm.getLastName(), createAcctForm.getEmail(), createAcctForm.getDateOfBirth());
-        return showAcctPage(model);
-    }*/
 
     private String showAcctPage(Model model) {
         if (currentApplicant != null) {
@@ -79,16 +65,4 @@ public class AccountController {
             return CREATE_ACCOUNT_PAGE_URL;
         }
     }
-
-    /*
-    @RequestMapping(method = RequestMethod.GET, value = "create-account")
-    public String addUser(Model model) {
-        if (!model.containsAttribute("wrongLink")) {
-            System.out.println("not wrong Link");
-            model.addAttribute(new UserBean());
-        } else {
-            System.out.println("wrong Link");
-        }
-        return "user/register";
-    }*/
 }
