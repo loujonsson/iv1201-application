@@ -47,39 +47,14 @@ public class AccountController {
         return CREATE_ACCOUNT_PAGE_URL;
     }
 
-    /**
-     * The create account form has been submitted.
-     *
-     * @param createAccountForm Content of the create account form.
-     * @param model          Model objects used by the account page.
-     * @return The account page url if validation succeeds.
-     */
-    @PostMapping("/" + CREATE_ACCOUNT_PAGE_URL)
-    public String createAccount(@Valid CreateAccountForm createAccountForm, Model model) {
-        currentApplicant = service.createApplicant(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), createAccountForm.getDateOfBirth());
-        return showAcctPage(model);
-    }
-
     private String showAcctPage(Model model) {
         if (currentApplicant != null) {
-            System.out.println("hejhej//Lou1");
             model.addAttribute(CURRENT_ACCT_OBJ_NAME, currentApplicant);
         }
-        return ACCT_PAGE_URL;
+        return CREATE_ACCOUNT_PAGE_URL;
     }
 
-    /**
-     * A get request for applicant account page
-     *
-     * @param model Model objects used by account
-     * @return The account page
-     */
-    @GetMapping("/" + ACCT_PAGE_URL)
-    public String showAccountView(Model model){
-        return showAcctPage(model);
-    }
-
-    @RequestMapping(value = "/CreateAccount", method = RequestMethod.POST)
+    @RequestMapping(value = "/create-account", method = RequestMethod.POST)
     public String saveForm(@ModelAttribute("registerCommand") @Valid CreateAccountForm createAcctForm, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()) {
             return CREATE_ACCOUNT_PAGE_URL;
@@ -87,19 +62,7 @@ public class AccountController {
         else {
             //userRepository.save(users);
             service.createApplicant(createAcctForm.getUsername(), createAcctForm.getPassword(), createAcctForm.getFirstName(), createAcctForm.getLastName(), createAcctForm.getEmail(), createAcctForm.getDateOfBirth());
-            return ACCT_PAGE_URL;
+            return CREATE_ACCOUNT_PAGE_URL;
         }
     }
-
-    /*
-    @RequestMapping(method = RequestMethod.GET, value = "create-account")
-    public String addUser(Model model) {
-        if (!model.containsAttribute("wrongLink")) {
-            System.out.println("not wrong Link");
-            model.addAttribute(new UserBean());
-        } else {
-            System.out.println("wrong Link");
-        }
-        return "user/register";
-    }*/
 }

@@ -11,44 +11,33 @@ import se.kth.iv1201.recruitment.util.Util;
  * A form bean for the account creation form.
  */
 class CreateAccountForm {
-    @NotBlank(message = "{create-account.username.missing}")
-    // The regex below should permit only characters, but asterisk is
-    // unfortunately also valid.
-    @Pattern(regexp = "^[\\p{L}\\p{M}*]*$", message = "{create-account" + ".username" + ".invalid-char}")
     @Size(min = 2, max = 30, message = "{create-account.username.length}")
     private String username;
 
-    @NotBlank(message = "{create-account.holder-name.missing}")
-    // The regex below should permit only characters, but asterisk is
-    // unfortunately also valid.
-    @Pattern(regexp = "^[\\p{L}\\p{M}*]*$", message = "{create-account" + ".first-name" + ".invalid-char}")
     @Size(min = 2, max = 30, message = "{create-account.first-name.length}")
     private String firstName;
 
-    @Pattern(regexp = "^[\\p{L}\\p{M}*]*$", message = "{create-account" + ".last-name" + ".invalid-char}")
     @Size(min = 2, max = 30, message = "{create-account.last-name.length}")
     private String lastName;
 
     @NotNull(message = "{create-account.date-of-birth.missing}")
     private Integer dateOfBirth;
 
-    @Pattern(regexp = "^[\\p{L}\\p{M}*]*$", message = "{create-account" + ".email" + ".invalid-char}")
     @Size(min = 2, max = 30, message = "{create-account.email.length}")
     private String email;
 
-    @Pattern(regexp = "^[\\p{L}\\p{M}*]*$", message = "{create-account" + ".password" + ".invalid-char}")
     @Size(min = 2, max = 30, message = "{create-account.password.length}")
     private String password;
 
     /**
-     * @return The name of the first name of the account that will be created.
+     * @return The username of the account that will be created.
      */
     public String getUsername() {
         return username;
     }
 
     /**
-     * @param username The name of the firstName of the account that will be
+     * @param username The username of the account that will be
      *                   created.
      */
     public void setUsername(String username) {
