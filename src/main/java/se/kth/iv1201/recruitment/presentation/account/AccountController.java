@@ -5,8 +5,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
 import se.kth.iv1201.recruitment.domain.Applicant;
 import se.kth.iv1201.recruitment.domain.ApplicantDTO;
@@ -67,4 +66,28 @@ public class AccountController {
         }
         return ACCT_PAGE_URL;
     }
+
+    @RequestMapping(value = "/CreateAccount", method = RequestMethod.POST)
+    public String saveForm(@ModelAttribute("registerCommand") @Valid CreateAccountForm createAcctForm, BindingResult bindingResult, Model model){
+        if(bindingResult.hasErrors()) {
+            return CREATE_ACCOUNT_PAGE_URL;
+        }
+        else {
+            //userRepository.save(users);
+            service.createApplicant(createAcctForm.getUsername(), createAcctForm.getPassword(), createAcctForm.getFirstName(), createAcctForm.getLastName(), createAcctForm.getEmail(), createAcctForm.getDateOfBirth());
+            return ACCT_PAGE_URL;
+        }
+    }
+
+    /*
+    @RequestMapping(method = RequestMethod.GET, value = "create-account")
+    public String addUser(Model model) {
+        if (!model.containsAttribute("wrongLink")) {
+            System.out.println("not wrong Link");
+            model.addAttribute(new UserBean());
+        } else {
+            System.out.println("wrong Link");
+        }
+        return "user/register";
+    }*/
 }
