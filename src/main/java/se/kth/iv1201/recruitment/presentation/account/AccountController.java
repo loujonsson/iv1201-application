@@ -46,7 +46,7 @@ public class AccountController {
     public String showCreateAccountView(CreateAccountForm createAccountForm){
         return CREATE_ACCOUNT_PAGE_URL;
     }
-
+    /*
     /**
      * The create account form has been submitted.
      *
@@ -54,20 +54,21 @@ public class AccountController {
      * @param model          Model objects used by the account page.
      * @return The account page url if validation succeeds.
      */
+    /*
     @PostMapping("/" + CREATE_ACCOUNT_PAGE_URL)
     public String createAccount(@Valid CreateAccountForm createAcctForm, Model model) {
         currentApplicant = service.createApplicant(createAcctForm.getUsername(), createAcctForm.getPassword(), createAcctForm.getFirstName(), createAcctForm.getLastName(), createAcctForm.getEmail(), createAcctForm.getDateOfBirth());
         return showAcctPage(model);
-    }
+    }*/
 
     private String showAcctPage(Model model) {
         if (currentApplicant != null) {
             model.addAttribute(CURRENT_ACCT_OBJ_NAME, currentApplicant);
         }
-        return ACCT_PAGE_URL;
+        return CREATE_ACCOUNT_PAGE_URL;
     }
 
-    @RequestMapping(value = "/CreateAccount", method = RequestMethod.POST)
+    @RequestMapping(value = "/create-account", method = RequestMethod.POST)
     public String saveForm(@ModelAttribute("registerCommand") @Valid CreateAccountForm createAcctForm, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()) {
             return CREATE_ACCOUNT_PAGE_URL;
@@ -75,7 +76,7 @@ public class AccountController {
         else {
             //userRepository.save(users);
             service.createApplicant(createAcctForm.getUsername(), createAcctForm.getPassword(), createAcctForm.getFirstName(), createAcctForm.getLastName(), createAcctForm.getEmail(), createAcctForm.getDateOfBirth());
-            return ACCT_PAGE_URL;
+            return CREATE_ACCOUNT_PAGE_URL;
         }
     }
 
