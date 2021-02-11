@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
-import se.kth.iv1201.recruitment.domain.Applicant;
 import se.kth.iv1201.recruitment.domain.ApplicantDTO;
 
 import javax.validation.Valid;
@@ -18,10 +17,8 @@ import javax.validation.Valid;
 @Controller
 @Scope("session")
 public class AccountController {
-    // pages on format <decriptionOfPage>_PAGE_URL (for now)
     static final String DEFAULT_PAGE_URL = "/";
     static final String CREATE_ACCOUNT_PAGE_URL = "create-account";
-    static final String ACCT_PAGE_URL = "applicant-account";
     static final String SUCCESS_PAGE_URL = "create-account-success";
     private static final String CURRENT_ACCT_OBJ_NAME = "currentAcct";
 
@@ -48,20 +45,17 @@ public class AccountController {
         return CREATE_ACCOUNT_PAGE_URL;
     }
 
-    private String showAcctPage(Model model) {
-        if (currentApplicant != null) {
-            model.addAttribute(CURRENT_ACCT_OBJ_NAME, currentApplicant);
-        }
-        return CREATE_ACCOUNT_PAGE_URL;
-    }
-
     @RequestMapping(value = "/create-account", method = RequestMethod.POST)
     public String saveForm(@ModelAttribute("registerCommand") @Valid CreateAccountForm createAcctForm, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()) {
             return CREATE_ACCOUNT_PAGE_URL;
         }
         else {
-            //userRepository.save(users);
+            if (currentApplicant != null) {
+                model.addAttribute(CURRENT_ACCT_OBJ_NAME, currentApplicant);
+                return CREATE_ACCOUNT_PAGE_URL;
+            }
+
             service.createApplicant(createAcctForm.getUsername(), createAcctForm.getPassword(), createAcctForm.getFirstName(), createAcctForm.getLastName(), createAcctForm.getEmail(), createAcctForm.getDateOfBirth());
             return "redirect:" + SUCCESS_PAGE_URL;
         }

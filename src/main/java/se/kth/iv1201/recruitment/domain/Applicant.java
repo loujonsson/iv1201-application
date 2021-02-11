@@ -7,25 +7,18 @@ import javax.persistence.*;
  * https://spring.io/guides/gs/accessing-data-jpa/
  */
 @Entity
-//@Table(name = "APPLICANT")
 public class Applicant implements ApplicantDTO {
     @Id
-   // @Column(name = "APPLICANT_USERNAME")
     private String username;
 
-    //@Column(name = "APPLICANT_PASSWORD")
     private String password;
 
-    //@Column(name= "APPLICANT_FNAME")
     private String firstName;
 
-    //@Column(name = "APPLICANT_LNAME")
     private String lastName;
 
-    // @Column(name = "APPLICANT_EMAIL")
     private String emailAddress;
 
-    // @Column(name = "APPLICANT_DATEOFBIRTH")
     private int dateOfBirth;
 
     /**
