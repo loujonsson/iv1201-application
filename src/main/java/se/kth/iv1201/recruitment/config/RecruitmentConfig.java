@@ -53,17 +53,11 @@ public class RecruitmentConfig implements WebMvcConfigurer, ApplicationContextAw
      * thymeleaf template integration with Spring. All template resolution will be
      * delegated to the specified template resolver.
      */
-    @Bean(name = "bankTemplateEngine")
+    @Bean
     public SpringTemplateEngine templateEngine() {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver());
-        // Enabling the SpringEL compiler with Spring 4.2.4 or newer can
-        // speed up execution in most scenarios, but might be incompatible
-        // with specific cases when expressions in one template are reused
-        // across different data types, so this flag is "false" by default
-        // for safer backwards compatibility.
         templateEngine.setEnableSpringELCompiler(true);
-        // Add the layout dialect, which enables reusing layout html pages.
         templateEngine.addDialect(new LayoutDialect());
         return templateEngine;
     }
@@ -77,14 +71,9 @@ public class RecruitmentConfig implements WebMvcConfigurer, ApplicationContextAw
     public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(this.applicationContext);
-        // Templates file shall have the path /web-root/<template name>.html
         templateResolver.setPrefix("classpath:/web-root/");
         templateResolver.setSuffix(".html");
-        // HTML is the default template mode, added here for the sake of
-        // clarity.
         templateResolver.setTemplateMode(TemplateMode.HTML);
-        // Template cache is true by default. Set to false to automatically
-        // update templates that have been modified.
         templateResolver.setCacheable(true);
         return templateResolver;
     }
@@ -100,13 +89,5 @@ public class RecruitmentConfig implements WebMvcConfigurer, ApplicationContextAw
         registry.addResourceHandler("/**").addResourceLocations(rootDirForStaticFiles)
                 .setCachePeriod(cachePeriodForStaticFilesInSecs).resourceChain(true)
                 .addResolver(new PathResourceResolver());
-    }
-
-    /**
-     * Creates a bean with all server related properties from application.properties
-     */
-    @Bean
-    public ServerProperties serverProperties(){
-        return new ServerProperties();
     }
 }
