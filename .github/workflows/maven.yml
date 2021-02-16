@@ -25,10 +25,14 @@ jobs:
           SPRING_DATASOURCE_URL: ${{ secrets.SPRING_DATASOURCE_URL }}
           SPRING_DATASOURCE_USERNAME: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
           SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
+          SPRING_DATASOURCE_DRIVER-CLASS-NAME: org.postgresql.Driver
           DATABASE_URL: ${{secrets.DATABASE_URL}}
+          SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.PostgreSQL10Dialect
+          SPRING_JPA_GENERATE-DDL: true
+          SPRING_JPA_HIBERNATE_DDL-AUTO: update
           SPRING_JPA_DATABASEPLATFORM: ${{ secrets.SPRING_JPA_DATABASEPLATFORM }}
           POSTGRES_PASSWORD: password
-          SPRING_DATASOURCE_DRIVER-CLASS-NAME: org.postgresql.Driver
+
         ports:
           - 5432:5432
         options: >-
