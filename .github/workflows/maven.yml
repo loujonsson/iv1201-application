@@ -21,11 +21,22 @@ env:
   SPRING_DATASOURCE_USERNAME: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
   SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
   SPRING_JPA_DATABASEPLATFORM: ${{secrets.SPRING_JPA_DATABASEPLATFORM}}
+  SPRING_DATASOURCE_DRIVERCLASSNAME_POSTGRESQL_DRIVER: org.postgresql.Driver
 
 jobs:
 
   build:
     runs-on: ubuntu-latest
+  services:
+    postgres:
+      image: postgres
+      env:
+        POSTGRES_USER: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
+        POSTGRES_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
+        POSTGRES_DB: ${{secrets.DATABASE_URL}}
+      ports:
+        - 5432
+      options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
       - uses: actions/checkout@v2
