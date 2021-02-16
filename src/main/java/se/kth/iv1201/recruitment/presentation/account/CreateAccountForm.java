@@ -1,6 +1,7 @@
 package se.kth.iv1201.recruitment.presentation.account;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import se.kth.iv1201.recruitment.util.Util;
@@ -9,21 +10,31 @@ import se.kth.iv1201.recruitment.util.Util;
  * A form bean for the account creation form.
  */
 class CreateAccountForm {
+    @NotEmpty(message = "{create-account.username.missing}")
     @Size(min = 2, max = 30, message = "{create-account.username.length}")
+    @Pattern(regexp = "\\p{Alnum}*", message = "{create-account.username.invalid-char}")
     private String username;
 
+    @NotEmpty(message="{create-account.first-name.missing}")
     @Size(min = 2, max = 30, message = "{create-account.first-name.length}")
+    @Pattern(regexp = "\\p{Alpha}*", message = "{create-account.first-name.invalid-char}")
     private String firstName;
 
+    @NotEmpty(message="{create-account.last-name.missing}")
     @Size(min = 2, max = 30, message = "{create-account.last-name.length}")
+    @Pattern(regexp = "\\p{Alpha}*", message = "{create-account.last-name.invalid-char}")
     private String lastName;
 
-    @NotNull(message = "{create-account.date-of-birth.missing}")
+    @NotEmpty(message="{create-account.date-of-birth.missing}")
+    @Size(min = 6, max = 6, message = "{create-account.date-of-birth.length}")
+    @Pattern(regexp = "[0-9]+", message = "create-account.date-of-birth.invalid-char}")
     private Integer dateOfBirth;
 
+    @NotEmpty(message="{create-account.email.missing}")
     @Size(min = 2, max = 30, message = "{create-account.email.length}")
     private String email;
 
+    @NotEmpty(message="{create-account.password.missing}")
     @Size(min = 2, max = 30, message = "{create-account.password.length}")
     private String password;
 
