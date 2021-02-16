@@ -17,7 +17,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    container: openjdk:14-jdk-slim
+    # container: openjdk:14-jdk-slim
     services:
       postgres:
         image: postgres
