@@ -35,7 +35,7 @@ jobs:
           POSTGRES_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
           POSTGRES_DB: ${{secrets.DATABASE_URL}}
         ports:
-          - 5432
+          - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
@@ -44,15 +44,6 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Setup database
-        env:
-          POSTGRES_TCP_ADDR: postgres
-          POSTGRES_TCP_PORT: 5432
-          SPRING_DATASOURCE_URL: ${{ secrets.DATABASE_URL }}
-          SPRING_DATABASE_URL: ${{secrets.DATABASE_URL}}
-          SPRING_DATASOURCE_USERNAME: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
-          SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
-          SPRING_JPA_DATABASEPLATFORM: ${{secrets.SPRING_JPA_DATABASEPLATFORM}}
       - name: Build with Maven
         run: mvn -B package --file pom.xml
 
