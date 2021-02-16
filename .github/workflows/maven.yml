@@ -28,7 +28,7 @@ jobs:
           DATABASE_URL: ${{secrets.DATABASE_URL}}
           SPRING_JPA_DATABASEPLATFORM: ${{ secrets.SPRING_JPA_DATABASEPLATFORM }}
           POSTGRES_PASSWORD: password
-          SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
+          SPRING_DATASOURCE_DRIVER-CLASS-NAME: org.postgresql.Driver
         ports:
           - 5432:5432
         options: >-
