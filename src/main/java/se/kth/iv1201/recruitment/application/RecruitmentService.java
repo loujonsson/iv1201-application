@@ -36,7 +36,7 @@ public class RecruitmentService {
      * @param dateOfBirth The applicant's date of birth
      * @return the newly created applicant
      */
-    public ApplicantDTO createApplicant(String username, String password, String firstName, String lastName, String emailAddress, Integer dateOfBirth) {
+    public ApplicantDTO createApplicant(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth) {
         if (username == null) {
             throw new IllegalArgumentException("Please enter a valid username");
         }if (password == null) {

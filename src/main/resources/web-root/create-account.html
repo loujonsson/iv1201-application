@@ -3,7 +3,7 @@
       layout:decorate="~{resources/fragments/layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Recruitment</title>
 </head>
 <body>
 <main layout:fragment="content">
@@ -12,28 +12,46 @@
         <p1>Enter account details.</p1>
         <form th:action="@{create-account}" th:object="${createAccountForm}" method="post">
             <p>
-                <label for="first-name">First name</label>:
-                <input type="text" th:field="*{firstName}" id="first-name">
+                <label for="create-first-name">First name</label>:
+                <input type="text" th:field="*{firstName}" id="create-first-name">
+                <span class="error" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">
+                    First Name Error
+                </span>
             </p>
             <p>
-                <label for="last-name">Last name</label>:
-                <input type="text" th:field="*{lastName}" id="last-name">
+                <label for="create-last-name">Last name</label>:
+                <input type="text" th:field="*{lastName}" id="create-last-name">
+                <span class="error" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">
+                    Last Name Error
+                </span>
             </p>
             <p>
-                <label for="date-of-birth">Date of birth</label>:
-                <input type="text" th:field="*{dateOfBirth}" id="date-of-birth">
+                <label for="create-date-of-birth">Date of birth</label>:
+                <input type="text" th:field="*{dateOfBirth}" id="create-date-of-birth" placeholder="YYMMDD">
+                <span class="error" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">
+                    Date of Birth Error
+                </span>
             </p>
             <p>
-                <label for="email">Email</label>:
-                <input type="text" th:field="*{email}" id="email">
+                <label for="create-email">Email</label>:
+                <input type="text" th:field="*{email}" id="create-email">
+                <span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{Email}">
+                    Email Error
+                </span>
             </p>
             <p>
-                <label for="first-name">Username</label>:
-                <input type="text" th:field="*{username}" id="user-name">
+                <label for="create-username">Username</label>:
+                <input type="text" th:field="*{username}" id="create-username">
+                <span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">
+                    Username Error
+                </span>
             </p>
             <p>
-                <label for="password">Password</label>:
-                <input type="text" th:field="*{password}" id="password">
+                <label for="create-password">Password</label>:
+                <input type="text" th:field="*{password}" id="create-password">
+                <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+                    Password Error
+                </span>
             </p>
             <p class="submit">
                 <input type="submit" value="Create Account"/>

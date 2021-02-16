@@ -56,10 +56,20 @@ public class AccountController {
         return CREATE_ACCOUNT_PAGE_URL;
     }
 
+    /**
+     * The create account form has been submitted.
+     *
+     * @param createAcctForm
+     * @param bindingResult
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/create-account", method = RequestMethod.POST)
     public String saveForm(@ModelAttribute("registerCommand") @Valid CreateAccountForm createAcctForm, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()) {
-            return CREATE_ACCOUNT_PAGE_URL;
+            System.out.println("-- BINDING ERROR --");
+            model.addAttribute(CURRENT_ACCT_OBJ_NAME, currentApplicant);
+            return "redirect:" + CREATE_ACCOUNT_PAGE_URL;
         }
         else {
             if (currentApplicant != null) {
@@ -67,7 +77,7 @@ public class AccountController {
                 return CREATE_ACCOUNT_PAGE_URL;
             }
 
-            service.createApplicant(createAcctForm.getUsername(), createAcctForm.getPassword(), createAcctForm.getFirstName(), createAcctForm.getLastName(), createAcctForm.getEmail(), createAcctForm.getDateOfBirth());
+            service.createApplicant(createAcctForm.getUsername(), createAcctForm.getPassword(), createAcctForm.getFirstName(), createAcctForm.getLastName(), createAcctForm.getEmail(), Integer.parseInt(createAcctForm.getDateOfBirth()));
             return "redirect:" + SUCCESS_PAGE_URL;
         }
     }

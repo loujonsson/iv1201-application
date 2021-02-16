@@ -1,9 +1,8 @@
 package se.kth.iv1201.recruitment.presentation.account;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
+import org.hibernate.validator.constraints.Range;
 import se.kth.iv1201.recruitment.util.Util;
 
 /**
@@ -27,8 +26,8 @@ class CreateAccountForm {
 
     @NotEmpty(message="{create-account.date-of-birth.missing}")
     @Size(min = 6, max = 6, message = "{create-account.date-of-birth.length}")
-    @Pattern(regexp = "[0-9]+", message = "create-account.date-of-birth.invalid-char}")
-    private Integer dateOfBirth;
+    @Pattern(regexp = "[0-9]+", message = "{create-account.date-of-birth.invalid-char}")
+    private String dateOfBirth;
 
     @NotEmpty(message="{create-account.email.missing}")
     @Size(min = 2, max = 30, message = "{create-account.email.length}")
@@ -86,14 +85,14 @@ class CreateAccountForm {
     /**
      * @return The date of birth of the account that will be created.
      */
-    public Integer getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
     /**
      * @param dateOfBirth The dateOfBirth of the account that will be created.
      */
-    public void setDateOfBirth(Integer dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
