@@ -23,11 +23,6 @@ env:
   SPRING_JPA_DATABASEPLATFORM: ${{secrets.SPRING_JPA_DATABASEPLATFORM}}
 
 jobs:
-  mvn-verify:
-    name: run-mvn-install
-    runs-on: ubuntu-latest
-    container: openjdk:14-jdk-slim
-
     build:
       runs-on: ubuntu-latest
 
