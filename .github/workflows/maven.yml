@@ -48,9 +48,9 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-      steps:
-        - uses: actions/checkout@v2
-        - run: ./mvnw verify
+    steps:
+      - uses: actions/checkout@v2
+      - run: ./mvnw verify
 
     build:
       runs-on: ubuntu-latest
