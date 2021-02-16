@@ -13,14 +13,14 @@ on:
   schedule:
     - cron: "0 2 * * 1-5"
 
+env:
+  POSTGRES_TCP_ADDR: postgres
+  POSTGRES_TCP_PORT: 5432
+  SPRING_DATASOURCE_URL: ${{ secrets.DB_URL }}
+  SPRING_DATASOURCE_USERNAME: ${{ secrets.DB_USERNAME }}
+  SPRING_DATASOURCE_PASSWORD: ${{ secrets.DB_PASSWORD }}
+  
 jobs:
-  env:
-    POSTGRES_TCP_ADDR: postgres
-    POSTGRES_TCP_PORT: 5432
-    SPRING_DATASOURCE_URL: ${{ secrets.DB_URL }}
-    SPRING_DATASOURCE_USERNAME: ${{ secrets.DB_USERNAME }}
-    SPRING_DATASOURCE_PASSWORD: ${{ secrets.DB_PASSWORD }}
-
   build:
 
     runs-on: ubuntu-latest
