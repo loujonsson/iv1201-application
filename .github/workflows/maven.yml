@@ -23,29 +23,28 @@ env:
   SPRING_JPA_DATABASEPLATFORM: ${{secrets.SPRING_JPA_DATABASEPLATFORM}}
 
 jobs:
-  jobs:
-    mvn-verify:
-      name: run-mvn-install
-      runs-on: ubuntu-latest
-      container: openjdk:14-jdk-slim
+  mvn-verify:
+    name: run-mvn-install
+    runs-on: ubuntu-latest
+    container: openjdk:14-jdk-slim
 
-    services:
-      postgres:
-        image: postgres
-        env:
-          POSTGRES_TCP_ADDR: postgres
-          POSTGRES_TCP_PORT: 5432
-          SPRING_DATASOURCE_URL: ${{ secrets.DATABASE_URL }}
-          SPRING_DATABASE_URL: ${{secrets.DATABASE_URL}}
-          SPRING_DATASOURCE_USERNAME: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
-          SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
-          SPRING_JPA_DATABASEPLATFORM: ${{secrets.SPRING_JPA_DATABASEPLATFORM}}
-        # Set health checks to wait until postgres has started
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+  services:
+    postgres:
+      image: postgres
+      env:
+        POSTGRES_TCP_ADDR: postgres
+        POSTGRES_TCP_PORT: 5432
+        SPRING_DATASOURCE_URL: ${{ secrets.DATABASE_URL }}
+        SPRING_DATABASE_URL: ${{secrets.DATABASE_URL}}
+        SPRING_DATASOURCE_USERNAME: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
+        SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
+        SPRING_JPA_DATABASEPLATFORM: ${{secrets.SPRING_JPA_DATABASEPLATFORM}}
+      # Set health checks to wait until postgres has started
+      options: >-
+        --health-cmd pg_isready
+        --health-interval 10s
+        --health-timeout 5s
+        --health-retries 5
 
   build:
 
