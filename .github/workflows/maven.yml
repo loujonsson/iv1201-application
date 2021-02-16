@@ -24,7 +24,7 @@ env:
   SPRING_DATASOURCE_DRIVERCLASSNAME_POSTGRESQL_DRIVER: org.postgresql.Driver
 
 jobs:
-  container-job:
+  build:
 
     runs-on: ubuntu-latest
     services:
