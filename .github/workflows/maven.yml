@@ -44,6 +44,15 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+      - name: Setup database
+        env:
+          POSTGRES_TCP_ADDR: postgres
+          POSTGRES_TCP_PORT: 5432
+          SPRING_DATASOURCE_URL: ${{ secrets.DATABASE_URL }}
+          SPRING_DATABASE_URL: ${{secrets.DATABASE_URL}}
+          SPRING_DATASOURCE_USERNAME: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
+          SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
+          SPRING_JPA_DATABASEPLATFORM: ${{secrets.SPRING_JPA_DATABASEPLATFORM}}
       - name: Build with Maven
         run: mvn -B package --file pom.xml
 
