@@ -44,7 +44,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Build with Maven
-        run: mvn -B se.kth.iv1201.recruitment --file pom.xml
+        run: mvn -B recruitment --file pom.xml
 
 
 
