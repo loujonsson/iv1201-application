@@ -18,10 +18,11 @@ import javax.validation.Valid;
 @Scope("session")
 public class AccountController {
     static final String DEFAULT_PAGE_URL = "/";
-    static final String CREATE_ACCOUNT_PAGE_URL = "create-account";
+    static final String CREATE_ACCOUNT_PAGE_URL = "/create-account";
     static final String SUCCESS_PAGE_URL = "create-account-success";
     static final String FAVICON_GET = "favicon.ico";
     private static final String CURRENT_ACCT_OBJ_NAME = "currentAcct";
+    private static final String CURRENT_ACCT_FORM_OBJ_NAME = "currentAcctForm";
 
     @Autowired
     private RecruitmentService service;
@@ -52,32 +53,33 @@ public class AccountController {
      * @return The create account page url
      */
     @GetMapping("/" + CREATE_ACCOUNT_PAGE_URL)
-    public String showCreateAccountView(CreateAccountForm createAccountForm){
+    public String showCreateAccountView(@ModelAttribute("createAccountForm") CreateAccountForm createAccountForm){
         return CREATE_ACCOUNT_PAGE_URL;
     }
 
     /**
      * The create account form has been submitted.
      *
-     * @param createAcctForm
+     * @param createAccountForm
      * @param bindingResult
      * @param model
      * @return
      */
-    @RequestMapping(value = "/create-account", method = RequestMethod.POST)
-    public String saveForm(@ModelAttribute("registerCommand") @Valid CreateAccountForm createAcctForm, BindingResult bindingResult, Model model){
+    //@RequestMapping(value = "/create-account", method = RequestMethod.POST)
+    @PostMapping("/" + CREATE_ACCOUNT_PAGE_URL)
+    public String saveForm(@Valid @ModelAttribute("createAccountForm") CreateAccountForm createAccountForm, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()) {
-            System.out.println("-- BINDING ERROR --");
-            model.addAttribute(CURRENT_ACCT_OBJ_NAME, currentApplicant);
-            return "redirect:" + CREATE_ACCOUNT_PAGE_URL;
+            model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, createAccountForm);
+            return "/" + CREATE_ACCOUNT_PAGE_URL;
         }
         else {
+
             if (currentApplicant != null) {
-                model.addAttribute(CURRENT_ACCT_OBJ_NAME, currentApplicant);
+                model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, createAccountForm);
                 return CREATE_ACCOUNT_PAGE_URL;
             }
 
-            service.createApplicant(createAcctForm.getUsername(), createAcctForm.getPassword(), createAcctForm.getFirstName(), createAcctForm.getLastName(), createAcctForm.getEmail(), Integer.parseInt(createAcctForm.getDateOfBirth()));
+            service.createApplicant(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), Integer.parseInt(createAccountForm.getDateOfBirth()));
             return "redirect:" + SUCCESS_PAGE_URL;
         }
     }

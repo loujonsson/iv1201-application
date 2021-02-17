@@ -9,32 +9,36 @@ import se.kth.iv1201.recruitment.util.Util;
  * A form bean for the account creation form.
  */
 class CreateAccountForm {
-    @NotEmpty(message = "{create-account.username.missing}")
+    /*@NotEmpty(message = "{create-account.username.missing}")
     @Size(min = 2, max = 30, message = "{create-account.username.length}")
-    @Pattern(regexp = "\\p{Alnum}*", message = "{create-account.username.invalid-char}")
+    @Pattern(regexp = "\\p{Alnum}*", message = "{create-account.username.invalid-char}")*/
+
+    @NotEmpty(message = "This field cannot be empty.")
+    @Size(min = 2, max = 30, message = "The username should be between 2-30 characters")
+    @Pattern(regexp = "\\p{Alnum}*", message = "Only alphanumerical characters are allowed.")
     private String username;
 
-    @NotEmpty(message="{create-account.first-name.missing}")
-    @Size(min = 2, max = 30, message = "{create-account.first-name.length}")
-    @Pattern(regexp = "\\p{Alpha}*", message = "{create-account.first-name.invalid-char}")
+    @NotEmpty(message = "This field cannot be empty.")
+    @Size(min = 2, max = 30, message = "The first name should be between 2-30 characters")
+    @Pattern(regexp = "\\p{Alpha}*", message = "Only alphabetical characters are allowed")
     private String firstName;
 
-    @NotEmpty(message="{create-account.last-name.missing}")
-    @Size(min = 2, max = 30, message = "{create-account.last-name.length}")
-    @Pattern(regexp = "\\p{Alpha}*", message = "{create-account.last-name.invalid-char}")
+    @NotEmpty(message = "This field cannot be empty.")
+    @Size(min = 2, max = 30, message = "The last name should be between 2-30 characters")
+    @Pattern(regexp = "\\p{Alpha}*", message = "Only alphabetical characters are allowed")
     private String lastName;
 
-    @NotEmpty(message="{create-account.date-of-birth.missing}")
-    @Size(min = 6, max = 6, message = "{create-account.date-of-birth.length}")
-    @Pattern(regexp = "[0-9]+", message = "{create-account.date-of-birth.invalid-char}")
+    @NotEmpty(message = "This field cannot be empty.")
+    @Size(min = 6, max = 6, message = "Date of birth should be 6 characters on the form YYMMDD.")
+    @Pattern(regexp = "[0-9]+", message = "Only the digits 0-9 are allowed.")
     private String dateOfBirth;
 
-    @NotEmpty(message="{create-account.email.missing}")
-    @Size(min = 2, max = 30, message = "{create-account.email.length}")
+    @NotEmpty(message = "This field cannot be empty.")
+    @Size(min = 2, max = 30, message = "Only alphabetical characters are allowed")
     private String email;
 
-    @NotEmpty(message="{create-account.password.missing}")
-    @Size(min = 2, max = 30, message = "{create-account.password.length}")
+    @NotEmpty(message = "This field cannot be empty.")
+    @Size(min = 2, max = 30, message = "The password has to be between 2-30 characters.")
     private String password;
 
     /**

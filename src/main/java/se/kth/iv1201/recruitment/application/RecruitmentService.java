@@ -37,19 +37,6 @@ public class RecruitmentService {
      * @return the newly created applicant
      */
     public ApplicantDTO createApplicant(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth) {
-        if (username == null) {
-            throw new IllegalArgumentException("Please enter a valid username");
-        }if (password == null) {
-            throw new IllegalArgumentException("Please enter a valid password");
-        }if (firstName == null) {
-            throw new IllegalArgumentException("Please enter a valid first name");
-        }if (lastName == null) {
-            throw new IllegalArgumentException("Please enter a valid last name");
-        }if (emailAddress == null) {
-            throw new IllegalArgumentException("Please enter a valid email address");
-        }if (dateOfBirth <= 0) {
-            throw new IllegalArgumentException("Please enter a valid date of birth");
-        }
         return applicantRepo.save(new Applicant(username, password, firstName, lastName, emailAddress, dateOfBirth));
     }
 
