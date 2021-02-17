@@ -29,7 +29,7 @@ jobs:
           DATABASE_URL: ${{secrets.DATABASE_URL}}
           SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.PostgreSQL10Dialect
           SPRING_JPA_GENERATE-DDL: true
-          SPRING_JPA_HIBERNATE_DDL-AUTO: update
+          SPRING_JPA_HIBERNATE_DDL-AUTO: create
           SPRING_JPA_DATABASEPLATFORM: ${{ secrets.SPRING_JPA_DATABASEPLATFORM }}
           POSTGRES_PASSWORD: password
 
