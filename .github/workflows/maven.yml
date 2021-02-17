@@ -13,6 +13,11 @@ on:
   schedule:
     - cron: "0 2 * * 1-5"
 
+env:
+  POSTGRES_TCP_ADDR: postgres
+  POSTGRES_TCP_PORT: 5432
+  SPRING_DATASOURCE_PASSWORD: postgres
+
 jobs:
   build:
 
@@ -31,7 +36,7 @@ jobs:
           SPRING_JPA_GENERATE-DDL: true
           SPRING_JPA_HIBERNATE_DDL-AUTO: create
           SPRING_JPA_DATABASEPLATFORM: ${{ secrets.SPRING_JPA_DATABASEPLATFORM }}
-          POSTGRES_PASSWORD: password
+          POSTGRES_PASSWORD: postgres
 
         ports:
           - 5432:5432
