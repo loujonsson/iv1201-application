@@ -56,6 +56,7 @@ jobs:
       #- name: Set up Maven
       #  run: sudo apt install maven
       - name: application properties
+        uses: actions/checkout@v2
         with:
           spring.datasource.url: ${{ secrets.SPRING_DATASOURCE_URL }}
           spring.datasource.username: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
