@@ -53,8 +53,8 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-      - name: Set up Maven
-        run: sudo apt install maven
+      #- name: Set up Maven
+      #  run: sudo apt install maven
       - name: Build with Maven
         env:
           spring.datasource.url: ${{ secrets.SPRING_DATASOURCE_URL }}
@@ -65,6 +65,7 @@ jobs:
           spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.PostgreSQL10Dialect
           spring.jpa.hibernate.ddl-auto: update
           spring.datasource.driverClassName: org.postgresql.Driver
+          spring.jpa.datasource-platform: ${{ secrets.SPRING_JPA_DATABASEPLATFORM }}
         run: mvn -B package --file pom.xml
 
 
