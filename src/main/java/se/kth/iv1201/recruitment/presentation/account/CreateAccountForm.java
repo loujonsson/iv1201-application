@@ -9,10 +9,7 @@ import se.kth.iv1201.recruitment.util.Util;
  * A form bean for the account creation form.
  */
 class CreateAccountForm {
-    /*@NotEmpty(message = "{create-account.username.missing}")
-    @Size(min = 2, max = 30, message = "{create-account.username.length}")
-    @Pattern(regexp = "\\p{Alnum}*", message = "{create-account.username.invalid-char}")*/
-
+    
     @NotEmpty(message = "This field cannot be empty.")
     @Size(min = 2, max = 30, message = "The username should be between 2-30 characters")
     @Pattern(regexp = "\\p{Alnum}*", message = "Only alphanumerical characters are allowed.")
