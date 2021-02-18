@@ -55,6 +55,16 @@ jobs:
           java-version: 11
       - name: Set up Maven
         run: sudo apt install maven
+      - name: application properties
+        env:
+          spring.datasource.url: ${{ secrets.SPRING_DATASOURCE_URL }}
+          spring.datasource.username: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
+          spring.datasource.password: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
+          spring.datasource.driver-class-name: org,postgresql.Driver
+          spring.jpa.properties.hibernate.hbm2ddl.auto: update
+          spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.PostgreSQL10Dialect
+          spring.jpa.hibernate.ddl-auto: update
+          spring.datasource.driverClassName: org.postgresql.Driver
       - name: Build with Maven
         run: mvn -B package --file pom.xml
 
