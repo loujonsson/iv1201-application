@@ -37,6 +37,13 @@ jobs:
           SPRING_JPA_HIBERNATE_DDL-AUTO: create
           SPRING_JPA_DATABASEPLATFORM: ${{ secrets.SPRING_JPA_DATABASEPLATFORM }}
           POSTGRES_PASSWORD: postgres
+          spring.datasource.driver-class-name: org.postgresql.Driver
+          spring.jpa.properties.hibernate.hbm2ddl.auto: update
+          spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.PostgreSQL10Dialect
+          spring.jpa.hibernate.ddl-auto: update
+          # spring.datasource.driverClassName: org.postgresql.Driver
+          spring.jpa.datasource-platform: ${{ secrets.SPRING_JPA_DATABASEPLATFORM }}
+          spring.autoconfigure.exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
         ports:
           - 5432:5432
@@ -65,7 +72,7 @@ jobs:
           spring.jpa.properties.hibernate.hbm2ddl.auto: update
           spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.PostgreSQL10Dialect
           spring.jpa.hibernate.ddl-auto: update
-          spring.datasource.driverClassName: org.postgresql.Driver
+          # spring.datasource.driverClassName: org.postgresql.Driver
           spring.jpa.datasource-platform: ${{ secrets.SPRING_JPA_DATABASEPLATFORM }}
           spring.autoconfigure.exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
