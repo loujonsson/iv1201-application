@@ -27,6 +27,34 @@ public class ExceptionHandlers implements ErrorController {
                 //do something like logging
                 return "error";
             }
+            else if(statusCode == HttpStatus.BAD_GATEWAY.value()) { //502
+                //do something like logging
+                return "error";
+            }
+            else if(statusCode == HttpStatus.BAD_REQUEST.value()) { //400
+                //do something like logging
+                return "error";
+            }
+            else if(statusCode == HttpStatus.FORBIDDEN.value()) { //403
+                //do something like logging
+                return "error";
+            }
+            else if(statusCode == HttpStatus.MOVED_PERMANENTLY.value()) { //301
+                //do something like logging
+                return "error";
+            }
+            else if(statusCode == HttpStatus.REQUEST_TIMEOUT.value()) { //408
+                //do something like logging
+                return "error";
+            }
+            else if(statusCode == HttpStatus.TOO_MANY_REQUESTS.value()) { //429
+                //do something like logging
+                return "error";
+            }
+            else if(statusCode == HttpStatus.UNAUTHORIZED.value()) { //401
+                //do something like logging
+                return "error";
+            }
         }
 
         return "error";
