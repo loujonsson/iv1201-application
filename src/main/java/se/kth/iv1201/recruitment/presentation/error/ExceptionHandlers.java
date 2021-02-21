@@ -4,12 +4,15 @@ import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Controller
 public class ExceptionHandlers implements ErrorController {
+    final Logger logger = LoggerFactory.getLogger(ExceptionHandlers.class);
+
     @RequestMapping("/error")
     public String handleError(HttpServletRequest request) {
         //do something like logging
@@ -18,13 +21,16 @@ public class ExceptionHandlers implements ErrorController {
 
         if (status != null) {
             Integer statusCode = Integer.valueOf(status.toString());
+            logger.info(statusCode.toString()); //statuskod alltid 404? Skumt...
 
             if(statusCode == HttpStatus.NOT_FOUND.value()) { //404
                 //do something like logging
+                //logger.info("A 404 not found exception occurred.");
                 return "error";
             }
             else if(statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) { //500
                 //do something like logging
+                logger.info("A 500 internal server error exception occurred.");
                 return "error";
             }
             else if(statusCode == HttpStatus.BAD_GATEWAY.value()) { //502

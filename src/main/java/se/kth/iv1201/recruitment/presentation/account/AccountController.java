@@ -73,11 +73,11 @@ public class AccountController {
             return "/" + CREATE_ACCOUNT_PAGE_URL;
         }
         else {
-            /*
+
             if (currentApplicant != null) {
                 model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, createAccountForm);
                 return CREATE_ACCOUNT_PAGE_URL;
-            }*/
+            }
 
             service.createApplicant(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), Integer.parseInt(createAccountForm.getDateOfBirth()));
             return "redirect:" + SUCCESS_PAGE_URL;
