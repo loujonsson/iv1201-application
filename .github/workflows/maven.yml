@@ -28,16 +28,15 @@ jobs:
         image: postgres
         env:
           spring.datasource.url: ${{ secrets.SPRING_DATASOURCE_URL }}
-          SPRING_DATASOURCE_USERNAME: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
-          SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
-          SPRING_DATASOURCE_DRIVER-CLASS-NAME: org.postgresql.Driver
+          spring.datasource.username: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
+          spring.datasource.password: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
+          spring.datasource.driver-class-name: org.postgresql.Driver
           database_url: ${{secrets.DATABASE_URL}}
           SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.PostgreSQL10Dialect
           SPRING_JPA_GENERATE-DDL: true
           SPRING_JPA_HIBERNATE_DDL-AUTO: create
           SPRING_JPA_DATABASEPLATFORM: ${{ secrets.SPRING_JPA_DATABASEPLATFORM }}
           POSTGRES_PASSWORD: postgres
-          spring.datasource.driver-class-name: org.postgresql.Driver
           spring.jpa.properties.hibernate.hbm2ddl.auto: update
           spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.PostgreSQL10Dialect
           spring.jpa.hibernate.ddl-auto: update
