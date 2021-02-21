@@ -19,10 +19,12 @@ public class ExceptionHandlers implements ErrorController {
         if (status != null) {
             Integer statusCode = Integer.valueOf(status.toString());
 
-            if(statusCode == HttpStatus.NOT_FOUND.value()) {
+            if(statusCode == HttpStatus.NOT_FOUND.value()) { //404
+                //do something like logging
                 return "error";
             }
-            else if(statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) {
+            else if(statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) { //500
+                //do something like logging
                 return "error";
             }
         }
