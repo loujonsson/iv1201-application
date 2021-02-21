@@ -10,7 +10,7 @@
     <section>
         <h1>Log in</h1>
         <p1>If already have an account, log in</p1>
-        <form th:action="@{log-in}" th:object="${loginForm}" method="post">
+        <form th:action="@{/login}" th:object="${loginForm}" method="post">
             <p>
                 <label for="username">Username</label>:
                 <input type="text" th:field="*{username}" id="username">

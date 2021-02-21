@@ -7,7 +7,7 @@ import javax.validation.constraints.Size;
 /**
  * A form bean for the login form.
  */
-public class loginForm {
+public class LoginForm {
     /**
      * TODO: att lägga till validation på dessa fält. De får ej vara null bland annat
      */

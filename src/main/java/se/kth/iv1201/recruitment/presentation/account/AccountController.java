@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
+import se.kth.iv1201.recruitment.domain.Applicant;
 import se.kth.iv1201.recruitment.domain.ApplicantDTO;
 
 import javax.validation.Valid;
@@ -19,8 +20,10 @@ import javax.validation.Valid;
 public class AccountController {
     static final String DEFAULT_PAGE_URL = "/";
     static final String CREATE_ACCOUNT_PAGE_URL = "/create-account";
-    static final String SUCCESS_PAGE_URL = "create-account-success";
+    static final String SUCCESS_CREATE_ACCOUNT_PAGE_URL = "create-account-success";
     static final String FAVICON_GET = "favicon.ico";
+    static final String LOGIN_PAGE_URL = "login";
+    static final String SUCCESS_LOGIN_PAGE_URL = "login-success";
     private static final String CURRENT_ACCT_OBJ_NAME = "currentAcct";
     private static final String CURRENT_ACCT_FORM_OBJ_NAME = "currentAcctForm";
 
@@ -80,18 +83,59 @@ public class AccountController {
             }*/
 
             service.createApplicant(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), Integer.parseInt(createAccountForm.getDateOfBirth()));
-            return "redirect:" + SUCCESS_PAGE_URL;
+            return "redirect:" + SUCCESS_CREATE_ACCOUNT_PAGE_URL;
         }
     }
 
     /**
      * View consisting a success page when account has been successfully created
      *
-     * @return url for success page view
+     * @return url for success create account view
      */
-    @GetMapping("/" + SUCCESS_PAGE_URL)
-    public String showSuccessView(){
-        return SUCCESS_PAGE_URL;
+    @GetMapping("/" + SUCCESS_CREATE_ACCOUNT_PAGE_URL)
+    public String showSuccessCreateAccountView(){
+        return SUCCESS_CREATE_ACCOUNT_PAGE_URL;
     }
+
+    /**
+     * Handles get request for login button on create acount page
+     *
+     * @return The login page url
+     */
+    @GetMapping("/" + LOGIN_PAGE_URL)
+    public String showLoginView(@ModelAttribute("loginForm") LoginForm loginForm){
+        return LOGIN_PAGE_URL;
+    }
+
+   // @RequestMapping(value="/login", method = RequestMethod.POST)
+   @PostMapping("/" + LOGIN_PAGE_URL)
+   public String saveLoginForm(@Valid @ModelAttribute("loginForm") LoginForm loginForm, BindingResult bindingResult, Model model){
+       if(bindingResult.hasErrors()) {
+           // TODO: Fråga gruppen om denna current acct form grejen kan återanvändas eller inte
+           model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, loginForm);
+           return "/" + LOGIN_PAGE_URL;
+       }
+       else {
+           ApplicantDTO applicantLoginSuccess = service.checkLogin(loginForm.getUsername(), loginForm.getPassword());
+           if(applicantLoginSuccess != null){
+               return "redirect:" + SUCCESS_LOGIN_PAGE_URL;
+           }else{
+               return "redirect:" + LOGIN_PAGE_URL;
+           }
+       }
+   }
+
+    /**
+     * View consisting a success page if a user successfully logged in
+     *
+     * @return url for success login page view
+     */
+    @GetMapping("/" + SUCCESS_LOGIN_PAGE_URL)
+    public String showSuccessLoginView(){
+        return SUCCESS_LOGIN_PAGE_URL;
+    }
+
+
+
 
 }
