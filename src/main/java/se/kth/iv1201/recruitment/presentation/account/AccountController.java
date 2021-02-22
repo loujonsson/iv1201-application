@@ -42,7 +42,7 @@ public class AccountController {
      *
      * @return A response that redirects the browser to the Create account page
      */
-    @GetMapping(FAVICON_GET)
+    @GetMapping("/" + FAVICON_GET)
     public String faviconRedirection() {
         return "redirect:" + CREATE_ACCOUNT_PAGE_URL;
     }
