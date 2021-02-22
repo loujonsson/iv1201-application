@@ -1,30 +1,41 @@
 package se.kth.iv1201.recruitment.presentation.account;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
+import org.hibernate.validator.constraints.Range;
 import se.kth.iv1201.recruitment.util.Util;
 
 /**
  * A form bean for the account creation form.
  */
 class CreateAccountForm {
-    @Size(min = 2, max = 30, message = "{create-account.username.length}")
+    
+    @NotEmpty(message = "This field cannot be empty.")
+    @Size(min = 2, max = 30, message = "The username should be between 2-30 characters")
+    @Pattern(regexp = "\\p{Alnum}*", message = "Only alphanumerical characters are allowed.")
     private String username;
 
-    @Size(min = 2, max = 30, message = "{create-account.first-name.length}")
+    @NotEmpty(message = "This field cannot be empty.")
+    @Size(min = 2, max = 30, message = "The first name should be between 2-30 characters")
+    @Pattern(regexp = "\\p{Alpha}*", message = "Only alphabetical characters are allowed")
     private String firstName;
 
-    @Size(min = 2, max = 30, message = "{create-account.last-name.length}")
+    @NotEmpty(message = "This field cannot be empty.")
+    @Size(min = 2, max = 30, message = "The last name should be between 2-30 characters")
+    @Pattern(regexp = "\\p{Alpha}*", message = "Only alphabetical characters are allowed")
     private String lastName;
 
-    @NotNull(message = "{create-account.date-of-birth.missing}")
-    private Integer dateOfBirth;
+    @NotEmpty(message = "This field cannot be empty.")
+    @Size(min = 6, max = 6, message = "Date of birth should be 6 characters on the form YYMMDD.")
+    @Pattern(regexp = "[0-9]+", message = "Only the digits 0-9 are allowed.")
+    private String dateOfBirth;
 
-    @Size(min = 2, max = 30, message = "{create-account.email.length}")
+    @NotEmpty(message = "This field cannot be empty.")
+    @Size(min = 2, max = 30, message = "Only alphabetical characters are allowed")
     private String email;
 
-    @Size(min = 2, max = 30, message = "{create-account.password.length}")
+    @NotEmpty(message = "This field cannot be empty.")
+    @Size(min = 2, max = 30, message = "The password has to be between 2-30 characters.")
     private String password;
 
     /**
@@ -75,14 +86,14 @@ class CreateAccountForm {
     /**
      * @return The date of birth of the account that will be created.
      */
-    public Integer getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
     /**
      * @param dateOfBirth The dateOfBirth of the account that will be created.
      */
-    public void setDateOfBirth(Integer dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
