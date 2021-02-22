@@ -32,7 +32,7 @@ public class AccountController {
      *
      * @return A response that redirects the browser to the Create account page
      */
-    @GetMapping(DEFAULT_PAGE_URL)
+    @GetMapping("/" + DEFAULT_PAGE_URL)
     public String showDefaultView() {
         return "redirect:" + CREATE_ACCOUNT_PAGE_URL;
     }
