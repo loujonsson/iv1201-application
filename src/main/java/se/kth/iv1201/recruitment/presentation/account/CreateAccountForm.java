@@ -27,6 +27,8 @@ class CreateAccountForm {
     @Size(min = 2, max = 30, message = "{create-account.password.length}")
     private String password;
 
+    private int roleId;
+
     /**
      * @return The username of the account that will be created.
      */
@@ -114,6 +116,22 @@ class CreateAccountForm {
      */
     public void setPassword(String password) {
         this.password = password;
+    }
+
+
+    /**
+     * @return The password of the account that will be created.
+     */
+    public int getRoleId() {
+        return roleId;
+    }
+
+    /**
+     * @param roleId The role of the account that will be
+     *                   created, always 2 for applicants.
+     */
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
     }
 
     @Override

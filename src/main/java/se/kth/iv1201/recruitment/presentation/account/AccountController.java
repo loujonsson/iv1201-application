@@ -7,9 +7,12 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
+import se.kth.iv1201.recruitment.domain.Applicant;
 import se.kth.iv1201.recruitment.domain.ApplicantDTO;
+import se.kth.iv1201.recruitment.repository.ApplicantRepository;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * Handles all HTTP requests
@@ -26,6 +29,17 @@ public class AccountController {
     @Autowired
     private RecruitmentService service;
     private ApplicantDTO currentApplicant;
+    private ApplicantRepository appRepo;
+
+    @GetMapping("/showApplicants")
+    public String findApplicants(Model model) {
+
+        List<Applicant> applicants = appRepo.findAll();
+        model.addAttribute("applicants", applicants);
+
+        return "show-applicants";
+    }
+
     /**
      * Currently default view is Create account
      *
@@ -67,7 +81,7 @@ public class AccountController {
                 return CREATE_ACCOUNT_PAGE_URL;
             }
 
-            service.createApplicant(createAcctForm.getUsername(), createAcctForm.getPassword(), createAcctForm.getFirstName(), createAcctForm.getLastName(), createAcctForm.getEmail(), createAcctForm.getDateOfBirth());
+            service.createApplicant(createAcctForm.getUsername(), createAcctForm.getPassword(), createAcctForm.getFirstName(), createAcctForm.getLastName(), createAcctForm.getEmail(), createAcctForm.getDateOfBirth(), createAcctForm.getRoleId());
             return "redirect:" + SUCCESS_PAGE_URL;
         }
     }

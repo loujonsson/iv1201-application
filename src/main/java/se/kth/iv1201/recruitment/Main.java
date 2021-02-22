@@ -25,7 +25,7 @@ public class Main {
 	 * @param repository
 	 * @return
 	 */
-	@Bean
+	/*@Bean
 	public CommandLineRunner demo(ApplicantRepository repository){
 		return (args) -> {
 			repository.save(new Applicant("loujons", "123", "Lou", "Jönsson", "loujons@kth.se", 990717));
@@ -57,5 +57,5 @@ public class Main {
 	@GetMapping("/hello")
 	public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
 		return String.format("Hello %s!", name);
-	}
+	}*/
 }

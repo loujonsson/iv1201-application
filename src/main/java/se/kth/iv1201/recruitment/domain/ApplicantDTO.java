@@ -5,6 +5,8 @@ package se.kth.iv1201.recruitment.domain;
  * application and domain layers.
  */
 public interface ApplicantDTO {
+    int getPersonId();
+
     /**
      * Returns the First name of the applicant
      */
@@ -34,5 +36,10 @@ public interface ApplicantDTO {
      * Returns the password of the applicant
      */
     String getPassword();
+
+    /**
+     * Returns the roleId of the applicant
+     */
+    int getRoleId();
 
 }

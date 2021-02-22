@@ -7,6 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 import se.kth.iv1201.recruitment.domain.Applicant;
 import se.kth.iv1201.recruitment.domain.ApplicantDTO;
 import se.kth.iv1201.recruitment.repository.ApplicantRepository;
+
+import java.util.List;
+
 /**
  * <p>
  * This is the recruitment application class, which defines tasks that can be performed
@@ -36,7 +39,7 @@ public class RecruitmentService {
      * @param dateOfBirth The applicant's date of birth
      * @return the newly created applicant
      */
-    public ApplicantDTO createApplicant(String username, String password, String firstName, String lastName, String emailAddress, Integer dateOfBirth) {
+    public ApplicantDTO createApplicant(String username, String password, String firstName, String lastName, String emailAddress, Integer dateOfBirth, int roleId) {
         if (username == null) {
             throw new IllegalArgumentException("Please enter a valid username");
         }if (password == null) {
@@ -50,7 +53,12 @@ public class RecruitmentService {
         }if (dateOfBirth <= 0) {
             throw new IllegalArgumentException("Please enter a valid date of birth");
         }
-        return applicantRepo.save(new Applicant(username, password, firstName, lastName, emailAddress, dateOfBirth));
+        return applicantRepo.save(new Applicant(username, password, firstName, lastName, emailAddress, dateOfBirth, roleId));
+    }
+
+    public List<Applicant> findAll() {
+        List<Applicant> applicants = applicantRepo.findAll();
+        return applicants;
     }
 
 }
