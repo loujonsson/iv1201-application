@@ -19,7 +19,7 @@ import javax.validation.Valid;
 @Scope("session")
 public class AccountController {
     static final String DEFAULT_PAGE_URL = "/";
-    static final String CREATE_ACCOUNT_PAGE_URL = "/create-account";
+    static final String CREATE_ACCOUNT_PAGE_URL = "create-account";
     static final String SUCCESS_CREATE_ACCOUNT_PAGE_URL = "create-account-success";
     static final String FAVICON_GET = "favicon.ico";
     static final String LOGIN_PAGE_URL = "login";
