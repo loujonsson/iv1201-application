@@ -27,7 +27,7 @@ public class Main {
 	 */
 	@Bean
 	public CommandLineRunner demo(ApplicantRepository repository){
-		return (args) -> {
+		/*return (args) -> {
 			repository.save(new Applicant("loujons", "123", "Lou", "Jönsson", "loujons@kth.se", 990717));
 			repository.save(new Applicant("agnesal", "234", "Agnes", "Altin", "agnesal@kth.se", 990101));
 			repository.save(new Applicant("person", "234", "Person", "Personsson", "person@kth.se", 990101));
@@ -52,7 +52,7 @@ public class Main {
 				log.info(birth.toString());
 			});
 			log.info("");
-		};
+		};*/
 	}
 	@GetMapping("/hello")
 	public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
