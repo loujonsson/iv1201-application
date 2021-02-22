@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 public class ExceptionHandlers implements ErrorController {
     final Logger logger = LoggerFactory.getLogger(ExceptionHandlers.class);
 
-    @RequestMapping("/error")
+    @GetMapping("/error")
     public String handleError(HttpServletRequest request) {
         //do something like logging
 
