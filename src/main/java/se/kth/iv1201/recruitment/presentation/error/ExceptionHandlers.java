@@ -3,6 +3,7 @@ package se.kth.iv1201.recruitment.presentation.error;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +14,7 @@ import org.slf4j.LoggerFactory;
 public class ExceptionHandlers implements ErrorController {
     final Logger logger = LoggerFactory.getLogger(ExceptionHandlers.class);
 
-    @GetMapping("/error")
+    @GetMapping("error")
     public String handleError(HttpServletRequest request) {
         //do something like logging
 
