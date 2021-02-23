@@ -1,5 +1,7 @@
 package se.kth.iv1201.recruitment.presentation.account;
 
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.validation.constraints.*;
 
 import org.hibernate.validator.constraints.Range;
