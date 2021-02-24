@@ -3,14 +3,15 @@ package se.kth.iv1201.recruitment.domain;
 import javax.persistence.*;
 
 /**
- * Create an entity for Applicant so the database can create a table from it
+ * Create an entity for Person so the database can create a table from it
  * https://spring.io/guides/gs/accessing-data-jpa/
  */
 @Entity
-public class Applicant implements ApplicantDTO {
+public class Person implements PersonDTO {
     @Id
     private String username;
 
+   // @Column(name = "password")
     private String password;
 
     private String firstName;
@@ -19,14 +20,17 @@ public class Applicant implements ApplicantDTO {
 
     private String emailAddress;
 
+
     private int dateOfBirth;
 
+   // @ManyToOne
+  //  @JoinColumn(name="roleId")
     private int roleId;
 
     /**
      * Exists only for the sake of JPA
      */
-    protected Applicant(){}
+    protected Person(){}
 
     /**
      * Creates a new instance with the specified username, password, first and last name, date of birth and email
@@ -37,7 +41,7 @@ public class Applicant implements ApplicantDTO {
      * @param emailAddress The person's email
      * @param dateOfBirth The person's date of birth
      */
-    public Applicant(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth){
+    public Person(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth){
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -49,7 +53,7 @@ public class Applicant implements ApplicantDTO {
 
     public String toString() {
         return String.format(
-                "Applicant[username='%s', password='%s', firstName='%s', lastName='%s', email='%s', dateOfBirth='%s']",
+                "Person[username='%s', password='%s', firstName='%s', lastName='%s', email='%s', dateOfBirth='%s']",
                 username, password, firstName, lastName, emailAddress, dateOfBirth);
     }
 
