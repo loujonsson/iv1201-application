@@ -3,8 +3,6 @@ package se.kth.iv1201.recruitment.presentation.error;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
@@ -14,9 +12,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Controller
 public class ExceptionHandlers implements ErrorController {
-    final Logger logger = LoggerFactory.getLogger(ExceptionHandlers.class);
+    Logger logger = LoggerFactory.getLogger(ExceptionHandlers.class);
 
-    /*
     @RequestMapping("/error")
     public String handleError(HttpServletRequest request) {
         //do something like logging
@@ -25,7 +22,7 @@ public class ExceptionHandlers implements ErrorController {
 
         if (status != null) {
             Integer statusCode = Integer.valueOf(status.toString());
-            logger.info(statusCode.toString()); //statuskod alltid 404? Skumt...
+            //logger.info(statusCode.toString()); //statuskod alltid 404? Skumt...
 
             if(statusCode == HttpStatus.NOT_FOUND.value()) { //404
                 //do something like logging
@@ -62,7 +59,7 @@ public class ExceptionHandlers implements ErrorController {
         }
 
         return "/error";
-    }*/
+    }
 
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
     public class MyResourceNotFoundException extends RuntimeException {
