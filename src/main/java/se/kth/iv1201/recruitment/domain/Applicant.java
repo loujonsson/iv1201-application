@@ -21,6 +21,8 @@ public class Applicant implements ApplicantDTO {
 
     private int dateOfBirth;
 
+    private int roleId;
+
     /**
      * Exists only for the sake of JPA
      */
@@ -42,6 +44,7 @@ public class Applicant implements ApplicantDTO {
         this.lastName = lastName;
         this.emailAddress = emailAddress;
         this.dateOfBirth = dateOfBirth;
+       // this.roleId = roleId;
     }
 
     public String toString() {
@@ -78,5 +81,10 @@ public class Applicant implements ApplicantDTO {
     @Override
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public int getRoleId() {
+        return roleId;
     }
 }

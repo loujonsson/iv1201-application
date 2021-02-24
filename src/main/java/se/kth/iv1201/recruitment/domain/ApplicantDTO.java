@@ -35,4 +35,7 @@ public interface ApplicantDTO {
      */
     String getPassword();
 
+    int getRoleId();
+
+
 }

@@ -40,6 +40,12 @@ public class RecruitmentService {
         return applicantRepo.save(new Applicant(username, password, firstName, lastName, emailAddress, dateOfBirth));
     }
 
+    /**
+     * Finds applicant in database by username and password
+     * @param username the applicants username
+     * @param password the applicants password
+     * @return the applicant with the specified username and password
+     */
     public ApplicantDTO checkLogin(String username, String password){
         return applicantRepo.findApplicantByUsernameAndPassword(username, password);
     }
