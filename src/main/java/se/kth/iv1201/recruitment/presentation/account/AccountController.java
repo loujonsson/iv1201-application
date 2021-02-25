@@ -7,8 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
-import se.kth.iv1201.recruitment.domain.ApplicantDTO;
-import se.kth.iv1201.recruitment.presentation.login.LoginForm;
+import se.kth.iv1201.recruitment.domain.PersonDTO;
 
 import javax.validation.Valid;
 
@@ -27,7 +26,7 @@ public class AccountController {
 
     @Autowired
     private RecruitmentService service;
-    private ApplicantDTO currentApplicant;
+    private PersonDTO currentPerson;
     /**
      * Currently default view is Create account
      *
@@ -75,12 +74,12 @@ public class AccountController {
         }
         else {
 
-            if (currentApplicant != null) {
+            if (currentPerson != null) {
                 model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, createAccountForm);
                 return CREATE_ACCOUNT_PAGE_URL;
             }
 
-            service.createApplicant(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), Integer.parseInt(createAccountForm.getDateOfBirth()));
+            service.createPerson(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), Integer.parseInt(createAccountForm.getDateOfBirth()), createAccountForm.getRoleId());
             return "redirect:" + SUCCESS_CREATE_ACCOUNT_PAGE_URL;
         }
     }
@@ -94,5 +93,46 @@ public class AccountController {
     public String showSuccessCreateAccountView(){
         return SUCCESS_CREATE_ACCOUNT_PAGE_URL;
     }
+
+    /**
+     * Handles get request for login button on create acount page
+     *
+     * @return The login page url
+     */
+    @GetMapping("/" + LOGIN_PAGE_URL)
+    public String showLoginView(@ModelAttribute("loginForm") LoginForm loginForm){
+        return LOGIN_PAGE_URL;
+    }
+
+   // @RequestMapping(value="/login", method = RequestMethod.POST)
+   @PostMapping("/" + LOGIN_PAGE_URL)
+   public String saveLoginForm(@Valid @ModelAttribute("loginForm") LoginForm loginForm, BindingResult bindingResult, Model model){
+       if(bindingResult.hasErrors()) {
+           // TODO: Fråga gruppen om denna current acct form grejen kan återanvändas eller inte
+           model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, loginForm);
+           return "/" + LOGIN_PAGE_URL;
+       }
+       else {
+           PersonDTO PersonLoginSuccess = service.checkLogin(loginForm.getUsername(), loginForm.getPassword());
+           if(PersonLoginSuccess != null){
+               return "redirect:" + SUCCESS_LOGIN_PAGE_URL;
+           }else{
+               return "redirect:" + LOGIN_PAGE_URL;
+           }
+       }
+   }
+
+    /**
+     * View consisting a success page if a user successfully logged in
+     *
+     * @return url for success login page view
+     */
+    @GetMapping("/" + SUCCESS_LOGIN_PAGE_URL)
+    public String showSuccessLoginView(){
+        return SUCCESS_LOGIN_PAGE_URL;
+    }
+
+
+
 
 }
