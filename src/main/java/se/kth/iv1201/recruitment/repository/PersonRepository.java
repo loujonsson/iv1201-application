@@ -16,6 +16,8 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
      */
     Person findPersonByUsername(String username);
 
+
+
     /**
      * Searches for all Persons with the specified date of birth
      *

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
-import se.kth.iv1201.recruitment.domain.ApplicantDTO;
+import se.kth.iv1201.recruitment.domain.PersonDTO;
 
 import javax.validation.Valid;
 
@@ -42,7 +42,7 @@ public class LoginController {
             return "/" + LOGIN_PAGE_URL;
         }
         else {
-            ApplicantDTO applicantLoginSuccess = service.checkLoginApplicant(loginForm.getUsername(), loginForm.getPassword());
+            PersonDTO applicantLoginSuccess = service.checkLogin(loginForm.getUsername(), loginForm.getPassword());
             if(applicantLoginSuccess != null){
                 return "redirect:" + SUCCESS_LOGIN_PAGE_URL;
             }else{

@@ -24,7 +24,7 @@ import se.kth.iv1201.recruitment.repository.PersonRepository;
 @Service
 public class RecruitmentService {
     @Autowired
-    private PersonRepository PersonRepo;
+    private PersonRepository personRepo;
 
     /**
      * Creates a new Person with the specified username, password, first name, last name, email address and date of birth.
@@ -38,7 +38,7 @@ public class RecruitmentService {
      * @return the newly created Person
      */
     public PersonDTO createPerson(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth, int roleId) {
-        return PersonRepo.save(new Person(username, password, firstName, lastName, emailAddress, dateOfBirth, roleId));
+        return personRepo.save(new Person(username, password, firstName, lastName, emailAddress, dateOfBirth, roleId));
     }
 
     /**
@@ -48,7 +48,7 @@ public class RecruitmentService {
      * @return the Person with the specified username and password
      */
     public PersonDTO checkLogin(String username, String password){
-        return PersonRepo.findPersonByUsernameAndPassword(username, password);
+        return personRepo.findPersonByUsernameAndPassword(username, password);
     }
 
 }
