@@ -51,4 +51,8 @@ public class RecruitmentService {
         return personRepo.findPersonByUsernameAndPassword(username, password);
     }
 
+    public PersonDTO checkUsernameExists(String username){
+        return personRepo.findPersonByUsername(username);
+    }
+
 }

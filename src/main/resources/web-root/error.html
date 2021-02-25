@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,6 +7,14 @@
 <body>
     <h1>Something went wrong!</h1>
     <h2>Our Engineers are on it</h2>
+
+        <td th:text="${errorType}"></td>
+
+    <form th:action="@{/error}">
+        <input type="text" th:name="${errorType}" th:placeholder="${errorType}"/>
+    </form>
     <a href="/">Go Home</a>
 </body>
 </html>
+
+
