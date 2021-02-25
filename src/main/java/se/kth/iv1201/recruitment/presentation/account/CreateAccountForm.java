@@ -2,7 +2,6 @@ package se.kth.iv1201.recruitment.presentation.account;
 
 import javax.validation.constraints.*;
 
-import org.hibernate.validator.constraints.Range;
 import se.kth.iv1201.recruitment.util.Util;
 
 /**
@@ -37,6 +36,8 @@ class CreateAccountForm {
     @NotEmpty(message = "This field cannot be empty.")
     @Size(min = 2, max = 30, message = "The password has to be between 2-30 characters.")
     private String password;
+
+    private int roleId = 2;
 
     /**
      * @return The username of the account that will be created.
@@ -131,4 +132,15 @@ class CreateAccountForm {
     public String toString() {
         return Util.toString(this);
     }
+
+
+    public int getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(){
+        this.roleId = 2;
+    }
+
 }
+

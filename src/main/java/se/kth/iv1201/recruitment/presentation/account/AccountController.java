@@ -7,8 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
-import se.kth.iv1201.recruitment.domain.ApplicantDTO;
-import se.kth.iv1201.recruitment.presentation.login.LoginForm;
+import se.kth.iv1201.recruitment.domain.PersonDTO;
 
 import javax.validation.Valid;
 
@@ -27,7 +26,7 @@ public class AccountController {
 
     @Autowired
     private RecruitmentService service;
-    private ApplicantDTO currentApplicant;
+    private PersonDTO currentPerson;
     /**
      * Currently default view is Create account
      *
@@ -75,12 +74,12 @@ public class AccountController {
         }
         else {
 
-            if (currentApplicant != null) {
+            if (currentPerson != null) {
                 model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, createAccountForm);
                 return CREATE_ACCOUNT_PAGE_URL;
             }
 
-            service.createApplicant(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), Integer.parseInt(createAccountForm.getDateOfBirth()));
+            service.createPerson(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), Integer.parseInt(createAccountForm.getDateOfBirth()), createAccountForm.getRoleId());
             return "redirect:" + SUCCESS_CREATE_ACCOUNT_PAGE_URL;
         }
     }
@@ -94,5 +93,4 @@ public class AccountController {
     public String showSuccessCreateAccountView(){
         return SUCCESS_CREATE_ACCOUNT_PAGE_URL;
     }
-
 }

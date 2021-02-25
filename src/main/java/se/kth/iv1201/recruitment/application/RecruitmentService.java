@@ -4,9 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import se.kth.iv1201.recruitment.domain.Applicant;
-import se.kth.iv1201.recruitment.domain.ApplicantDTO;
-import se.kth.iv1201.recruitment.repository.ApplicantRepository;
+import se.kth.iv1201.recruitment.domain.Person;
+import se.kth.iv1201.recruitment.domain.PersonDTO;
+import se.kth.iv1201.recruitment.domain.Role;
+import se.kth.iv1201.recruitment.repository.PersonRepository;
 /**
  * <p>
  * This is the recruitment application class, which defines tasks that can be performed
@@ -23,25 +24,31 @@ import se.kth.iv1201.recruitment.repository.ApplicantRepository;
 @Service
 public class RecruitmentService {
     @Autowired
-    private ApplicantRepository applicantRepo;
+    private PersonRepository PersonRepo;
 
     /**
-     * Creates a new applicant with the specified username, password, first name, last name, email address and date of birth.
+     * Creates a new Person with the specified username, password, first name, last name, email address and date of birth.
      *
-     * @param username The applicant's username
-     * @param password The applicant's password
-     * @param firstName The applicant's first name
-     * @param lastName The applicant's last name
-     * @param emailAddress The applicant's email
-     * @param dateOfBirth The applicant's date of birth
-     * @return the newly created applicant
+     * @param username The Person's username
+     * @param password The Person's password
+     * @param firstName The Person's first name
+     * @param lastName The Person's last name
+     * @param emailAddress The Person's email
+     * @param dateOfBirth The Person's date of birth
+     * @return the newly created Person
      */
-    public ApplicantDTO createApplicant(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth) {
-        return applicantRepo.save(new Applicant(username, password, firstName, lastName, emailAddress, dateOfBirth));
+    public PersonDTO createPerson(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth, int roleId) {
+        return PersonRepo.save(new Person(username, password, firstName, lastName, emailAddress, dateOfBirth, roleId));
     }
 
-    public ApplicantDTO checkLoginApplicant(String username, String password){
-        return applicantRepo.findApplicantByUsernameAndPassword(username, password);
+    /**
+     * Finds Person in database by username and password
+     * @param username the Persons username
+     * @param password the Persons password
+     * @return the Person with the specified username and password
+     */
+    public PersonDTO checkLogin(String username, String password){
+        return PersonRepo.findPersonByUsernameAndPassword(username, password);
     }
 
 }
