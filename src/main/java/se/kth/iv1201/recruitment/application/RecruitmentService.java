@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import se.kth.iv1201.recruitment.domain.Person;
 import se.kth.iv1201.recruitment.domain.PersonDTO;
+import se.kth.iv1201.recruitment.domain.Role;
 import se.kth.iv1201.recruitment.repository.PersonRepository;
 /**
  * <p>
@@ -36,8 +37,8 @@ public class RecruitmentService {
      * @param dateOfBirth The Person's date of birth
      * @return the newly created Person
      */
-    public PersonDTO createPerson(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth) {
-        return PersonRepo.save(new Person(username, password, firstName, lastName, emailAddress, dateOfBirth));
+    public PersonDTO createPerson(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth, int roleId) {
+        return PersonRepo.save(new Person(username, password, firstName, lastName, emailAddress, dateOfBirth, roleId));
     }
 
     /**

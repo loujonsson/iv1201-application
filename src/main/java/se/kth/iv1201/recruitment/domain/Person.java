@@ -7,24 +7,30 @@ import javax.persistence.*;
  * https://spring.io/guides/gs/accessing-data-jpa/
  */
 @Entity
+@Table(name = "person")
 public class Person implements PersonDTO {
     @Id
     private String username;
 
-   // @Column(name = "password")
+    @Column(name = "password")
     private String password;
 
+    @Column(name = "first_name")
     private String firstName;
 
+    @Column(name= "last_name")
     private String lastName;
 
+    @Column(name = "email_address")
     private String emailAddress;
 
-
+    @Column(name = "date_of_birth")
     private int dateOfBirth;
 
    // @ManyToOne
-  //  @JoinColumn(name="roleId")
+    //@JoinColumn(name="role_id") //referencedColumnName="role"
+    //@Column(name = "role_id", nullable = false, columnDefinition = "int default 2")
+    @Column(name = "role_id")
     private int roleId;
 
     /**
@@ -41,14 +47,14 @@ public class Person implements PersonDTO {
      * @param emailAddress The person's email
      * @param dateOfBirth The person's date of birth
      */
-    public Person(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth){
+    public Person(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth, int roleId){
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;
         this.dateOfBirth = dateOfBirth;
-       // this.roleId = roleId;
+        this.roleId = roleId;
     }
 
     public String toString() {

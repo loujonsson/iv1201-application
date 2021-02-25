@@ -81,7 +81,7 @@ public class AccountController {
                 return CREATE_ACCOUNT_PAGE_URL;
             }
 
-            service.createPerson(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), Integer.parseInt(createAccountForm.getDateOfBirth()));
+            service.createPerson(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), Integer.parseInt(createAccountForm.getDateOfBirth()), createAccountForm.getRoleId());
             return "redirect:" + SUCCESS_CREATE_ACCOUNT_PAGE_URL;
         }
     }

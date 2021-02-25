@@ -1,23 +1,23 @@
 package se.kth.iv1201.recruitment.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Role {
     @Id
+    @Column(name = "role_id")
     private int roleId;
 
+    @Column(name = "name", nullable = false)
     private String name;
 
-    public Role(String name) {
-        this.name = name;
-    }
+    @OneToMany()//mappedBy = "role_id"
+    @JoinColumn(name = "role_id")
+    private List<Person> persons = new ArrayList<Person>();
 
     public Role() {
-
     }
 
     public void setRoleId(int roleId) {
