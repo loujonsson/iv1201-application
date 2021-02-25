@@ -13,10 +13,10 @@ public class Role {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @OneToMany()//mappedBy = "role_id"
+   /* @OneToMany()//mappedBy = "role_id"
     @JoinColumn(name = "role_id")
     private List<Person> persons = new ArrayList<Person>();
-
+*/
     public Role() {
     }
 
