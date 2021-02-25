@@ -23,6 +23,8 @@ public class AccountController {
     static final String FAVICON_GET = "favicon.ico";
     private static final String CURRENT_ACCT_OBJ_NAME = "currentAcct";
     private static final String CURRENT_ACCT_FORM_OBJ_NAME = "currentAcctForm";
+    static final String LOGIN_PAGE_URL = "login";
+    static final String SUCCESS_LOGIN_PAGE_URL = "login-success";
 
     @Autowired
     private RecruitmentService service;
