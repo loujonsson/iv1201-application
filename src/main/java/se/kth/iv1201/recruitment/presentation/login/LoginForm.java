@@ -1,4 +1,4 @@
-package se.kth.iv1201.recruitment.presentation.account;
+package se.kth.iv1201.recruitment.presentation.login;
 
 import se.kth.iv1201.recruitment.util.Util;
 
