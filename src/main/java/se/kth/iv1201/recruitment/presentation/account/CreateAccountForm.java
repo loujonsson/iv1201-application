@@ -4,6 +4,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.validation.constraints.*;
 
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import se.kth.iv1201.recruitment.domain.IllegalUsernameInsertion;
 import se.kth.iv1201.recruitment.util.Util;
 
 /**
@@ -27,12 +29,13 @@ class CreateAccountForm {
     private String lastName;
 
     @NotEmpty(message = "This field cannot be empty.")
-    @Size(min = 6, max = 6, message = "Date of birth should be 6 characters on the form YYMMDD.")
+    @Size(min = 10, max = 10, message = "Date of birth should be 6 characters on the form YYMMDDXXXX.")
     @Pattern(regexp = "[0-9]+", message = "Only the digits 0-9 are allowed.")
     private String dateOfBirth;
 
     @NotEmpty(message = "This field cannot be empty.")
     @Size(min = 2, max = 30, message = "Only alphabetical characters are allowed")
+    @Email(message = "Email should be a valid email")
     private String email;
 
     @NotEmpty(message = "This field cannot be empty.")

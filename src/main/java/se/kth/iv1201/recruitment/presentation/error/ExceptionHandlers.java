@@ -1,15 +1,20 @@
 package se.kth.iv1201.recruitment.presentation.error;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.servlet.ModelAndView;
+import se.kth.iv1201.recruitment.domain.IllegalUsernameInsertion;
 import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
 
 @Controller
@@ -18,8 +23,34 @@ public class ExceptionHandlers implements ErrorController {
     public static final String GENERIC_ERROR = "generic";
     public static final String SAVE_ACCOUNT_FAILED = "missing attribute";
     public static final String LOGIN_FAILED = "login";
-
     Logger logger = LoggerFactory.getLogger(ExceptionHandlers.class);
+    static final String ERROR_URL = "error";
+
+    @ExceptionHandler(IllegalUsernameInsertion.class)
+    //@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    //@GetMapping("/error")
+    public String handleIllegalUsernameException(IllegalUsernameInsertion exception){
+        System.out.println("I DENNA FUNKTION");
+        logger.info(exception.toString());
+        return "redirect:" + ERROR_URL + "/username";
+    }
+
+    @GetMapping("/" + ERROR_URL + "/{errorType}")
+    //@RequestMapping(value = "errormessage", method = RequestMethod.GET)
+    public String showErrorView(@PathVariable("errorType") String errorType, ModelMap map){
+        System.out.println("HEJ LOUUUUU");
+        if(errorType.equals("username")){
+            System.out.println("HEJ amskfclmdevwknfrvkjnm");
+            //model.addAttribute("errorType", errorType);
+            map.addAttribute("errorType", errorType);
+            //return "/" + ERROR_URL + "/username";
+        }
+
+        return "errorType";
+        //return String.format("Username already exists2");
+        //return "/" + ERROR_URL;
+        //return "redirect:" + ERROR_URL + "/username";
+    }
 
     /**
      * Exception handler for broken business rules.
@@ -37,18 +68,15 @@ public class ExceptionHandlers implements ErrorController {
         } else {
             model.addAttribute(ERROR_TYPE_KEY, GENERIC_ERROR);
         }
-        return "/error";
+        return "/" + ERROR_URL;
     }
 
-    @RequestMapping("/error")
+    @RequestMapping("/" + ERROR_URL)
     public String handleError(HttpServletRequest request) {
-        //do something like logging
-
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
 
         if (status != null) {
             Integer statusCode = Integer.valueOf(status.toString());
-            //logger.info(statusCode.toString()); //statuskod alltid 404? Skumt...
 
             if(statusCode == HttpStatus.NOT_FOUND.value()) { //404
                 logger.info("A 404 not found exception occurred.");
@@ -56,18 +84,15 @@ public class ExceptionHandlers implements ErrorController {
             else if(statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) { //500
                 logger.info("A 500 internal server error exception occurred.");
             }
-            else if(statusCode == HttpStatus.BAD_GATEWAY.value()) { //502
-                //do something like logging
-            }
             else if(statusCode == HttpStatus.BAD_REQUEST.value()) { //400
                 logger.info("A 400 bad request occurred.");
             }
             else {
-                //unspecified error
+                logger.info("Unspecified error.");
             }
         }
 
-        return "/error";
+        return "/" + ERROR_URL;
     }
 
     private void logExceptionDebugLevel(Exception exception) {
@@ -93,6 +118,6 @@ public class ExceptionHandlers implements ErrorController {
 
     @Override
     public String getErrorPath() {
-        return null;
+        return "/" + ERROR_URL;
     }
 }
