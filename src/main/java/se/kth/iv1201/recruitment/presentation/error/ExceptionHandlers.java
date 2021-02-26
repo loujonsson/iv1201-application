@@ -14,6 +14,10 @@ import se.kth.iv1201.recruitment.domain.IllegalUsernameInsertion;
 
 @Controller
 public class ExceptionHandlers implements ErrorController {
+    public static final String ERROR_TYPE_KEY = "errorType";
+    public static final String GENERIC_ERROR = "generic";
+    public static final String SAVE_ACCOUNT_FAILED = "missing attribute";
+    public static final String LOGIN_FAILED = "login";
     Logger logger = LoggerFactory.getLogger(ExceptionHandlers.class);
     static final String ERROR_URL = "error";
 
@@ -34,6 +38,25 @@ public class ExceptionHandlers implements ErrorController {
         }
         return String.format("Username already exists2");
        // return ERROR_URL;
+    }
+    
+    /**
+     * Exception handler for broken business rules.
+     *
+     * @return An appropriate error page.
+     */
+    @ExceptionHandler(IllegalRecruitmentTransactionException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public String handleException(IllegalRecruitmentTransactionException exception, Model model) {
+        logExceptionDebugLevel(exception);
+        if (exception.getMessage().toUpperCase().contains("MISSING ATTRIBUTE")) {
+            model.addAttribute(ERROR_TYPE_KEY, SAVE_ACCOUNT_FAILED);
+        } else if (exception.getMessage().toUpperCase().contains("LOGIN")) {
+            model.addAttribute(ERROR_TYPE_KEY, LOGIN_FAILED);
+        } else {
+            model.addAttribute(ERROR_TYPE_KEY, GENERIC_ERROR);
+        }
+        return "/error";
     }
 
     @RequestMapping("/" + ERROR_URL)
@@ -64,6 +87,10 @@ public class ExceptionHandlers implements ErrorController {
         }
 
         return "/" + ERROR_URL;
+    }
+
+    private void logExceptionDebugLevel(Exception exception) {
+        logger.debug("Exception handler got {}: {}", exception.getClass().getName(), exception.getMessage(), exception);
     }
 
     /*
