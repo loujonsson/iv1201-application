@@ -23,9 +23,8 @@ public class LoginController {
     @Autowired
     private RecruitmentService service;
 
-
     /**
-     * Handles get request for login button on create acount page
+     * Handles get request for login button on create account page
      *
      * @return The login page url
      */
@@ -38,7 +37,6 @@ public class LoginController {
     @PostMapping("/" + LOGIN_PAGE_URL)
     public String saveLoginForm(@Valid @ModelAttribute("loginForm") LoginForm loginForm, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()) {
-            // TODO: Fråga gruppen om denna current acct form grejen kan återanvändas eller inte
             model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, loginForm);
             return "/" + LOGIN_PAGE_URL;
         }
