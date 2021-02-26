@@ -1,15 +1,19 @@
 package se.kth.iv1201.recruitment.presentation.error;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.servlet.ModelAndView;
 import se.kth.iv1201.recruitment.domain.IllegalUsernameInsertion;
 import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
 
@@ -23,24 +27,39 @@ public class ExceptionHandlers implements ErrorController {
     static final String ERROR_URL = "error";
 
     @ExceptionHandler(IllegalUsernameInsertion.class)
+<<<<<<< HEAD
     public String handleIllegalUsernameException(IllegalUsernameInsertion exception){
         System.out.println("hejanes");
+=======
+    //@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    //@GetMapping("/error")
+    public String handleIllegalUsernameException(IllegalUsernameInsertion exception){
+        System.out.println("I DENNA FUNKTION");
+>>>>>>> 5351fe8f6bfc29c41fd17fa9523d3ac0a97791a9
         logger.info(exception.toString());
         return "/" + ERROR_URL + "/username";
     }
 
     @GetMapping("/" + ERROR_URL + "/{errorType}")
     //@RequestMapping(value = "errormessage", method = RequestMethod.GET)
-    public String showErrorView(@PathVariable("errorType") String errorType, Model model){
+    public String showErrorView(@PathVariable("errorType") String errorType, ModelMap map){
         System.out.println("HEJ LOUUUUU");
         if(errorType.equals("username")){
+<<<<<<< HEAD
             model.addAttribute("errorType", "username already exists");
             return "/" + ERROR_URL;
+=======
+            System.out.println("HEJ amskfclmdevwknfrvkjnm");
+            //model.addAttribute("errorType", errorType);
+            map.addAttribute("errorType", errorType);
+            //return "/" + ERROR_URL + "/username";
+>>>>>>> 5351fe8f6bfc29c41fd17fa9523d3ac0a97791a9
         }
 
         return "errorType";
         //return String.format("Username already exists2");
         //return "/" + ERROR_URL;
+        //return "redirect:" + ERROR_URL + "/username";
     }
 
     /**
@@ -109,7 +128,7 @@ public class ExceptionHandlers implements ErrorController {
 
     @Override
     public String getErrorPath() {
-        return null;
+        return "/" + ERROR_URL;
     }
 
     @GetMapping("/error")

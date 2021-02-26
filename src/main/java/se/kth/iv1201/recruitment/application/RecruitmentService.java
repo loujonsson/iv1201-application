@@ -41,15 +41,15 @@ public class RecruitmentService {
      * @throws IllegalRecruitmentTransactionException When attempting to save a person with a missing attribute
      */
     public PersonDTO createPerson(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth, int roleId) throws IllegalRecruitmentTransactionException {
-        if (username == null) {
+        if (username == "") {
             throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + username);
-        }if (password == null) {
+        }if (password == "") {
             throw new IllegalRecruitmentTransactionException("Attempt to create a person  missing attribute: " + password);
-        }if (firstName == null) {
+        }if (firstName == "") {
             throw new IllegalRecruitmentTransactionException("Attempt to create a person  missing attribute: " + firstName);
-        }if (lastName == null) {
+        }if (lastName == "") {
             throw new IllegalRecruitmentTransactionException("Attempt to create a person  missing attribute: " + lastName);
-        }if (emailAddress == null) {
+        }if (emailAddress == "") {
             throw new IllegalRecruitmentTransactionException("Attempt to create a person  missing attribute: " + emailAddress);
         }if (dateOfBirth == 0) {
             throw new IllegalRecruitmentTransactionException("Attempt to create a person  missing attribute: " + dateOfBirth);
@@ -67,10 +67,10 @@ public class RecruitmentService {
      * @throws IllegalRecruitmentTransactionException when attempting to login without username or password
      */
     public PersonDTO checkLogin(String username, String password) throws IllegalRecruitmentTransactionException {
-        if(username == null){
+        if(username == ""){
             throw new IllegalRecruitmentTransactionException("Attempt to login without: " + username);
         }
-        if(password == null){
+        if(password == ""){
             throw new IllegalRecruitmentTransactionException("Attempt to login without: " + password);
         }
         return personRepo.findPersonByUsernameAndPassword(username, password);
