@@ -84,3 +84,15 @@
 2021-02-26 13:43:27.854  INFO 24412 --- [main] MainTest                                 : Started MainTest in 6.957 seconds (JVM running for 8.399)
 2021-02-26 13:43:28.113  INFO 24412 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2021-02-26 13:43:28.684  INFO 24412 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-02-26 13:43:50.365  INFO 24344 --- [main] MainTest                                 : Starting MainTest using Java 15.0.1 on LAPTOP-5P935E41 with PID 24344 (started by loujo in C:\Users\loujo\Documents\IV1201-application)
+2021-02-26 13:43:50.369  INFO 24344 --- [main] MainTest                                 : No active profile set, falling back to default profiles: default
+2021-02-26 13:43:52.198  INFO 24344 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-02-26 13:43:52.267  INFO 24344 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-02-26 13:43:52.443  INFO 24344 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-02-26 13:43:52.613  INFO 24344 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-02-26 13:43:53.504  INFO 24344 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-02-26 13:43:53.523  INFO 24344 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-02-26 13:43:54.926  INFO 24344 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-02-26 13:43:56.631  INFO 24344 --- [main] MainTest                                 : Started MainTest in 6.674 seconds (JVM running for 8.367)
+2021-02-26 13:43:56.923  INFO 24344 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-02-26 13:43:57.385  INFO 24344 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
