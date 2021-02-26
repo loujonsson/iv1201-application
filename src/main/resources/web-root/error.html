@@ -8,8 +8,7 @@
     <h1>Something went wrong!</h1>
     <h2>Our Engineers are on it</h2>
 
-        <td th:text="${errorType}"></td>
-        <div>th:text="${errorType}"</div>
+    <td th:text="${errorType}"></td>
 
     <form th:action="@{/error}">
         <input type="text" th:name="${errorType}" th:placeholder="${errorType}"/>
