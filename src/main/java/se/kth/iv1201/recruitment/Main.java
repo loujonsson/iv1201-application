@@ -22,7 +22,7 @@ public class Main {
 
 	/**
 	 * Hard coded demo test for the business logic through all the layers.
-	 * @param repository
+	 * @param
 	 * @return
 	 */
 	/*@Bean
@@ -58,4 +58,6 @@ public class Main {
 	public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
 		return String.format("Hello %s!", name);
 	}
+
+
 }

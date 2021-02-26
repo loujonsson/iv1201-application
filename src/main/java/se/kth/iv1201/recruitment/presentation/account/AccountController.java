@@ -135,6 +135,9 @@ public class AccountController {
         return SUCCESS_LOGIN_PAGE_URL;
     }
 
+    public int forExampleTest(int a, int b){
+        return a+b;
+    }
 
 
 
