@@ -14,10 +14,16 @@
             <p>
                 <label for="username">Username</label>:
                 <input type="text" th:field="*{username}" id="username">
+                <span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">
+                    Username error
+                </span>
             </p>
             <p>
                 <label for="password">Password</label>:
                 <input type="text" th:field="*{password}" id="password">
+                <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+                    Password error
+                </span>
             </p>
             <p class="submit">
                 <input type="submit" value="Login"/>

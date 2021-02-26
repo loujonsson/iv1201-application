@@ -2,16 +2,19 @@ package se.kth.iv1201.recruitment.presentation.login;
 
 import se.kth.iv1201.recruitment.util.Util;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
  * A form bean for the login form.
  */
 public class LoginForm {
-    @Size(min = 2, max = 30, message = "{login.username.length}")
+    @NotNull(message = "Field can not be left empty!")
+    @Size(min = 2, max = 30, message = "Username must be 2-30 characters")
     private String username;
 
-    @Size(min = 2, max = 30, message = "{login.password.length}")
+    @NotNull(message = "Field can not be left empty!")
+    @Size(min = 2, max = 30, message = "Password must be 2-30 characters")
     private String password;
 
     /**
