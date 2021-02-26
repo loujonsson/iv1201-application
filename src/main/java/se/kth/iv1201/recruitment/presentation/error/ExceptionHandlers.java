@@ -22,11 +22,11 @@ public class ExceptionHandlers implements ErrorController {
     Logger logger = LoggerFactory.getLogger(ExceptionHandlers.class);
     static final String ERROR_URL = "error";
 
-    @ExceptionHandler({IllegalUsernameInsertion.class})
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(IllegalUsernameInsertion.class)
     public String handleIllegalUsernameException(IllegalUsernameInsertion exception){
+        System.out.println("hejanes");
         logger.info(exception.toString());
-        return "redirect:" + ERROR_URL + "/username";
+        return "/" + ERROR_URL + "/username";
     }
 
     @GetMapping("/" + ERROR_URL + "/{errorType}")
@@ -34,7 +34,7 @@ public class ExceptionHandlers implements ErrorController {
     public String showErrorView(@PathVariable("errorType") String errorType, Model model){
         System.out.println("HEJ LOUUUUU");
         if(errorType.equals("username")){
-            model.addAttribute("errorType", errorType);
+            model.addAttribute("errorType", "username already exists");
             return "/" + ERROR_URL;
         }
 
@@ -110,5 +110,10 @@ public class ExceptionHandlers implements ErrorController {
     @Override
     public String getErrorPath() {
         return null;
+    }
+
+    @GetMapping("/error")
+    public String viewErrorPage(){
+        return ERROR_URL;
     }
 }

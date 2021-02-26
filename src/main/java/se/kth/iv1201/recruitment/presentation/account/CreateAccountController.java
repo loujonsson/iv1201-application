@@ -99,4 +99,5 @@ public class CreateAccountController {
     public String showSuccessCreateAccountView(){
         return SUCCESS_CREATE_ACCOUNT_PAGE_URL;
     }
+
 }
