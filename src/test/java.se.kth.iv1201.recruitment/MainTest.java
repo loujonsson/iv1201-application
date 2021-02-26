@@ -1,46 +1,31 @@
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.ConfigFileApplicationContextInitializer;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.test.annotation.Commit;
-import org.springframework.test.context.TestExecutionListener;
-import org.springframework.test.context.TestExecutionListeners;
-import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
-import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
-import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.transaction.annotation.Transactional;
-import se.kth.iv1201.recruitment.Main;
-
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import se.kth.iv1201.recruitment.Main;
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@ContextConfiguration(classes=Main.class)
 public class MainTest {
 
     @Autowired
     private MockMvc mockMvc;
-
+    
     @Test
-    public void contextLoads() {
-    }
-
-    @Test
-    public void shouldReturnDefaultMessage() throws Exception {
-        this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString("Hello, World")));
+    public void exampleTest() throws Exception {
+        this.mockMvc.perform(get("/hello")).andDo(print()).andExpect(status().is(404));
     }
 
 /*    private Main main;
