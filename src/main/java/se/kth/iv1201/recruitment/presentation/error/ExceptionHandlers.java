@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import se.kth.iv1201.recruitment.domain.IllegalUsernameInsertion;
+import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
 
 @Controller
 public class ExceptionHandlers implements ErrorController {
@@ -39,7 +40,7 @@ public class ExceptionHandlers implements ErrorController {
         return String.format("Username already exists2");
        // return ERROR_URL;
     }
-    
+
     /**
      * Exception handler for broken business rules.
      *
@@ -56,18 +57,15 @@ public class ExceptionHandlers implements ErrorController {
         } else {
             model.addAttribute(ERROR_TYPE_KEY, GENERIC_ERROR);
         }
-        return "/error";
+        return "/" + ERROR_URL;
     }
 
     @RequestMapping("/" + ERROR_URL)
     public String handleError(HttpServletRequest request) {
-        //do something like logging
-
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
 
         if (status != null) {
             Integer statusCode = Integer.valueOf(status.toString());
-            //logger.info(statusCode.toString()); //statuskod alltid 404? Skumt...
 
             if(statusCode == HttpStatus.NOT_FOUND.value()) { //404
                 logger.info("A 404 not found exception occurred.");
@@ -75,14 +73,11 @@ public class ExceptionHandlers implements ErrorController {
             else if(statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) { //500
                 logger.info("A 500 internal server error exception occurred.");
             }
-            else if(statusCode == HttpStatus.BAD_GATEWAY.value()) { //502
-                //do something like logging
-            }
             else if(statusCode == HttpStatus.BAD_REQUEST.value()) { //400
                 logger.info("A 400 bad request occurred.");
             }
             else {
-                //unspecified error
+                logger.info("Unspecified error.");
             }
         }
 
