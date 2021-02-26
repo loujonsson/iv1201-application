@@ -13,8 +13,8 @@ import se.kth.iv1201.recruitment.util.Util;
  */
 class CreateAccountForm {
 
-   // @NotEmpty(message = "This field cannot be empty.")
-    //@Size(min = 2, max = 30, message = "The username should be between 2-30 characters")
+    @NotEmpty(message = "This field cannot be empty.")
+    @Size(min = 2, max = 30, message = "The username should be between 2-30 characters")
     @Pattern(regexp = "\\p{Alnum}*", message = "Only alphanumerical characters are allowed.")
     private String username;
 

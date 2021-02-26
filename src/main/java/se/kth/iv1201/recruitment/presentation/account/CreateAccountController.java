@@ -80,11 +80,10 @@ public class CreateAccountController {
                 model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, createAccountForm);
                 return CREATE_ACCOUNT_PAGE_URL;
             }
-/*
+
             if(service.checkUsernameExists(createAccountForm.getUsername()) != null){
                 throw new IllegalUsernameInsertion("Username already exists!");
-                //return "redirect:" + "error/username";
-            }*/
+            }
 
             service.createPerson(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), Integer.parseInt(createAccountForm.getDateOfBirth()), createAccountForm.getRoleId());
             return "redirect:" + SUCCESS_CREATE_ACCOUNT_PAGE_URL;
