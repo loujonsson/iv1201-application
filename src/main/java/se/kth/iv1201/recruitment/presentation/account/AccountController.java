@@ -7,8 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
-import se.kth.iv1201.recruitment.domain.Applicant;
-import se.kth.iv1201.recruitment.domain.ApplicantDTO;
+import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
+import se.kth.iv1201.recruitment.domain.PersonDTO;
 
 import javax.validation.Valid;
 
@@ -22,14 +22,12 @@ public class AccountController {
     static final String CREATE_ACCOUNT_PAGE_URL = "create-account";
     static final String SUCCESS_CREATE_ACCOUNT_PAGE_URL = "create-account-success";
     static final String FAVICON_GET = "favicon.ico";
-    static final String LOGIN_PAGE_URL = "login";
-    static final String SUCCESS_LOGIN_PAGE_URL = "login-success";
     private static final String CURRENT_ACCT_OBJ_NAME = "currentAcct";
     private static final String CURRENT_ACCT_FORM_OBJ_NAME = "currentAcctForm";
 
     @Autowired
     private RecruitmentService service;
-    private ApplicantDTO currentApplicant;
+    private PersonDTO currentPerson;
     /**
      * Currently default view is Create account
      *
@@ -70,19 +68,19 @@ public class AccountController {
      */
     //@RequestMapping(value = "/create-account", method = RequestMethod.POST)
     @PostMapping("/" + CREATE_ACCOUNT_PAGE_URL)
-    public String saveForm(@Valid @ModelAttribute("createAccountForm") CreateAccountForm createAccountForm, BindingResult bindingResult, Model model){
+    public String saveForm(@Valid @ModelAttribute("createAccountForm") CreateAccountForm createAccountForm, BindingResult bindingResult, Model model) throws IllegalRecruitmentTransactionException {
         if(bindingResult.hasErrors()) {
             model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, createAccountForm);
             return "/" + CREATE_ACCOUNT_PAGE_URL;
         }
         else {
 
-            if (currentApplicant != null) {
+            if (currentPerson != null) {
                 model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, createAccountForm);
                 return CREATE_ACCOUNT_PAGE_URL;
             }
 
-            service.createApplicant(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), Integer.parseInt(createAccountForm.getDateOfBirth()));
+            service.createPerson(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), Integer.parseInt(createAccountForm.getDateOfBirth()), createAccountForm.getRoleId());
             return "redirect:" + SUCCESS_CREATE_ACCOUNT_PAGE_URL;
         }
     }
@@ -138,6 +136,7 @@ public class AccountController {
     public int forExampleTest(int a, int b){
         return a+b;
     }
+
 
 
 
