@@ -30,15 +30,17 @@ public class ExceptionHandlers implements ErrorController {
     }
 
     @GetMapping("/" + ERROR_URL + "/{errorType}")
-
+    //@RequestMapping(value = "errormessage", method = RequestMethod.GET)
     public String showErrorView(@PathVariable("errorType") String errorType, Model model){
         System.out.println("HEJ LOUUUUU");
         if(errorType.equals("username")){
             model.addAttribute("errorType", errorType);
             return "/" + ERROR_URL;
         }
-        return String.format("Username already exists2");
-       // return ERROR_URL;
+
+        return "errorType";
+        //return String.format("Username already exists2");
+        //return "/" + ERROR_URL;
     }
 
     /**
