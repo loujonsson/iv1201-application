@@ -29,7 +29,7 @@ class CreateAccountForm {
     private String lastName;
 
     @NotEmpty(message = "This field cannot be empty.")
-    @Size(min = 6, max = 6, message = "Date of birth should be 6 characters on the form YYMMDD.")
+    @Size(min = 10, max = 10, message = "Date of birth should be 6 characters on the form YYMMDDXXXX.")
     @Pattern(regexp = "[0-9]+", message = "Only the digits 0-9 are allowed.")
     private String dateOfBirth;
 
