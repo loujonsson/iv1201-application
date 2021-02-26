@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
+import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
 import se.kth.iv1201.recruitment.domain.PersonDTO;
 
 import javax.validation.Valid;
@@ -36,7 +37,7 @@ public class LoginController {
 
     // @RequestMapping(value="/login", method = RequestMethod.POST)
     @PostMapping("/" + LOGIN_PAGE_URL)
-    public String saveLoginForm(@Valid @ModelAttribute("loginForm") LoginForm loginForm, BindingResult bindingResult, Model model){
+    public String saveLoginForm(@Valid @ModelAttribute("loginForm") LoginForm loginForm, BindingResult bindingResult, Model model) throws IllegalRecruitmentTransactionException {
         if(bindingResult.hasErrors()) {
             model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, loginForm);
             return "/" + LOGIN_PAGE_URL;

@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
+import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
 import se.kth.iv1201.recruitment.domain.PersonDTO;
 
 import javax.validation.Valid;
@@ -67,7 +68,7 @@ public class AccountController {
      */
     //@RequestMapping(value = "/create-account", method = RequestMethod.POST)
     @PostMapping("/" + CREATE_ACCOUNT_PAGE_URL)
-    public String saveForm(@Valid @ModelAttribute("createAccountForm") CreateAccountForm createAccountForm, BindingResult bindingResult, Model model){
+    public String saveForm(@Valid @ModelAttribute("createAccountForm") CreateAccountForm createAccountForm, BindingResult bindingResult, Model model) throws IllegalRecruitmentTransactionException {
         if(bindingResult.hasErrors()) {
             model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, createAccountForm);
             return "/" + CREATE_ACCOUNT_PAGE_URL;
