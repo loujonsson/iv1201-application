@@ -96,3 +96,12 @@
 2021-02-26 13:43:56.631  INFO 24344 --- [main] MainTest                                 : Started MainTest in 6.674 seconds (JVM running for 8.367)
 2021-02-26 13:43:56.923  INFO 24344 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2021-02-26 13:43:57.385  INFO 24344 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-02-26 15:25:55.715  INFO 19628 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 15.0.1 on LAPTOP-5P935E41 with PID 19628 (C:\Users\loujo\Documents\IV1201-application\target\classes started by loujo in C:\Users\loujo\Documents\IV1201-application)
+2021-02-26 15:25:55.718  INFO 19628 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
+2021-02-26 15:25:56.820  INFO 19628 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-26 15:25:56.821  INFO 19628 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-26 15:25:56.922  INFO 19628 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-02-26 15:25:57.031  INFO 19628 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-02-26 15:25:57.083  INFO 19628 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-02-26 15:25:57.204  INFO 19628 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-02-26 15:25:57.277  INFO 19628 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
