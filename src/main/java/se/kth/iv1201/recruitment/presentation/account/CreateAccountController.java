@@ -14,7 +14,7 @@ import se.kth.iv1201.recruitment.domain.PersonDTO;
 import javax.validation.Valid;
 
 /**
- * Handles all HTTP requests
+ * Handles HTTP requests for when user creates account
  */
 @Controller
 @Scope("session")
@@ -67,7 +67,6 @@ public class CreateAccountController {
      * @param model
      * @return
      */
-    //@RequestMapping(value = "/create-account", method = RequestMethod.POST)
     @PostMapping("/" + CREATE_ACCOUNT_PAGE_URL)
     public String saveForm(@Valid @ModelAttribute("createAccountForm") CreateAccountForm createAccountForm, BindingResult bindingResult, Model model) throws IllegalUsernameInsertion, IllegalRecruitmentTransactionException {
         if(bindingResult.hasErrors()) {
@@ -99,6 +98,5 @@ public class CreateAccountController {
     public String showSuccessCreateAccountView(){
         return SUCCESS_CREATE_ACCOUNT_PAGE_URL;
     }
-
 
 }

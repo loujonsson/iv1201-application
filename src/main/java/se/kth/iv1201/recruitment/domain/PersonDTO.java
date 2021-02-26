@@ -37,7 +37,6 @@ public interface PersonDTO {
 
     /**
      * Returns the role of the person
-     * @return
      */
     int getRoleId();
 

@@ -44,17 +44,17 @@ public class RecruitmentService {
         if (username == "") {
             throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + username);
         }if (password == "") {
-            throw new IllegalRecruitmentTransactionException("Attempt to create a person  missing attribute: " + password);
+            throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + password);
         }if (firstName == "") {
-            throw new IllegalRecruitmentTransactionException("Attempt to create a person  missing attribute: " + firstName);
+            throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + firstName);
         }if (lastName == "") {
-            throw new IllegalRecruitmentTransactionException("Attempt to create a person  missing attribute: " + lastName);
+            throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + lastName);
         }if (emailAddress == "") {
-            throw new IllegalRecruitmentTransactionException("Attempt to create a person  missing attribute: " + emailAddress);
+            throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + emailAddress);
         }if (dateOfBirth == 0) {
-            throw new IllegalRecruitmentTransactionException("Attempt to create a person  missing attribute: " + dateOfBirth);
+            throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + dateOfBirth);
         }if (roleId == 0) {
-            throw new IllegalRecruitmentTransactionException("Attempt to create a person  missing attribute: " + roleId);
+            throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + roleId);
         }
         return personRepo.save(new Person(username, password, firstName, lastName, emailAddress, dateOfBirth, roleId));
     }

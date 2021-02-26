@@ -24,7 +24,6 @@ public class LoginController {
     @Autowired
     private RecruitmentService service;
 
-
     /**
      * Handles get request for login button on create account page
      *
@@ -35,7 +34,15 @@ public class LoginController {
         return LOGIN_PAGE_URL;
     }
 
-    // @RequestMapping(value="/login", method = RequestMethod.POST)
+    /**
+     * Login
+     *
+     * @param loginForm
+     * @param bindingResult
+     * @param model
+     * @return Login success page URL
+     * @throws IllegalRecruitmentTransactionException
+     */
     @PostMapping("/" + LOGIN_PAGE_URL)
     public String saveLoginForm(@Valid @ModelAttribute("loginForm") LoginForm loginForm, BindingResult bindingResult, Model model) throws IllegalRecruitmentTransactionException {
         if(bindingResult.hasErrors()) {
@@ -47,7 +54,6 @@ public class LoginController {
             if(applicantLoginSuccess != null){
                 return "redirect:" + SUCCESS_LOGIN_PAGE_URL;
             }else{
-                // TODO: some error message from login
                 return "redirect:" + LOGIN_PAGE_URL;
             }
         }

@@ -1,7 +1,7 @@
 package se.kth.iv1201.recruitment.domain;
 /**
  * Thrown whenever an attempt is made to perform a transaction that is not
- * allowed by the recruitmen application's business rules.
+ * allowed by the recruitment application's business rules.
  */
 public class IllegalRecruitmentTransactionException extends Exception {
 

@@ -1,19 +1,15 @@
 package se.kth.iv1201.recruitment.presentation.error;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.servlet.ModelAndView;
 import se.kth.iv1201.recruitment.domain.IllegalUsernameInsertion;
 import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
 
@@ -26,30 +22,31 @@ public class ExceptionHandlers implements ErrorController {
     Logger logger = LoggerFactory.getLogger(ExceptionHandlers.class);
     static final String ERROR_URL = "error";
 
+    /**
+     * Handles when IllegalUsernameInsertion exception is thrown
+     * @param exception
+     * @return Redirection to /error/username
+     */
     @ExceptionHandler(IllegalUsernameInsertion.class)
-    //@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    //@GetMapping("/error")
     public String handleIllegalUsernameException(IllegalUsernameInsertion exception){
-        System.out.println("I DENNA FUNKTION");
         logger.info(exception.toString());
         return "redirect:" + ERROR_URL + "/username";
     }
 
+    /**
+     * Depending on error type rendering error message to view
+     *
+     * @param errorType type of error
+     * @param model Model
+     * @return Error type key
+     */
     @GetMapping("/" + ERROR_URL + "/{errorType}")
-    //@RequestMapping(value = "errormessage", method = RequestMethod.GET)
-    public String showErrorView(@PathVariable("errorType") String errorType, ModelMap map){
-        System.out.println("HEJ LOUUUUU");
+    public String showErrorView(@PathVariable("errorType") String errorType, Model model){
         if(errorType.equals("username")){
-            System.out.println("HEJ amskfclmdevwknfrvkjnm");
-            //model.addAttribute("errorType", errorType);
-            map.addAttribute("errorType", errorType);
-            //return "/" + ERROR_URL + "/username";
+            model.addAttribute("errorType", "username already exists");
         }
 
-        return "errorType";
-        //return String.format("Username already exists2");
-        //return "/" + ERROR_URL;
-        //return "redirect:" + ERROR_URL + "/username";
+        return ERROR_TYPE_KEY;
     }
 
     /**
@@ -71,6 +68,12 @@ public class ExceptionHandlers implements ErrorController {
         return "/" + ERROR_URL;
     }
 
+    /**
+     * Error handler
+     *
+     * @param request HTTP request
+     * @return Error page url
+     */
     @RequestMapping("/" + ERROR_URL)
     public String handleError(HttpServletRequest request) {
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
@@ -99,23 +102,11 @@ public class ExceptionHandlers implements ErrorController {
         logger.debug("Exception handler got {}: {}", exception.getClass().getName(), exception.getMessage(), exception);
     }
 
-    /*
-    @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public class MyResourceNotFoundException extends RuntimeException {
-        public MyResourceNotFoundException() {
-            super();
-        }
-        public MyResourceNotFoundException(String message, Throwable cause) {
-            super(message, cause);
-        }
-        public MyResourceNotFoundException(String message) {
-            super(message);
-        }
-        public MyResourceNotFoundException(Throwable cause) {
-            super(cause);
-        }
-    }*/
-
+    /**
+     * Get error path based on error url
+     *
+     * @return The error url
+     */
     @Override
     public String getErrorPath() {
         return "/" + ERROR_URL;

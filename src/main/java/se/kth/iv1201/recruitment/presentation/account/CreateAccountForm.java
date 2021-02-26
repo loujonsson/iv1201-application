@@ -1,11 +1,6 @@
 package se.kth.iv1201.recruitment.presentation.account;
 
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.validation.constraints.*;
-
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import se.kth.iv1201.recruitment.domain.IllegalUsernameInsertion;
 import se.kth.iv1201.recruitment.util.Util;
 
 /**
