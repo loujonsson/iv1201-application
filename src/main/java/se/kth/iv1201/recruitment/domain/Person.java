@@ -27,9 +27,6 @@ public class Person implements PersonDTO {
     @Column(name = "date_of_birth")
     private int dateOfBirth;
 
-   // @ManyToOne
-    //@JoinColumn(name="role_id") //referencedColumnName="role"
-    //@Column(name = "role_id", nullable = false, columnDefinition = "int default 2")
     @Column(name = "role_id")
     private int roleId;
 

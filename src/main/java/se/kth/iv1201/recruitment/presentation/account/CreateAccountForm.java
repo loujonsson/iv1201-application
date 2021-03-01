@@ -1,9 +1,6 @@
 package se.kth.iv1201.recruitment.presentation.account;
 
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.validation.constraints.*;
-
 import se.kth.iv1201.recruitment.util.Util;
 
 /**
@@ -33,6 +30,7 @@ class CreateAccountForm {
 
     @NotEmpty(message = "This field cannot be empty.")
     @Size(min = 2, max = 30, message = "Only alphabetical characters are allowed")
+    @Email(message = "Email should be a valid email")
     private String email;
 
     @NotEmpty(message = "This field cannot be empty.")

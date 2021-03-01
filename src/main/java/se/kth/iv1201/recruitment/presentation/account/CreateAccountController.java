@@ -7,16 +7,18 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
+import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
+import se.kth.iv1201.recruitment.domain.IllegalUsernameInsertion;
 import se.kth.iv1201.recruitment.domain.PersonDTO;
 
 import javax.validation.Valid;
 
 /**
- * Handles all HTTP requests
+ * Handles HTTP requests for when user creates account
  */
 @Controller
 @Scope("session")
-public class AccountController {
+public class CreateAccountController {
     static final String DEFAULT_PAGE_URL = "/";
     static final String CREATE_ACCOUNT_PAGE_URL = "create-account";
     static final String SUCCESS_CREATE_ACCOUNT_PAGE_URL = "create-account-success";
@@ -65,9 +67,8 @@ public class AccountController {
      * @param model
      * @return
      */
-    //@RequestMapping(value = "/create-account", method = RequestMethod.POST)
     @PostMapping("/" + CREATE_ACCOUNT_PAGE_URL)
-    public String saveForm(@Valid @ModelAttribute("createAccountForm") CreateAccountForm createAccountForm, BindingResult bindingResult, Model model){
+    public String saveForm(@Valid @ModelAttribute("createAccountForm") CreateAccountForm createAccountForm, BindingResult bindingResult, Model model) throws IllegalUsernameInsertion, IllegalRecruitmentTransactionException {
         if(bindingResult.hasErrors()) {
             model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, createAccountForm);
             return "/" + CREATE_ACCOUNT_PAGE_URL;
@@ -77,6 +78,10 @@ public class AccountController {
             if (currentPerson != null) {
                 model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, createAccountForm);
                 return CREATE_ACCOUNT_PAGE_URL;
+            }
+
+            if(service.checkUsernameExists(createAccountForm.getUsername()) != null){
+                throw new IllegalUsernameInsertion("Username already exists!");
             }
 
             service.createPerson(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), Integer.parseInt(createAccountForm.getDateOfBirth()), createAccountForm.getRoleId());
@@ -93,6 +98,5 @@ public class AccountController {
     public String showSuccessCreateAccountView(){
         return SUCCESS_CREATE_ACCOUNT_PAGE_URL;
     }
-
 
 }
