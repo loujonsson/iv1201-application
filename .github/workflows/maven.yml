@@ -23,7 +23,7 @@ jobs:
     name: run mvn-install
     runs-on: ubuntu-latest
   steps:
-    - run: ./mvn verify
+    - run: mvn verify
     # show results
     - run: ls target/site
     - run: cat target/pmd.xml
