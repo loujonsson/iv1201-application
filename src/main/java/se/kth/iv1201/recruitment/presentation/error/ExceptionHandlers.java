@@ -2,7 +2,6 @@ package se.kth.iv1201.recruitment.presentation.error;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
@@ -46,7 +45,7 @@ public class ExceptionHandlers implements ErrorController {
     @GetMapping("/" + ERROR_URL + "/{errorType}")
     public String showErrorView(@PathVariable("errorType") String errorType, Model model){
         if(errorType.equals("username")){
-            model.addAttribute("errorType", "username already exists");
+            model.addAttribute("errortype", "Username already exists!");
         }
 
         return ERROR_TYPE_KEY;
