@@ -23,7 +23,6 @@ jobs:
     name: run mvn-install
     runs-on: ubuntu-latest
   steps:
-    - uses: actions/checkout@v2
     - run: mvn pmd:pmd pmd:cpd
     # show results
     - run: ls target/site
