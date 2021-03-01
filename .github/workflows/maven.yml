@@ -25,7 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: mvn pmd:pmd pmd:cpd
-      # show results
+      # show results.
       - run: ls target/site
       - run: cat target/pmd.xml
       - run: cat target/cpd.xml
