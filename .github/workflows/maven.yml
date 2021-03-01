@@ -19,6 +19,18 @@ env:
   SPRING_DATASOURCE_PASSWORD: postgres
 
 jobs:
+  mvn-verify:
+    name: run mvn-install
+    runs-on: ubuntu-latest
+
+  steps:
+    - uses: actions/checkout@v2
+    - run: ./mvn verify
+
+  - run: ls target/site
+  - run: cat target/pmd.xml
+  - run: cat target/cpd.xml
+
   build:
 
     runs-on: ubuntu-latest
