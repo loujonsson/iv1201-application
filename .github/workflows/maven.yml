@@ -30,7 +30,6 @@ jobs:
       - run: ls target/site
       - run: cat target/pmd.xml
       - run: cat target/cpd.xml
-      - run: cd ..
       - run: cat target/spotbugsXml.xml
 
   build:
