@@ -13,5 +13,6 @@ public class IllegalUsernameInsertion extends Exception {
      */
     public IllegalUsernameInsertion(String msg){
         super(msg);
+        System.out.println("In IllegalUsernameInsertion");
     }
 }
