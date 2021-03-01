@@ -1,19 +1,22 @@
 package se.kth.iv1201.recruitment.presentation.error;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import se.kth.iv1201.recruitment.domain.IllegalUsernameInsertion;
 import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
 
 @Controller
+@ControllerAdvice
 public class ExceptionHandlers implements ErrorController {
     public static final String ERROR_TYPE_KEY = "errorType";
     public static final String GENERIC_ERROR = "generic";

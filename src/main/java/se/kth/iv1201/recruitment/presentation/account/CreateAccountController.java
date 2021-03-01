@@ -81,8 +81,10 @@ public class CreateAccountController {
             }
 
             if(service.checkUsernameExists(createAccountForm.getUsername()) != null){
+                System.out.println("I ACCOUNT CONTROLLER");
                 throw new IllegalUsernameInsertion("Username already exists!");
             }
+
 
             service.createPerson(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), Integer.parseInt(createAccountForm.getDateOfBirth()), createAccountForm.getRoleId());
             return "redirect:" + SUCCESS_CREATE_ACCOUNT_PAGE_URL;

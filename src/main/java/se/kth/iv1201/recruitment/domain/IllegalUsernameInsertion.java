@@ -4,6 +4,7 @@ package se.kth.iv1201.recruitment.domain;
  * Exception thrown when trying to create a new user where username
  * already exists.
  */
+//public class IllegalUsernameInsertion extends Exception {
 public class IllegalUsernameInsertion extends Exception {
 
     /**
@@ -13,6 +14,5 @@ public class IllegalUsernameInsertion extends Exception {
      */
     public IllegalUsernameInsertion(String msg){
         super(msg);
-        System.out.println("In IllegalUsernameInsertion");
     }
 }
