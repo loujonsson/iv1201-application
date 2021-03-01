@@ -29,6 +29,7 @@ jobs:
       - run: ls target/site
       - run: cat target/pmd.xml
       - run: cat target/cpd.xml
+      # spotbugs
       - run: mvn com.github.spotbugs:spotbugs-maven-plugin:spotbugs
       - run: cat target/spotbugsXml.xml
 
