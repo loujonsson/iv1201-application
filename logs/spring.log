@@ -339,3 +339,41 @@ se.kth.iv1201.recruitment.domain.IllegalUsernameInsertion: Username already exis
 2021-02-26 16:25:16.290  WARN 4728 --- [http-nio-8080-exec-4] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@6c5cdb16 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
 2021-02-26 16:25:22.662  INFO 4728 --- [http-nio-8080-exec-7] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
 2021-02-26 16:50:21.621  INFO 4728 --- [http-nio-8080-exec-6] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-01 19:22:27.065  INFO 8268 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 15.0.1 on LAPTOP-5P935E41 with PID 8268 (C:\Users\loujo\Documents\IV1201-application\target\classes started by loujo in C:\Users\loujo\Documents\IV1201-application)
+2021-03-01 19:22:27.068  INFO 8268 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
+2021-03-01 19:22:29.347  INFO 8268 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-01 19:22:29.348  INFO 8268 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-03-01 19:22:29.592  INFO 8268 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-01 19:22:29.781  INFO 8268 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-01 19:22:29.880  INFO 8268 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-03-01 19:22:30.159  INFO 8268 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-01 19:22:30.295  INFO 8268 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-01 19:22:31.256  INFO 8268 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-01 19:22:31.292  INFO 8268 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-01 19:22:32.689  INFO 8268 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-01 19:23:04.266  INFO 5856 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 15.0.1 on LAPTOP-5P935E41 with PID 5856 (C:\Users\loujo\Documents\IV1201-application\target\classes started by loujo in C:\Users\loujo\Documents\IV1201-application)
+2021-03-01 19:23:04.270  INFO 5856 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
+2021-03-01 19:23:05.752  INFO 5856 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-01 19:23:05.753  INFO 5856 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-03-01 19:23:05.903  INFO 5856 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-01 19:23:06.047  INFO 5856 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-01 19:23:06.094  INFO 5856 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-03-01 19:23:06.197  INFO 5856 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-01 19:23:06.297  INFO 5856 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-01 19:23:07.126  INFO 5856 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-01 19:23:07.148  INFO 5856 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-01 19:23:08.573  INFO 5856 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-01 19:23:10.005  INFO 5856 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 6.23 seconds (JVM running for 7.007)
+2021-03-01 20:41:27.234  INFO 15496 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 15.0.1 on LAPTOP-5P935E41 with PID 15496 (C:\Users\loujo\Documents\IV1201-application\target\classes started by loujo in C:\Users\loujo\Documents\IV1201-application)
+2021-03-01 20:41:27.237  INFO 15496 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
+2021-03-01 20:41:28.923  INFO 15496 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-01 20:41:28.924  INFO 15496 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-03-01 20:41:29.163  INFO 15496 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-01 20:41:29.402  INFO 15496 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-01 20:41:29.501  INFO 15496 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-03-01 20:41:29.755  INFO 15496 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-01 20:41:29.941  INFO 15496 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-01 20:41:30.819  INFO 15496 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-01 20:41:30.856  INFO 15496 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-01 20:41:32.467  INFO 15496 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-01 20:41:33.937  INFO 15496 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 7.282 seconds (JVM running for 8.17)
