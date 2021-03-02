@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@SpringBootApplication(exclude={SecurityAutoConfiguration.class})
+@SpringBootApplication(/*exclude={SecurityAutoConfiguration.class}*/)
 public class Main {
 	//private static final Logger log = LoggerFactory.getLogger(Main.class);
 
