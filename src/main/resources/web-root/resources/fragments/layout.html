@@ -4,6 +4,10 @@
     <title>Title</title>
 </head>
 <body>
-<main layout:fragment="content"></main>
+    <header th:replace="~{resources/fragments/header::header}"></header>
+
+    <main layout:fragment="content"></main>
+
+    <footer th:replace="~{resources/fragments/footer::footer}"></footer>
 </body>
 </html>
