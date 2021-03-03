@@ -35,10 +35,9 @@ public interface PersonDTO {
      */
     String getPassword();
 
-    /**
-     * Returns the role of the person
-     */
-    int getRoleId();
+    Role getRole();
+
+    void setRole(Role role);
 
 
 }

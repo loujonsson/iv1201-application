@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import se.kth.iv1201.recruitment.domain.Role;
 
 @SpringBootApplication(exclude={SecurityAutoConfiguration.class})
 public class Main {
@@ -14,6 +15,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Main.class,args);
+
+		//Role role = new Role();
+		//System.out.println("persons: " + role.getPersons().toString());
 	}
 
 	/**

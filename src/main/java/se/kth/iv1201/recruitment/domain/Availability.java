@@ -15,6 +15,7 @@ public class Availability {
     private Date fromDate;
     private Date toDate;
 
+
     public Availability(Date fromDate, Date toDate) {
         this.fromDate = fromDate;
         this.toDate = toDate;

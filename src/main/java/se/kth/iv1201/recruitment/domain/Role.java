@@ -1,7 +1,6 @@
 package se.kth.iv1201.recruitment.domain;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,10 +12,10 @@ public class Role {
     @Column(name = "name", nullable = false)
     private String name;
 
-   /* @OneToMany()//mappedBy = "role_id"
-    @JoinColumn(name = "role_id")
-    private List<Person> persons = new ArrayList<Person>();
-*/
+    //The mapping is done by role so hibernate doesn't need to create another table for us
+    @OneToMany(mappedBy = "role")
+    private List<Person> persons;
+
     public Role() {
     }
 
@@ -35,4 +34,13 @@ public class Role {
     public void setName(String name) {
         this.name = name;
     }
+
+    public List<Person> getPersons() {
+        return persons;
+    }
+
+    public void setPersons(List<Person> persons) {
+        this.persons = persons;
+    }
+
 }

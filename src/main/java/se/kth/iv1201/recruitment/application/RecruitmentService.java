@@ -9,6 +9,8 @@ import se.kth.iv1201.recruitment.domain.Person;
 import se.kth.iv1201.recruitment.domain.PersonDTO;
 import se.kth.iv1201.recruitment.domain.Role;
 import se.kth.iv1201.recruitment.repository.PersonRepository;
+import se.kth.iv1201.recruitment.repository.RoleRepository;
+
 /**
  * <p>
  * This is the recruitment application class, which defines tasks that can be performed
@@ -28,6 +30,9 @@ public class RecruitmentService {
     @Autowired
     private PersonRepository personRepo;
 
+    @Autowired
+    private RoleRepository roleRepo;
+
     /**
      * Creates a new Person with the specified username, password, first name, last name, email address and date of birth.
      *
@@ -40,7 +45,7 @@ public class RecruitmentService {
      * @return the newly created Person
      * @throws IllegalRecruitmentTransactionException When attempting to save a person with a missing attribute
      */
-    public PersonDTO createPerson(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth, int roleId) throws IllegalRecruitmentTransactionException {
+    public PersonDTO createPerson(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth) throws IllegalRecruitmentTransactionException {
         if (username == "") {
             throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + username);
         }if (password == "") {
@@ -53,10 +58,11 @@ public class RecruitmentService {
             throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + emailAddress);
         }if (dateOfBirth == 0) {
             throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + dateOfBirth);
-        }if (roleId == 0) {
-            throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + roleId);
         }
-        return personRepo.save(new Person(username, password, firstName, lastName, emailAddress, dateOfBirth, roleId));
+     /*   Role userRole = roleRepo.findRoleByRoleId(2);
+        Person applicant = null;
+        applicant.setRole(userRole);*/
+        return personRepo.save(new Person(username, password, firstName, lastName, emailAddress, dateOfBirth));
     }
 
     /**
@@ -79,5 +85,20 @@ public class RecruitmentService {
     public PersonDTO checkUsernameExists(String username){
         return personRepo.findPersonByUsername(username);
     }
+
+    public Role findRoleByName(String name) {
+        return roleRepo.findRoleByName(name);
+    }
+
+    public Role findRoleByRoleId(int roleId) {
+        return roleRepo.findRoleByRoleId(roleId);
+    }
+
+    public Role findRoleByRoleIdAndName(int roleId, String name) {
+        return roleRepo.findRoleByRoleIdAndName(roleId, name);
+    }
+
+
+
 
 }

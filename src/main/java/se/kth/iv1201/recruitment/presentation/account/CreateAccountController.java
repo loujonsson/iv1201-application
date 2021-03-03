@@ -7,9 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
-import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
-import se.kth.iv1201.recruitment.domain.IllegalUsernameInsertion;
-import se.kth.iv1201.recruitment.domain.PersonDTO;
+import se.kth.iv1201.recruitment.domain.*;
+import se.kth.iv1201.recruitment.repository.RoleRepository;
 
 import javax.validation.Valid;
 
@@ -28,7 +27,12 @@ public class CreateAccountController {
 
     @Autowired
     private RecruitmentService service;
+
+    @Autowired
+    private RoleRepository roleRepo;
+
     private PersonDTO currentPerson;
+
     /**
      * Currently default view is Create account
      *
@@ -84,7 +88,11 @@ public class CreateAccountController {
                 throw new IllegalUsernameInsertion("Username already exists!");
             }
 
-            service.createPerson(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), Integer.parseInt(createAccountForm.getDateOfBirth()), createAccountForm.getRoleId());
+          /*  Role userRole = roleRepo.findRoleByRoleId(2);
+            System.out.println("userRole: " + userRole.toString());
+            currentPerson.setRole(userRole);*/
+
+            service.createPerson(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), Integer.parseInt(createAccountForm.getDateOfBirth()));
             return "redirect:" + SUCCESS_CREATE_ACCOUNT_PAGE_URL;
         }
     }

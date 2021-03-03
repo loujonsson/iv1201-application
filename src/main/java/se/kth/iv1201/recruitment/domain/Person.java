@@ -1,6 +1,8 @@
 package se.kth.iv1201.recruitment.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Create an entity for Person so the database can create a table from it
@@ -27,8 +29,17 @@ public class Person implements PersonDTO {
     @Column(name = "date_of_birth")
     private int dateOfBirth;
 
-    @Column(name = "role_id")
-    private int roleId;
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "competence_profile",
+            joinColumns = @JoinColumn(name = "person_id"),
+            inverseJoinColumns = @JoinColumn(name = "competence_id")
+    )
+    private Set<Competence> competences = new HashSet<>();
 
     /**
      * Exists only for the sake of JPA
@@ -44,20 +55,20 @@ public class Person implements PersonDTO {
      * @param emailAddress The person's email
      * @param dateOfBirth The person's date of birth
      */
-    public Person(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth, int roleId){
+    public Person(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth){
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;
         this.dateOfBirth = dateOfBirth;
-        this.roleId = roleId;
+       // this.role = role;
     }
 
     public String toString() {
         return String.format(
-                "Person[username='%s', password='%s', firstName='%s', lastName='%s', email='%s', dateOfBirth='%s']",
-                username, password, firstName, lastName, emailAddress, dateOfBirth);
+                "Person[username='%s', password='%s', firstName='%s', lastName='%s', email='%s', dateOfBirth='%s', role='%s']",
+                username, password, firstName, lastName, emailAddress, dateOfBirth, role);
     }
 
     @Override
@@ -90,8 +101,11 @@ public class Person implements PersonDTO {
         return password;
     }
 
-    @Override
-    public int getRoleId() {
-        return roleId;
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
