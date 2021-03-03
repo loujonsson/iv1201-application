@@ -33,6 +33,8 @@ public class Person implements PersonDTO {
     @JoinColumn(name = "role_id")
     private Role role;
 
+    private int roleId;
+
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "competence_profile",
@@ -55,20 +57,20 @@ public class Person implements PersonDTO {
      * @param emailAddress The person's email
      * @param dateOfBirth The person's date of birth
      */
-    public Person(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth){
+    public Person(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth, int roleId){
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;
         this.dateOfBirth = dateOfBirth;
-       // this.role = role;
+        this.roleId = roleId;
     }
 
     public String toString() {
         return String.format(
                 "Person[username='%s', password='%s', firstName='%s', lastName='%s', email='%s', dateOfBirth='%s', role='%s']",
-                username, password, firstName, lastName, emailAddress, dateOfBirth, role);
+                username, password, firstName, lastName, emailAddress, dateOfBirth, roleId);
     }
 
     @Override

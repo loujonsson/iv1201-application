@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>Something went wrong!</h1>
-    <h2>Our Engineers are on it</h2>
-
-    <td th:text="${errorType}"></td>
-
-    <form th:action="@{/error}">
-        <input type="text" th:name="${errorType}" th:placeholder="${errorType}"/>
-    </form>
-    <a href="/">Go Home</a>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h1>Something went wrong!</h1>
+        <h2>Our Engineers are on it</h2>
+        <p><b>An error occurred:</b></p>
+        <p th:text="${errortype}"></p>
+        <a href="/">Go Back</a>
+    </body>
 </html>
 
 

@@ -10,6 +10,7 @@ import se.kth.iv1201.recruitment.application.RecruitmentService;
 import se.kth.iv1201.recruitment.domain.*;
 import se.kth.iv1201.recruitment.repository.RoleRepository;
 
+
 import javax.validation.Valid;
 
 /**
@@ -72,27 +73,32 @@ public class CreateAccountController {
      * @return
      */
     @PostMapping("/" + CREATE_ACCOUNT_PAGE_URL)
-    public String saveForm(@Valid @ModelAttribute("createAccountForm") CreateAccountForm createAccountForm, BindingResult bindingResult, Model model) throws IllegalUsernameInsertion, IllegalRecruitmentTransactionException {
+    public String saveForm(@Valid @ModelAttribute("createAccountForm") CreateAccountForm createAccountForm, BindingResult bindingResult, Model model) throws IllegalAttributeInsertionException, IllegalRecruitmentTransactionException, IllegalEmailInsertionException, IllegalUsernameInsertionException, IllegalDateOfBirthInsertionException {
         if(bindingResult.hasErrors()) {
             model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, createAccountForm);
             return "/" + CREATE_ACCOUNT_PAGE_URL;
         }
         else {
-
             if (currentPerson != null) {
                 model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, createAccountForm);
                 return CREATE_ACCOUNT_PAGE_URL;
             }
 
             if(service.checkUsernameExists(createAccountForm.getUsername()) != null){
-                throw new IllegalUsernameInsertion("Username already exists!");
+                throw new IllegalUsernameInsertionException("A user with this username already exists!");
+            }
+            if(service.checkEmailExists(createAccountForm.getEmail()) != null){
+                throw new IllegalEmailInsertionException("A user with this email already exists!");
+            }
+            if(service.checkDateOfBirthExists(Integer.parseInt(createAccountForm.getDateOfBirth())) != null){
+                throw new IllegalDateOfBirthInsertionException("A user with this date of birth already exists!");
             }
 
           /*  Role userRole = roleRepo.findRoleByRoleId(2);
             System.out.println("userRole: " + userRole.toString());
             currentPerson.setRole(userRole);*/
 
-            service.createPerson(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), Integer.parseInt(createAccountForm.getDateOfBirth()));
+            service.createPerson(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), Integer.parseInt(createAccountForm.getDateOfBirth()), createAccountForm.getRoleId());
             return "redirect:" + SUCCESS_CREATE_ACCOUNT_PAGE_URL;
         }
     }

@@ -19,8 +19,21 @@ env:
   SPRING_DATASOURCE_PASSWORD: postgres
 
 jobs:
-  build:
+  ci-static-analyze:
+    name: run static analyzing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: mvn verify
+      - run: mvn pmd:pmd pmd:cpd
+      - run: mvn spotbugs:spotbugs
+      # show results.
+      - run: ls target/site
+      - run: cat target/pmd.xml
+      - run: cat target/cpd.xml
+      - run: cat target/spotbugsXml.xml
 
+  build:
     runs-on: ubuntu-latest
     services:
       postgres:

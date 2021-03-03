@@ -45,7 +45,7 @@ public class RecruitmentService {
      * @return the newly created Person
      * @throws IllegalRecruitmentTransactionException When attempting to save a person with a missing attribute
      */
-    public PersonDTO createPerson(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth) throws IllegalRecruitmentTransactionException {
+    public PersonDTO createPerson(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth, int roleId) throws IllegalRecruitmentTransactionException {
         if (username == "") {
             throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + username);
         }if (password == "") {
@@ -58,11 +58,14 @@ public class RecruitmentService {
             throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + emailAddress);
         }if (dateOfBirth == 0) {
             throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + dateOfBirth);
+        }if (roleId == 0) {
+            throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + roleId);
         }
+
      /*   Role userRole = roleRepo.findRoleByRoleId(2);
         Person applicant = null;
         applicant.setRole(userRole);*/
-        return personRepo.save(new Person(username, password, firstName, lastName, emailAddress, dateOfBirth));
+        return personRepo.save(new Person(username, password, firstName, lastName, emailAddress, dateOfBirth, roleId));
     }
 
     /**
@@ -82,6 +85,11 @@ public class RecruitmentService {
         return personRepo.findPersonByUsernameAndPassword(username, password);
     }
 
+    /**
+     * This method checks whether a username alreadu exists in the database.
+     * @param username
+     * @return
+     */
     public PersonDTO checkUsernameExists(String username){
         return personRepo.findPersonByUsername(username);
     }
@@ -98,7 +106,22 @@ public class RecruitmentService {
         return roleRepo.findRoleByRoleIdAndName(roleId, name);
     }
 
+    /**
+     * This method checks whether an email alreadu exists in the database.
+     * @param emailAddress
+     * @return
+     */
+    public PersonDTO checkEmailExists(String emailAddress){
+        return personRepo.findPersonByEmailAddress(emailAddress);
+    }
 
-
+    /**
+     * This method checks whether a date of birth alreadu exists in the database.
+     * @param dateOfBirth
+     * @return
+     */
+    public PersonDTO checkDateOfBirthExists(int dateOfBirth){
+        return personRepo.findPersonByDateOfBirth(dateOfBirth);
+    }
 
 }

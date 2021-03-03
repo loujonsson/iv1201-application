@@ -39,6 +39,8 @@ class CreateAccountForm {
     @Size(min = 2, max = 30, message = "The password has to be between 2-30 characters.")
     private String password;
 
+    private int roleId = 2;
+
     /**
      * @return The username of the account that will be created.
      */
@@ -133,5 +135,8 @@ class CreateAccountForm {
         return Util.toString(this);
     }
 
+    public int getRoleId() {
+        return roleId;
+    }
 }
 

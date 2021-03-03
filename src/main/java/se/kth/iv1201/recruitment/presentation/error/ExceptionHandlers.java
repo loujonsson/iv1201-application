@@ -1,21 +1,22 @@
 package se.kth.iv1201.recruitment.presentation.error;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import se.kth.iv1201.recruitment.domain.IllegalUsernameInsertion;
-import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
+
+import se.kth.iv1201.recruitment.domain.*;
 
 @Controller
+@ControllerAdvice
 public class ExceptionHandlers implements ErrorController {
-    public static final String ERROR_TYPE_KEY = "errorType";
+    public static final String ERROR_TYPE_KEY = "errortype";
     public static final String GENERIC_ERROR = "generic";
     public static final String SAVE_ACCOUNT_FAILED = "missing attribute";
     public static final String LOGIN_FAILED = "login";
@@ -27,10 +28,55 @@ public class ExceptionHandlers implements ErrorController {
      * @param exception
      * @return Redirection to /error/username
      */
-    @ExceptionHandler(IllegalUsernameInsertion.class)
-    public String handleIllegalUsernameException(IllegalUsernameInsertion exception){
+    @ExceptionHandler(IllegalAttributeInsertionException.class)
+    public String handleIllegalUsernameException(IllegalAttributeInsertionException exception){
+        logger.info(exception.toString());
+        String str = exception.toString();
+        String param = "";
+        if(str == "se.kth.iv1201.recruitment.domain.IllegalAttributeInsertionException: A user with this username already exists!"){
+            logger.info("user");
+            param = "/username";
+        }else if(str == "se.kth.iv1201.recruitment.domain.IllegalAttributeInsertionException: A user with this email already exists!"){
+            logger.info("email");
+            param = "/email";
+        }else if(str == "se.kth.iv1201.recruitment.domain.IllegalAttributeInsertionException: A user with this date of birth already exists!"){
+            param = "/date-of-birth";
+        }
+        //return "redirect:" + ERROR_URL + "/illegal-attribute";
+        return "redirect:" + ERROR_URL + param;
+    }
+
+    /**
+     * Handles when IllegalUsernameInsertion exception is thrown
+     * @param exception
+     * @return Redirection to /error/username
+     */
+    @ExceptionHandler(IllegalUsernameInsertionException.class)
+    public String handleIllegalUsernameException(IllegalUsernameInsertionException exception){
         logger.info(exception.toString());
         return "redirect:" + ERROR_URL + "/username";
+    }
+
+    /**
+     * Handles when IllegalDateOfBirthInsertion exception is thrown
+     * @param exception
+     * @return Redirection to /error/email
+     */
+    @ExceptionHandler(IllegalEmailInsertionException.class)
+    public String handleIllegalUsernameException(IllegalEmailInsertionException exception){
+        logger.info(exception.toString());
+        return "redirect:" + ERROR_URL + "/email";
+    }
+
+    /**
+     * Handles when IllegalDateOfBirthInsertion exception is thrown
+     * @param exception
+     * @return Redirection to /error/date-of-birth
+     */
+    @ExceptionHandler(IllegalDateOfBirthInsertionException.class)
+    public String handleIllegalUsernameException(IllegalDateOfBirthInsertionException exception){
+        logger.info(exception.toString());
+        return "redirect:" + ERROR_URL + "/date-of-birth";
     }
 
     /**
@@ -43,7 +89,11 @@ public class ExceptionHandlers implements ErrorController {
     @GetMapping("/" + ERROR_URL + "/{errorType}")
     public String showErrorView(@PathVariable("errorType") String errorType, Model model){
         if(errorType.equals("username")){
-            model.addAttribute("errorType", "username already exists");
+            model.addAttribute("errortype", "A user with this username already exists!");
+        }else if(errorType.equals("email")){
+            model.addAttribute("errortype", "A user with this email already exists!");
+        }else{
+            model.addAttribute("errortype", "A user with this date of birth already exists!");
         }
 
         return ERROR_TYPE_KEY;
