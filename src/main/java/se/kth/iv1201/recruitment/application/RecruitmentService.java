@@ -116,10 +116,11 @@ public class RecruitmentService {
     }
 
     /**
-     * This method checks whether a date of birth alreadu exists in the database.
+     * This method checks whether a date of birth already exists in the database.
      * @param dateOfBirth
      * @return
      */
+    //TODO: show user that date of birth already exists in db
     public PersonDTO checkDateOfBirthExists(int dateOfBirth){
         return personRepo.findPersonByDateOfBirth(dateOfBirth);
     }

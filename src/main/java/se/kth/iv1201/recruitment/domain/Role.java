@@ -13,8 +13,8 @@ public class Role {
     private String name;
 
     //The mapping is done by role so hibernate doesn't need to create another table for us
-    @OneToMany(mappedBy = "role")
-    private List<Person> persons;
+    //@OneToMany(mappedBy = "role_id")
+    //private List<Person> persons;
 
     public Role() {
     }
@@ -34,7 +34,7 @@ public class Role {
     public void setName(String name) {
         this.name = name;
     }
-
+/*
     public List<Person> getPersons() {
         return persons;
     }
@@ -42,5 +42,5 @@ public class Role {
     public void setPersons(List<Person> persons) {
         this.persons = persons;
     }
-
+*/
 }

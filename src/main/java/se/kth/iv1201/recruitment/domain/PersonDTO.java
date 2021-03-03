@@ -35,9 +35,10 @@ public interface PersonDTO {
      */
     String getPassword();
 
-    Role getRole();
+   /* Role getRole();
 
     void setRole(Role role);
-
+*/
+    int getRoleId();
 
 }

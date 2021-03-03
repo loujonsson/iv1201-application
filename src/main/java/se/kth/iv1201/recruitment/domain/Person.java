@@ -29,10 +29,12 @@ public class Person implements PersonDTO {
     @Column(name = "date_of_birth")
     private int dateOfBirth;
 
-    @ManyToOne
+   /* @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
+    */
 
+    @Column(name = "role_id")
     private int roleId;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -103,11 +105,17 @@ public class Person implements PersonDTO {
         return password;
     }
 
+    @Override
+    public int getRoleId() {
+        return roleId;
+    }
+
+    /*
     public Role getRole() {
         return role;
     }
 
     public void setRole(Role role) {
         this.role = role;
-    }
+    }*/
 }
