@@ -17,13 +17,22 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
     Person findPersonByUsername(String username);
 
     /**
-     * Searches for all Persons with the specified date of birth
+     * Searches for the person with the specified date of birth
      *
      * @param dateOfBirth The date of birth of the Person
-     * @return A list containing all Persons with the specified date of birth. The list
-     *        is empty if there are no such Persons.
+     * @return The account with the specified date of birth, or null if there is no
+     *         such person.
      */
-    List<Person> findByDateOfBirth(int dateOfBirth);
+    Person findPersonByDateOfBirth(int dateOfBirth);
+
+    /**
+     * Searches for all Persons with the specified email
+     *
+     * @param emailAddress The email of the Person
+     * @return The account with the specified email, or null if there is no
+     *         such person.
+     */
+    Person findPersonByEmailAddress(String emailAddress);
 
     /**
      * Searches for all Person in the database with the specified username and password
