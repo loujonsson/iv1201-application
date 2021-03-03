@@ -10,6 +10,12 @@
     <section>
         <h1>Log in</h1>
         <p1>If already have an account, log in</p1>
+        <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
         <form th:action="@{/login}" th:object="${loginForm}" method="post">
             <p>
                 <label for="username">Username</label>:
