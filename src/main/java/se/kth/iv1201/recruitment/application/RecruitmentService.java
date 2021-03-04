@@ -80,7 +80,29 @@ public class RecruitmentService {
         return personRepo.findPersonByUsernameAndPassword(username, password);
     }
 
+    /**
+     * This method checks whether a username alreadu exists in the database.
+     * @param username
+     * @return
+     */
     public PersonDTO checkUsernameExists(String username){
         return personRepo.findPersonByUsername(username);
+
+    /**
+     * This method checks whether an email alreadu exists in the database.
+     * @param emailAddress
+     * @return
+     */
+    public PersonDTO checkEmailExists(String emailAddress){
+        return personRepo.findPersonByEmailAddress(emailAddress);
+    }
+
+    /**
+     * This method checks whether a date of birth alreadu exists in the database.
+     * @param dateOfBirth
+     * @return
+     */
+    public PersonDTO checkDateOfBirthExists(int dateOfBirth){
+        return personRepo.findPersonByDateOfBirth(dateOfBirth);
     }
 }

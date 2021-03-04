@@ -7,9 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
-import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
-import se.kth.iv1201.recruitment.domain.IllegalUsernameInsertion;
-import se.kth.iv1201.recruitment.domain.PersonDTO;
+import se.kth.iv1201.recruitment.domain.*;
 
 import javax.validation.Valid;
 
@@ -68,20 +66,25 @@ public class CreateAccountController {
      * @return
      */
     @PostMapping("/" + CREATE_ACCOUNT_PAGE_URL)
-    public String saveForm(@Valid @ModelAttribute("createAccountForm") CreateAccountForm createAccountForm, BindingResult bindingResult, Model model) throws IllegalUsernameInsertion, IllegalRecruitmentTransactionException {
+    public String saveForm(@Valid @ModelAttribute("createAccountForm") CreateAccountForm createAccountForm, BindingResult bindingResult, Model model) throws IllegalAttributeInsertionException, IllegalRecruitmentTransactionException {
         if(bindingResult.hasErrors()) {
             model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, createAccountForm);
             return "/" + CREATE_ACCOUNT_PAGE_URL;
         }
         else {
-
             if (currentPerson != null) {
                 model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, createAccountForm);
                 return CREATE_ACCOUNT_PAGE_URL;
             }
 
             if(service.checkUsernameExists(createAccountForm.getUsername()) != null){
-                throw new IllegalUsernameInsertion("Username already exists!");
+                throw new IllegalAttributeInsertionException("A user with this username already exists!");
+            }
+            if(service.checkEmailExists(createAccountForm.getEmail()) != null){
+                throw new IllegalAttributeInsertionException("A user with this email already exists!");
+            }
+            if(service.checkDateOfBirthExists(Integer.parseInt(createAccountForm.getDateOfBirth())) != null){
+                throw new IllegalAttributeInsertionException("A user with this date of birth already exists!");
             }
 
             service.createPerson(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), Integer.parseInt(createAccountForm.getDateOfBirth()), createAccountForm.getRoleId());

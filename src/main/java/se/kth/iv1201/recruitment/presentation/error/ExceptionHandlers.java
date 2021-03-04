@@ -1,22 +1,22 @@
 package se.kth.iv1201.recruitment.presentation.error;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import se.kth.iv1201.recruitment.domain.IllegalUsernameInsertion;
-import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
+
+import se.kth.iv1201.recruitment.domain.*;
 
 @Controller
 @ControllerAdvice
 public class ExceptionHandlers implements ErrorController {
-    public static final String ERROR_TYPE_KEY = "errorType";
+    public static final String ERROR_TYPE_KEY = "errortype";
     public static final String GENERIC_ERROR = "generic";
     public static final String SAVE_ACCOUNT_FAILED = "missing attribute";
     public static final String LOGIN_FAILED = "login";
@@ -28,10 +28,19 @@ public class ExceptionHandlers implements ErrorController {
      * @param exception
      * @return Redirection to /error/username
      */
-    @ExceptionHandler(IllegalUsernameInsertion.class)
-    public String handleIllegalUsernameException(IllegalUsernameInsertion exception){
-        logger.info(exception.toString());
-        return "redirect:" + ERROR_URL + "/username";
+    @ExceptionHandler(IllegalAttributeInsertionException.class)
+    public String handleIllegalUsernameException(IllegalAttributeInsertionException exception){
+        String str = exception.toString();
+        String prefix = "se.kth.iv1201.recruitment.domain.IllegalAttributeInsertionException: ";
+        String param = "";
+        if(str.equals(prefix + "A user with this username already exists!")){
+            param = "/username";
+        }else if(str.equals(prefix + "A user with this email already exists!")){
+            param = "/email";
+        }else if(str.equals(prefix + "A user with this date of birth already exists!")){
+            param = "/date-of-birth";
+        }
+        return "redirect:" + ERROR_URL + param;
     }
 
     /**
@@ -44,7 +53,11 @@ public class ExceptionHandlers implements ErrorController {
     @GetMapping("/" + ERROR_URL + "/{errorType}")
     public String showErrorView(@PathVariable("errorType") String errorType, Model model){
         if(errorType.equals("username")){
-            model.addAttribute("errortype", "Username already exists!");
+            model.addAttribute("errortype", "A user with this username already exists!");
+        }else if(errorType.equals("email")){
+            model.addAttribute("errortype", "A user with this email already exists!");
+        }else{
+            model.addAttribute("errortype", "A user with this date of birth already exists!");
         }
 
         return ERROR_TYPE_KEY;
@@ -76,7 +89,7 @@ public class ExceptionHandlers implements ErrorController {
      * @return Error page url
      */
     @RequestMapping("/" + ERROR_URL)
-    public String handleError(HttpServletRequest request) {
+    public String handleError(HttpServletRequest request, Model model) {
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
 
         if (status != null) {
@@ -84,15 +97,19 @@ public class ExceptionHandlers implements ErrorController {
 
             if(statusCode == HttpStatus.NOT_FOUND.value()) { //404
                 logger.info("A 404 not found exception occurred.");
+                model.addAttribute("errortype", "A 404 not found exception occurred!");
             }
             else if(statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) { //500
                 logger.info("A 500 internal server error exception occurred.");
+                model.addAttribute("errortype", "A 500 internal server error exception occurred!");
             }
             else if(statusCode == HttpStatus.BAD_REQUEST.value()) { //400
                 logger.info("A 400 bad request occurred.");
+                model.addAttribute("errortype", "A 400 bad request occurred!");
             }
             else {
-                logger.info("Unspecified error.");
+                logger.info("An unspecified error occurred.");
+                model.addAttribute("errortype", "An unspecified error occurred!");
             }
         }
 
