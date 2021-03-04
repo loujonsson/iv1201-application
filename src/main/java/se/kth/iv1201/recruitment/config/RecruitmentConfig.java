@@ -6,9 +6,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.resource.PathResourceResolver;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
@@ -16,6 +20,8 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
 import nz.net.ultraq.thymeleaf.LayoutDialect;
+
+import java.util.Locale;
 
 /**
  * Loads all configuration for the entire recruitment web app.
@@ -89,5 +95,38 @@ public class RecruitmentConfig implements WebMvcConfigurer, ApplicationContextAw
         registry.addResourceHandler("/**").addResourceLocations(rootDirForStaticFiles)
                 .setCachePeriod(cachePeriodForStaticFilesInSecs).resourceChain(true)
                 .addResolver(new PathResourceResolver());
+    }
+
+    /**
+     * The LocaleResolver interface has implementations that determine the current locale
+     * based on the session, cookies, the Accept-Language header, or a fixed value.
+     * @return
+     */
+    @Bean
+    public LocaleResolver localeResolver() {
+        SessionLocaleResolver slr = new SessionLocaleResolver();
+        slr.setDefaultLocale(Locale.US);
+        return slr;
+    }
+
+    /**
+     *  The interceptor bean will switch to a new locale based on
+     *  the value of the lang parameter appended to a request
+     * @return
+     */
+    @Bean
+    public LocaleChangeInterceptor localeChangeInterceptor() {
+        LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
+        lci.setParamName("lang");
+        return lci;
+    }
+
+    /**
+     * Adds the LocaleChangeInterceptor bean to the application's interceptor registry
+     * @param registry
+     */
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(localeChangeInterceptor());
     }
 }
