@@ -30,19 +30,16 @@ public class ExceptionHandlers implements ErrorController {
      */
     @ExceptionHandler(IllegalAttributeInsertionException.class)
     public String handleIllegalUsernameException(IllegalAttributeInsertionException exception){
-        logger.info(exception.toString());
         String str = exception.toString();
+        String prefix = "se.kth.iv1201.recruitment.domain.IllegalAttributeInsertionException: ";
         String param = "";
-        if(str.equals("se.kth.iv1201.recruitment.domain.IllegalAttributeInsertionException: A user with this username already exists!")){
-            logger.info("user");
+        if(str.equals(prefix + "A user with this username already exists!")){
             param = "/username";
-        }else if(str.equals("se.kth.iv1201.recruitment.domain.IllegalAttributeInsertionException: A user with this email already exists!")){
-            logger.info("email");
+        }else if(str.equals(prefix + "A user with this email already exists!")){
             param = "/email";
-        }else if(str.equals("se.kth.iv1201.recruitment.domain.IllegalAttributeInsertionException: A user with this date of birth already exists!")){
+        }else if(str.equals(prefix + "A user with this date of birth already exists!")){
             param = "/date-of-birth";
         }
-        //return "redirect:" + ERROR_URL + "/illegal-attribute";
         return "redirect:" + ERROR_URL + param;
     }
 
@@ -92,7 +89,7 @@ public class ExceptionHandlers implements ErrorController {
      * @return Error page url
      */
     @RequestMapping("/" + ERROR_URL)
-    public String handleError(HttpServletRequest request) {
+    public String handleError(HttpServletRequest request, Model model) {
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
 
         if (status != null) {
@@ -100,15 +97,19 @@ public class ExceptionHandlers implements ErrorController {
 
             if(statusCode == HttpStatus.NOT_FOUND.value()) { //404
                 logger.info("A 404 not found exception occurred.");
+                model.addAttribute("errortype", "A 404 not found exception occurred!");
             }
             else if(statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) { //500
                 logger.info("A 500 internal server error exception occurred.");
+                model.addAttribute("errortype", "A 500 internal server error exception occurred!");
             }
             else if(statusCode == HttpStatus.BAD_REQUEST.value()) { //400
                 logger.info("A 400 bad request occurred.");
+                model.addAttribute("errortype", "A 400 bad request occurred!");
             }
             else {
-                logger.info("Unspecified error.");
+                logger.info("An unspecified error occurred.");
+                model.addAttribute("errortype", "An unspecified error occurred!");
             }
         }
 
