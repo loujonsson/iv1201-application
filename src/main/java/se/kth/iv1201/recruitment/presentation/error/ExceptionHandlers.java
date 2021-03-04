@@ -33,50 +33,17 @@ public class ExceptionHandlers implements ErrorController {
         logger.info(exception.toString());
         String str = exception.toString();
         String param = "";
-        if(str == "se.kth.iv1201.recruitment.domain.IllegalAttributeInsertionException: A user with this username already exists!"){
+        if(str.equals("se.kth.iv1201.recruitment.domain.IllegalAttributeInsertionException: A user with this username already exists!")){
             logger.info("user");
             param = "/username";
-        }else if(str == "se.kth.iv1201.recruitment.domain.IllegalAttributeInsertionException: A user with this email already exists!"){
+        }else if(str.equals("se.kth.iv1201.recruitment.domain.IllegalAttributeInsertionException: A user with this email already exists!")){
             logger.info("email");
             param = "/email";
-        }else if(str == "se.kth.iv1201.recruitment.domain.IllegalAttributeInsertionException: A user with this date of birth already exists!"){
+        }else if(str.equals("se.kth.iv1201.recruitment.domain.IllegalAttributeInsertionException: A user with this date of birth already exists!")){
             param = "/date-of-birth";
         }
         //return "redirect:" + ERROR_URL + "/illegal-attribute";
         return "redirect:" + ERROR_URL + param;
-    }
-
-    /**
-     * Handles when IllegalUsernameInsertion exception is thrown
-     * @param exception
-     * @return Redirection to /error/username
-     */
-    @ExceptionHandler(IllegalUsernameInsertionException.class)
-    public String handleIllegalUsernameException(IllegalUsernameInsertionException exception){
-        logger.info(exception.toString());
-        return "redirect:" + ERROR_URL + "/username";
-    }
-
-    /**
-     * Handles when IllegalDateOfBirthInsertion exception is thrown
-     * @param exception
-     * @return Redirection to /error/email
-     */
-    @ExceptionHandler(IllegalEmailInsertionException.class)
-    public String handleIllegalUsernameException(IllegalEmailInsertionException exception){
-        logger.info(exception.toString());
-        return "redirect:" + ERROR_URL + "/email";
-    }
-
-    /**
-     * Handles when IllegalDateOfBirthInsertion exception is thrown
-     * @param exception
-     * @return Redirection to /error/date-of-birth
-     */
-    @ExceptionHandler(IllegalDateOfBirthInsertionException.class)
-    public String handleIllegalUsernameException(IllegalDateOfBirthInsertionException exception){
-        logger.info(exception.toString());
-        return "redirect:" + ERROR_URL + "/date-of-birth";
     }
 
     /**
