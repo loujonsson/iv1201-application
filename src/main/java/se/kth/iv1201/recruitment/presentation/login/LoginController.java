@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
 import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
 import se.kth.iv1201.recruitment.domain.PersonDTO;
+import se.kth.iv1201.recruitment.presentation.account.CreateAccountController;
 
 import javax.validation.Valid;
 
@@ -20,6 +21,7 @@ public class LoginController {
     static final String LOGIN_PAGE_URL = "login";
     static final String SUCCESS_LOGIN_PAGE_URL = "login-success";
     private static final String CURRENT_ACCT_FORM_OBJ_NAME = "currentAcctForm";
+    static final String CREATE_ACCOUNT_PAGE_URL = "create-account";
 
     @Autowired
     private RecruitmentService service;
@@ -52,7 +54,11 @@ public class LoginController {
         else {
             PersonDTO applicantLoginSuccess = service.checkLogin(loginForm.getUsername(), loginForm.getPassword());
             if(applicantLoginSuccess != null){
-                return "redirect:" + SUCCESS_LOGIN_PAGE_URL;
+                if(service.checkIsCompleteFalse(loginForm.getUsername()).getIsComplete()){
+                    return "redirect:" + CREATE_ACCOUNT_PAGE_URL;
+                }else{
+                    return "redirect:" + SUCCESS_LOGIN_PAGE_URL;
+                }
             }else{
                 return "redirect:" + LOGIN_PAGE_URL;
             }

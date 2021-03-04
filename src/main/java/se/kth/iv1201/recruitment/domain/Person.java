@@ -25,11 +25,13 @@ public class Person implements PersonDTO {
     private String emailAddress;
 
     @Column(name = "date_of_birth")
-    private int dateOfBirth;
+    private String dateOfBirth;
 
     @Column(name = "role_id")
     private int roleId;
 
+    @Column(name = "is_complete")
+    private boolean isComplete;
     /**
      * Exists only for the sake of JPA
      */
@@ -44,7 +46,7 @@ public class Person implements PersonDTO {
      * @param emailAddress The person's email
      * @param dateOfBirth The person's date of birth
      */
-    public Person(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth, int roleId){
+    public Person(String username, String password, String firstName, String lastName, String emailAddress, String dateOfBirth, int roleId, boolean isComplete){
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -52,6 +54,7 @@ public class Person implements PersonDTO {
         this.emailAddress = emailAddress;
         this.dateOfBirth = dateOfBirth;
         this.roleId = roleId;
+        this.isComplete = isComplete;
     }
 
     public String toString() {
@@ -76,7 +79,7 @@ public class Person implements PersonDTO {
     }
 
     @Override
-    public int getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
@@ -93,5 +96,10 @@ public class Person implements PersonDTO {
     @Override
     public int getRoleId() {
         return roleId;
+    }
+
+    @Override
+    public Boolean getIsComplete() {
+        return isComplete;
     }
 }

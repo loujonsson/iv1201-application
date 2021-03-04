@@ -23,7 +23,7 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
      * @return The account with the specified date of birth, or null if there is no
      *         such person.
      */
-    Person findPersonByDateOfBirth(int dateOfBirth);
+    Person findPersonByDateOfBirth(String dateOfBirth);
 
     /**
      * Searches for all Persons with the specified email
@@ -42,6 +42,8 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
      * @return returns user that has the matching username and password from the db
      */
     Person findPersonByUsernameAndPassword(String username, String password);
+
+    Person findPersonByIsCompleteFalseAndUsername(String username);
 
     @Override
     Person save(Person person);
