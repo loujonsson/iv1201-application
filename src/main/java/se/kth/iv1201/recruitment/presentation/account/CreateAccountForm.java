@@ -142,5 +142,8 @@ class CreateAccountForm {
         this.roleId = 2;
     }
 
+    public boolean getIsComplete() {
+        return true;
+    }
 }
 

@@ -22,8 +22,9 @@ public interface PersonDTO {
 
     /**
      * Returns the date of birth of the Person
+     * @return
      */
-    int getDateOfBirth();
+    String getDateOfBirth();
 
     /**
      * Returns the username of the Person
@@ -39,6 +40,8 @@ public interface PersonDTO {
      * Returns the role of the person
      */
     int getRoleId();
+
+    Boolean getIsComplete();
 
 
 }

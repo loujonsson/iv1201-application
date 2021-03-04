@@ -13,6 +13,9 @@ import se.kth.iv1201.recruitment.domain.Person;
 import se.kth.iv1201.recruitment.domain.PersonDTO;
 import se.kth.iv1201.recruitment.domain.Role;
 import se.kth.iv1201.recruitment.repository.PersonRepository;
+
+import static java.lang.Boolean.FALSE;
+
 /**
  * <p>
  * This is the recruitment application class, which defines tasks that can be performed
@@ -44,7 +47,7 @@ public class RecruitmentService {
      * @return the newly created Person
      * @throws IllegalRecruitmentTransactionException When attempting to save a person with a missing attribute
      */
-    public PersonDTO createPerson(String username, String password, String firstName, String lastName, String emailAddress, int dateOfBirth, int roleId) throws IllegalRecruitmentTransactionException {
+    public PersonDTO createPerson(String username, String password, String firstName, String lastName, String emailAddress, String dateOfBirth, int roleId, boolean isComplete) throws IllegalRecruitmentTransactionException {
         if (username == "") {
             throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + username);
         }if (password == "") {
@@ -55,12 +58,14 @@ public class RecruitmentService {
             throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + lastName);
         }if (emailAddress == "") {
             throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + emailAddress);
-        }if (dateOfBirth == 0) {
+        }if (dateOfBirth == "") {
             throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + dateOfBirth);
         }if (roleId == 0) {
             throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + roleId);
+        }if(isComplete == FALSE){
+            throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + isComplete);
         }
-        return personRepo.save(new Person(username, password, firstName, lastName, emailAddress, dateOfBirth, roleId));
+        return personRepo.save(new Person(username, password, firstName, lastName, emailAddress, dateOfBirth, roleId, isComplete));
     }
 
     /**
@@ -102,7 +107,15 @@ public class RecruitmentService {
      * @param dateOfBirth
      * @return
      */
-    public PersonDTO checkDateOfBirthExists(int dateOfBirth){
+    public PersonDTO checkDateOfBirthExists(String dateOfBirth){
         return personRepo.findPersonByDateOfBirth(dateOfBirth);
+    }
+
+    /**
+     * This method checks if the Person is complete (all attributes exists in the table)
+     * @return true if all attribute values exists in database, false if there is an empty string in one of them
+     */
+    public PersonDTO checkIsCompleteFalse(String username){
+        return personRepo.findPersonByIsCompleteFalseAndUsername(username);
     }
 }
