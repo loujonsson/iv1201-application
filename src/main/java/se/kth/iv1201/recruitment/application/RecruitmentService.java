@@ -1,6 +1,10 @@
 package se.kth.iv1201.recruitment.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -83,7 +87,6 @@ public class RecruitmentService {
      */
     public PersonDTO checkUsernameExists(String username){
         return personRepo.findPersonByUsername(username);
-    }
 
     /**
      * This method checks whether an email alreadu exists in the database.
@@ -102,5 +105,4 @@ public class RecruitmentService {
     public PersonDTO checkDateOfBirthExists(int dateOfBirth){
         return personRepo.findPersonByDateOfBirth(dateOfBirth);
     }
-
 }
