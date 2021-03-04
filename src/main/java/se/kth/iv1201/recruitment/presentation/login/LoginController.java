@@ -54,10 +54,11 @@ public class LoginController {
         else {
             PersonDTO applicantLoginSuccess = service.checkLogin(loginForm.getUsername(), loginForm.getPassword());
             if(applicantLoginSuccess != null){
-                if(service.checkIsCompleteFalse(loginForm.getUsername()).getIsComplete()){
-                    return "redirect:" + CREATE_ACCOUNT_PAGE_URL;
-                }else{
+                //TODO: fixa så det funkar rätt
+                if(service.checkIsCompleteFalse(loginForm.getUsername()).getIsComplete() == null){
                     return "redirect:" + SUCCESS_LOGIN_PAGE_URL;
+                }else{
+                    return "redirect:" + CREATE_ACCOUNT_PAGE_URL;
                 }
             }else{
                 return "redirect:" + LOGIN_PAGE_URL;

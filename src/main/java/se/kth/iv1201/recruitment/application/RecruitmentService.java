@@ -82,6 +82,7 @@ public class RecruitmentService {
         if(password == ""){
             throw new IllegalRecruitmentTransactionException("Attempt to login without: " + password);
         }
+        //TODO: check email and ssn also
         return personRepo.findPersonByUsernameAndPassword(username, password);
     }
 
