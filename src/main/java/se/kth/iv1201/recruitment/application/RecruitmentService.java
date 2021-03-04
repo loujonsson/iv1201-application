@@ -91,8 +91,9 @@ public class RecruitmentService {
      * @param username
      * @return
      */
-    public PersonDTO checkUsernameExists(String username){
+    public PersonDTO checkUsernameExists(String username) {
         return personRepo.findPersonByUsername(username);
+    }
 
     /**
      * This method checks whether an email alreadu exists in the database.

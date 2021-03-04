@@ -1,16 +1,14 @@
 package se.kth.iv1201.recruitment.domain;
 
 /**
- * Exception thrown when trying to create a new user where username
- * already exists.
+ * Thrown whenever an attempt is made to insert an attribute
+ * that already exists.
  */
-//public class IllegalUsernameInsertion extends Exception {
-public class IllegalAttributeInsertionException extends Exception {
-
+public class IllegalAttributeInsertionException extends Throwable {
     /**
-     * Creates new instance with specified message.
+     * Creates a new instance with the specified message.
      *
-     * @param msg A message explaining why exception is thrown
+     * @param msg A message explaining why the exception is thrown.
      */
     public IllegalAttributeInsertionException(String msg){
         super(msg);

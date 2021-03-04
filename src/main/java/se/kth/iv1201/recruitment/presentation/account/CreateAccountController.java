@@ -84,7 +84,7 @@ public class CreateAccountController {
                 throw new IllegalAttributeInsertionException("A user with this email already exists!");
             }
             if(service.checkDateOfBirthExists(createAccountForm.getDateOfBirth()) != null){
-                throw new IllegalDateOfBirthInsertionException("A user with this date of birth already exists!");
+                throw new IllegalAttributeInsertionException("A user with this date of birth already exists!");
             }
 
             service.createPerson(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), createAccountForm.getDateOfBirth(), createAccountForm.getRoleId(), createAccountForm.getIsComplete());

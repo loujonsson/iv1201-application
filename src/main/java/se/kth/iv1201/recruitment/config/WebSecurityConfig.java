@@ -18,7 +18,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/", "/create-account").permitAll() // these pages are configured to not require any authentication, all other paths must be authenticated
+                    .antMatchers("/", "/create-account", "/error/*").permitAll() // these pages are configured to not require any authentication, all other paths must be authenticated
                     .antMatchers("/admin").hasAuthority("ROLE_ADMIN")
                     .antMatchers("/application").hasAuthority("ROLE_APPLICANT")
                     .anyRequest().authenticated()
