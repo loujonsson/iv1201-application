@@ -102,12 +102,13 @@ public class RecruitmentConfig implements WebMvcConfigurer, ApplicationContextAw
      * based on the session, cookies, the Accept-Language header, or a fixed value.
      * @return
      */
+    /*
     @Bean
     public LocaleResolver localeResolver() {
         SessionLocaleResolver slr = new SessionLocaleResolver();
         slr.setDefaultLocale(Locale.US);
         return slr;
-    }
+    }*/
 
     /**
      *  The interceptor bean will switch to a new locale based on

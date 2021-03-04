@@ -9,8 +9,8 @@
 <body>
 <main layout:fragment="content">
     <section>
-        <h1>Create Account</h1>
-        <p1>Enter account details.</p1>
+        <h1 th:text="#{caf-create-account}"></h1>
+        <p1 th:text="#{caf-account-details}"></p1>
         <form th:action="@{/create-account}" th:object="${createAccountForm}" method="post">
             <p>
                 <label for="create-first-name">First name</label>:
@@ -28,7 +28,7 @@
             </p>
             <p>
                 <label for="create-date-of-birth">Date of birth</label>:
-                <input type="text" th:field="*{dateOfBirth}" id="create-date-of-birth" placeholder="YYMMDD">
+                <input type="text" th:field="*{dateOfBirth}" id="create-date-of-birth" placeholder="YYMMDDXXXX">
                 <span class="error" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">
                     Date of Birth Error
                 </span>
