@@ -29,7 +29,7 @@ public class ExceptionHandlers implements ErrorController {
      * @return Redirection to /error/username
      */
     @ExceptionHandler(IllegalAttributeInsertionException.class)
-    public String handleIllegalUsernameException(IllegalAttributeInsertionException exception){
+    public String handleIllegalAttributeInsertionException(IllegalAttributeInsertionException exception){
         String str = exception.toString();
         String prefix = "se.kth.iv1201.recruitment.domain.IllegalAttributeInsertionException: ";
         String param = "";
