@@ -66,7 +66,7 @@ public class CreateAccountController {
      * @return
      */
     @PostMapping("/" + CREATE_ACCOUNT_PAGE_URL)
-    public String saveForm(@Valid @ModelAttribute("createAccountForm") CreateAccountForm createAccountForm, BindingResult bindingResult, Model model) throws IllegalAttributeInsertionException, IllegalRecruitmentTransactionException, IllegalEmailInsertionException, IllegalUsernameInsertionException, IllegalDateOfBirthInsertionException {
+    public String saveForm(@Valid @ModelAttribute("createAccountForm") CreateAccountForm createAccountForm, BindingResult bindingResult, Model model) throws IllegalAttributeInsertionException, IllegalRecruitmentTransactionException {
         if(bindingResult.hasErrors()) {
             model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, createAccountForm);
             return "/" + CREATE_ACCOUNT_PAGE_URL;
@@ -78,10 +78,10 @@ public class CreateAccountController {
             }
 
             if(service.checkUsernameExists(createAccountForm.getUsername()) != null){
-                throw new IllegalUsernameInsertionException("A user with this username already exists!");
+                throw new IllegalAttributeInsertionException("A user with this username already exists!");
             }
             if(service.checkEmailExists(createAccountForm.getEmail()) != null){
-                throw new IllegalEmailInsertionException("A user with this email already exists!");
+                throw new IllegalAttributeInsertionException("A user with this email already exists!");
             }
             if(service.checkDateOfBirthExists(createAccountForm.getDateOfBirth()) != null){
                 throw new IllegalDateOfBirthInsertionException("A user with this date of birth already exists!");
