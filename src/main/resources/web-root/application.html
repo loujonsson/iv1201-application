@@ -10,8 +10,13 @@
 <main layout:fragment="content">
     <section>
         <h1>Your application</h1>
+        <h2>APPLICANT INTERFACE</h2>
         <p>Shall show current user's application</p>
     </section>
 </main>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
 </body>
 </html>
