@@ -86,7 +86,7 @@ public class RecruitmentService {
     }
 
     /**
-     * This method checks whether a username alreadu exists in the database.
+     * This method checks whether a username already exists in the database.
      * @param username
      * @return
      */
@@ -95,7 +95,7 @@ public class RecruitmentService {
     }
 
     /**
-     * This method checks whether an email alreadu exists in the database.
+     * This method checks whether an email already exists in the database.
      * @param emailAddress
      * @return
      */
@@ -104,7 +104,7 @@ public class RecruitmentService {
     }
 
     /**
-     * This method checks whether a date of birth alreadu exists in the database.
+     * This method checks whether a date of birth already exists in the database.
      * @param dateOfBirth
      * @return
      */

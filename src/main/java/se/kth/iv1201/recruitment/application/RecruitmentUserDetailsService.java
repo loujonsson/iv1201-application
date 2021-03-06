@@ -30,15 +30,15 @@ public class RecruitmentUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException("Username not found in database");
         }
 
-        SimpleGrantedAuthority current = null;
+        SimpleGrantedAuthority currentRole = null;
         if(person.getRoleId() == 1) {
             String admin = "ROLE_ADMIN";
-            current = new SimpleGrantedAuthority(admin);
+            currentRole = new SimpleGrantedAuthority(admin);
         }else if(person.getRoleId() == 2){
             String applicant = "ROLE_APPLICANT";
-            current = new SimpleGrantedAuthority(applicant);
+            currentRole = new SimpleGrantedAuthority(applicant);
         }
 
-        return new org.springframework.security.core.userdetails.User(person.getUsername(), person.getPassword(), Collections.singleton(current));
+        return new org.springframework.security.core.userdetails.User(person.getUsername(), person.getPassword(), Collections.singleton(currentRole));
     }
 }

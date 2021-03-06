@@ -29,11 +29,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/", "/create-account", "/error/**").permitAll()
+                .antMatchers("/admin.html", "applicant.html").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/applicant.html").hasAuthority("ROLE_APPLICANT")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .loginProcessingUrl("/login")
                 .successHandler(myAuthenticationSuccessHandler())
                 .permitAll()
                 .and()

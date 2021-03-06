@@ -61,7 +61,6 @@ public class RecruitmentSimpleUrlAuthenticationSuccessHandler implements Authent
 
 
     protected String determineTargetUrl(final Authentication authentication) {
-
         Map<String, String> roleTargetUrlMap = new HashMap<>();
         roleTargetUrlMap.put("ROLE_APPLICANT", "/application.html");
         roleTargetUrlMap.put("ROLE_ADMIN", "/admin.html");
