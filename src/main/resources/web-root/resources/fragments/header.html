@@ -7,6 +7,11 @@
     <body>
         <header th:fragment="header">
             <p>Recruitment Service</p>
+            <span th:text="#{lang.change}"></span>:
+            <select id="locales">
+                <option value="en" th:text="#{lang.eng}"></option>
+                <option value="fr" th:text="#{lang.se}"></option>
+            </select>
         </header>
     </body>
 </html>
