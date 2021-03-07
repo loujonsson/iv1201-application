@@ -43,7 +43,15 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
      */
     Person findPersonByUsernameAndPassword(String username, String password);
 
+    Person findPersonByDateOfBirthAndPassword(String dateOfBorth, String password);
+
+    Person findPersonByEmailAddressAndPassword(String email, String password);
+
     Person findPersonByIsCompleteFalseAndUsername(String username);
+
+    Person findPersonByIsCompleteFalseAndDateOfBirth(String dateOfBirth);
+
+    Person findPersonByIsCompleteFalseAndEmailAddress(String emailAddress);
 
     @Override
     Person save(Person person);

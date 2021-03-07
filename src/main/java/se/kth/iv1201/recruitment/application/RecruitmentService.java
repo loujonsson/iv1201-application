@@ -82,8 +82,14 @@ public class RecruitmentService {
         if(password == ""){
             throw new IllegalRecruitmentTransactionException("Attempt to login without: " + password);
         }
-        //TODO: check email and ssn also
-        return personRepo.findPersonByUsernameAndPassword(username, password);
+        if(checkUsernameExists(username) != null) {
+            return personRepo.findPersonByUsernameAndPassword(username, password);
+        }else if(checkEmailExists(username) != null){
+            return personRepo.findPersonByEmailAddressAndPassword(username, password);
+        }else if(checkDateOfBirthExists(username) != null){
+            return personRepo.findPersonByDateOfBirthAndPassword(username, password);
+        }
+        return null;
     }
 
     /**
@@ -115,9 +121,19 @@ public class RecruitmentService {
 
     /**
      * This method checks if the Person is complete (all attributes exists in the table)
-     * @return true if all attribute values exists in database, false if there is an empty string in one of them
+     * @return Person if all attribute values exists in database, false if there is an empty string in one of them
      */
-    public PersonDTO checkIsCompleteFalse(String username){
-        return personRepo.findPersonByIsCompleteFalseAndUsername(username);
+    public PersonDTO checkIsCompleteFalse(String givenLoginValue){
+        if(checkUsernameExists(givenLoginValue) != null) {
+            System.out.println("here: "+checkUsernameExists(givenLoginValue));
+            return personRepo.findPersonByIsCompleteFalseAndUsername(givenLoginValue);
+        }
+        else if(checkEmailExists(givenLoginValue) != null){
+            return personRepo.findPersonByIsCompleteFalseAndEmailAddress(givenLoginValue);
+        }
+        else if(checkDateOfBirthExists(givenLoginValue) != null){
+            return personRepo.findPersonByIsCompleteFalseAndDateOfBirth(givenLoginValue);
+        }
+        return null;
     }
 }

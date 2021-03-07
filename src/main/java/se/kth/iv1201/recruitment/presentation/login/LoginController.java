@@ -47,18 +47,22 @@ public class LoginController {
      */
     @PostMapping("/" + LOGIN_PAGE_URL)
     public String saveLoginForm(@Valid @ModelAttribute("loginForm") LoginForm loginForm, BindingResult bindingResult, Model model) throws IllegalRecruitmentTransactionException {
+
         if(bindingResult.hasErrors()) {
+            System.out.println("hello1");
             model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, loginForm);
             return "/" + LOGIN_PAGE_URL;
         }
         else {
+            System.out.println("hello1");
             PersonDTO applicantLoginSuccess = service.checkLogin(loginForm.getUsername(), loginForm.getPassword());
             if(applicantLoginSuccess != null){
-                //TODO: fixa så det funkar rätt
-                if(service.checkIsCompleteFalse(loginForm.getUsername()).getIsComplete() == null){
-                    return "redirect:" + SUCCESS_LOGIN_PAGE_URL;
-                }else{
+                System.out.println("hello");
+                if(service.checkIsCompleteFalse(loginForm.getUsername()) == null){
+                    System.out.println("check: "+service.checkIsCompleteFalse(loginForm.getUsername()));
                     return "redirect:" + CREATE_ACCOUNT_PAGE_URL;
+                }else{
+                    return "redirect:" + SUCCESS_LOGIN_PAGE_URL;
                 }
             }else{
                 return "redirect:" + LOGIN_PAGE_URL;
