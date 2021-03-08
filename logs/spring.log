@@ -282,3 +282,114 @@ java.lang.IllegalStateException: null
 2021-03-06 14:09:49.717  WARN 7172 --- [http-nio-8080-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@28ebdf11 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
 2021-03-06 14:09:53.063  INFO 7172 --- [http-nio-8080-exec-10] s.k.i.r.p.error.ExceptionHandlers        : An unspecified error occurred.
 
+2021-03-08 15:24:49.045  INFO 11074 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 11.0.10 on veronika-HP-EliteBook-840-G2 with PID 11074 (/home/veronika/Documents/KTH/architecture-global-apps/recruitment-project/iv1201-application/target/classes started by veronika in /home/veronika/Documents/KTH/architecture-global-apps/recruitment-project/iv1201-application)
+2021-03-08 15:24:49.050  INFO 11074 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
+2021-03-08 15:24:51.087  INFO 11074 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-08 15:24:51.088  INFO 11074 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-03-08 15:24:51.173  INFO 11074 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-08 15:24:51.331  INFO 11074 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-08 15:24:51.369  INFO 11074 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-03-08 15:24:51.457  INFO 11074 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-08 15:24:51.553  INFO 11074 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-08 15:24:52.056  INFO 11074 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-08 15:24:52.070  INFO 11074 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-08 15:24:52.877  INFO 11074 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-08 15:24:54.110  INFO 11074 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 5.913 seconds (JVM running for 7.052)
+2021-03-08 15:25:14.386  INFO 11074 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-08 15:26:23.757  INFO 11074 --- [http-nio-8080-exec-6] s.k.i.r.p.error.ExceptionHandlers        : An unspecified error occurred.
+2021-03-08 15:26:25.606  INFO 11074 --- [http-nio-8080-exec-3] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-08 15:27:16.669  INFO 11074 --- [http-nio-8080-exec-10] s.k.i.r.p.error.ExceptionHandlers        : An unspecified error occurred.
+2021-03-08 15:27:26.630  INFO 11074 --- [http-nio-8080-exec-5] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-08 15:28:40.595  INFO 11074 --- [http-nio-8080-exec-2] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x010xfc0x010x000x010xf80x030x03L<0x87"0x960xa10xa30x880xc2:Q0xd7)0xe70xfa0x160xc1Dh0x80D0x9f0xa6|)a0xd20xda0x080x8d0x1fO]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:417)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:261)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+2021-03-08 15:29:10.200  INFO 11074 --- [http-nio-8080-exec-6] s.k.i.r.p.error.ExceptionHandlers        : An unspecified error occurred.
+2021-03-08 15:31:19.628  INFO 11074 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-03-08 15:31:19.794  INFO 11074 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-03-08 15:45:47.592  INFO 12111 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 11.0.10 on veronika-HP-EliteBook-840-G2 with PID 12111 (/home/veronika/Documents/KTH/architecture-global-apps/recruitment-project/iv1201-application/target/classes started by veronika in /home/veronika/Documents/KTH/architecture-global-apps/recruitment-project/iv1201-application)
+2021-03-08 15:45:47.610  INFO 12111 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
+2021-03-08 15:45:50.438  INFO 12111 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-08 15:45:50.439  INFO 12111 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-03-08 15:45:50.553  INFO 12111 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-08 15:45:50.798  INFO 12111 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-08 15:45:50.859  INFO 12111 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-03-08 15:45:51.031  INFO 12111 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-08 15:45:51.179  INFO 12111 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-08 15:45:51.786  INFO 12111 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-08 15:45:51.806  INFO 12111 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-08 15:45:52.926  INFO 12111 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-08 15:45:54.716  INFO 12111 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 8.487 seconds (JVM running for 10.203)
+2021-03-08 15:46:19.387  INFO 12111 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-08 15:46:25.703 ERROR 12111 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+java.lang.NullPointerException: null
+	at se.kth.iv1201.recruitment.application.RecruitmentUserDetailsService.loadUserByUsername(RecruitmentUserDetailsService.java:29)
+	at se.kth.iv1201.recruitment.domain.RecruitmentAuthenticationProvider.authenticate(RecruitmentAuthenticationProvider.java:25)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:182)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:201)
+	at org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.attemptAuthentication(UsernamePasswordAuthenticationFilter.java:85)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:222)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:130)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+2021-03-08 15:46:25.730  INFO 12111 --- [http-nio-8080-exec-2] s.k.i.r.p.error.ExceptionHandlers        : A 500 internal server error exception occurred.
+2021-03-08 15:47:01.453  INFO 12111 --- [http-nio-8080-exec-7] s.k.i.r.p.error.ExceptionHandlers        : An unspecified error occurred.
+2021-03-08 15:47:02.674  INFO 12111 --- [http-nio-8080-exec-9] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-08 15:47:17.032  INFO 12111 --- [http-nio-8080-exec-6] s.k.i.r.p.error.ExceptionHandlers        : An unspecified error occurred.
+2021-03-08 15:47:18.458  INFO 12111 --- [http-nio-8080-exec-3] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-08 15:51:15.020  INFO 12111 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-03-08 15:51:15.188  INFO 12111 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -43,6 +43,6 @@ public class RecruitmentUserDetailsService implements UserDetailsService {
             currentRole = new SimpleGrantedAuthority(applicant);
         }
 
-        return new org.springframework.security.core.userdetails.User(person.getUsername(), person.getPassword(), Collections.singleton(currentRole));
+        return new org.springframework.security.core.userdetails.User(username, person.getPassword(), Collections.singleton(currentRole));
     }
 }
