@@ -14,6 +14,8 @@ import se.kth.iv1201.recruitment.domain.PersonDTO;
 import se.kth.iv1201.recruitment.domain.Role;
 import se.kth.iv1201.recruitment.repository.PersonRepository;
 
+import java.util.List;
+
 import static java.lang.Boolean.FALSE;
 
 /**
@@ -76,20 +78,22 @@ public class RecruitmentService {
      * @throws IllegalRecruitmentTransactionException when attempting to login without username or password
      */
     public PersonDTO checkLogin(String username, String password) throws IllegalRecruitmentTransactionException {
+        System.out.println("In check login");
         if(username == ""){
             throw new IllegalRecruitmentTransactionException("Attempt to login without: " + username);
         }
         if(password == ""){
             throw new IllegalRecruitmentTransactionException("Attempt to login without: " + password);
         }
+        /*
         if(checkUsernameExists(username) != null) {
             return personRepo.findPersonByUsernameAndPassword(username, password);
-        }else if(checkEmailExists(username) != null){
+        }if(checkEmailExists(username) != null){
             return personRepo.findPersonByEmailAddressAndPassword(username, password);
-        }else if(checkDateOfBirthExists(username) != null){
+        }if(checkDateOfBirthExists(username) != null){
             return personRepo.findPersonByDateOfBirthAndPassword(username, password);
-        }
-        return null;
+        }*/
+        return personRepo.findPersonByUsernameOrDateOfBirthOrEmailAddressAndPassword(username, username, username, password);
     }
 
     /**
@@ -119,21 +123,28 @@ public class RecruitmentService {
         return personRepo.findPersonByDateOfBirth(dateOfBirth);
     }
 
+    public PersonDTO checkUsernameDateOfBirthOrEmailExists(String username){
+       // System.out.println("isCompleteFalseAndUsername....: " + checkIsCompleteFalse(username).toString());
+        return personRepo.findPersonByUsernameOrDateOfBirthOrEmailAddress(username, username, username);
+    }
+
     /**
      * This method checks if the Person is complete (all attributes exists in the table)
      * @return Person if all attribute values exists in database, false if there is an empty string in one of them
      */
-    public PersonDTO checkIsCompleteFalse(String givenLoginValue){
-        if(checkUsernameExists(givenLoginValue) != null) {
-            System.out.println("here: "+checkUsernameExists(givenLoginValue));
-            return personRepo.findPersonByIsCompleteFalseAndUsername(givenLoginValue);
+    public PersonDTO checkIsCompleteFalse(String givenLoginValue) {
+        System.out.println("in checkIsCompleteFalse");
+        List<Person> isCompleteFalseList = personRepo.findPersonByIsCompleteFalse();
+        System.out.println("List: " + isCompleteFalseList.toString());
+
+        Person currentPerson = null;
+        for (Person person : isCompleteFalseList) {
+            System.out.println("in for loop");
+            if (person.equals(personRepo.findPersonByUsernameOrDateOfBirthOrEmailAddress(givenLoginValue,givenLoginValue,givenLoginValue))){
+                System.out.println("currentPerson: " + person.toString());
+                currentPerson = person;
+            }
         }
-        else if(checkEmailExists(givenLoginValue) != null){
-            return personRepo.findPersonByIsCompleteFalseAndEmailAddress(givenLoginValue);
-        }
-        else if(checkDateOfBirthExists(givenLoginValue) != null){
-            return personRepo.findPersonByIsCompleteFalseAndDateOfBirth(givenLoginValue);
-        }
-        return null;
+        return currentPerson;
     }
 }

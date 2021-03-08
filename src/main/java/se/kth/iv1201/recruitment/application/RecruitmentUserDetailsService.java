@@ -17,11 +17,15 @@ public class RecruitmentUserDetailsService implements UserDetailsService {
     private RecruitmentService service;
 
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        PersonDTO person = service.checkUsernameExists(username);
-
+        System.out.println("username: " + username);
+        PersonDTO person = service.checkUsernameDateOfBirthOrEmailExists(username);
+        System.out.println("person: " + person.toString());
         if(person == null){
-            throw new UsernameNotFoundException("Username not found in database");
+            throw new UsernameNotFoundException("No username, date of birth or email was found");
         }
+       /*if(person.equals(service.checkIsCompleteFalse(username))) {
+            System.out.println("person2: " + person.toString());
+        }*/
 
         SimpleGrantedAuthority current = null;
         if(person.getRoleId() == 1) {
