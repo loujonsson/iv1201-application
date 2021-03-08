@@ -5,9 +5,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
 import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
 import se.kth.iv1201.recruitment.domain.PersonDTO;
@@ -44,7 +42,7 @@ public class LoginController {
      * @return Login success page URL
      * @throws IllegalRecruitmentTransactionException
      */
-    @PostMapping("/" + LOGIN_PAGE_URL)
+    @RequestMapping(value = "/" + LOGIN_PAGE_URL, params = {"error", "logout"}, method = RequestMethod.POST)
     public String saveLoginForm(@Valid @ModelAttribute("loginForm") LoginForm loginForm, BindingResult bindingResult, Model model) throws IllegalRecruitmentTransactionException {
         System.out.println("hello0");
         if(bindingResult.hasErrors()) {
@@ -79,4 +77,8 @@ public class LoginController {
     public String showSuccessLoginView(){
         return SUCCESS_LOGIN_PAGE_URL;
     }
+
+    /**
+     * Handles params in request
+     */
 }
