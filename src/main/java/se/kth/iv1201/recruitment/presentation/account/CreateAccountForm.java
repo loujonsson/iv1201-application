@@ -6,7 +6,7 @@ import se.kth.iv1201.recruitment.util.Util;
 /**
  * A form bean for the account creation form.
  */
-class CreateAccountForm {
+public class CreateAccountForm {
 
     @NotEmpty(message = "This field cannot be empty.")
     @Size(min = 2, max = 30, message = "The username should be between 2-30 characters")

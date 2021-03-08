@@ -1,3 +1,4 @@
+
 2021-03-06 11:13:25.414  INFO 13392 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 15.0.1 on LAPTOP-5P935E41 with PID 13392 (C:\Users\loujo\Documents\IV1201-application\target\classes started by loujo in C:\Users\loujo\Documents\IV1201-application)
 2021-03-06 11:13:25.420  INFO 13392 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
 2021-03-06 11:13:27.302  INFO 13392 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
@@ -66,6 +67,7 @@ java.lang.IllegalStateException: null
 	at se.kth.iv1201.recruitment.domain.RecruitmentSimpleUrlAuthennticationSuccessHandler.onAuthenticationSuccess(RecruitmentSimpleUrlAuthennticationSuccessHandler.java:33)
 	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.successfulAuthentication(AbstractAuthenticationProcessingFilter.java:321)
 	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:232)
+
 	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -106,35 +108,7 @@ java.lang.IllegalStateException: null
 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:832)
 
-2021-03-06 11:35:56.892  INFO 16864 --- [http-nio-8080-exec-6] s.k.i.r.p.error.ExceptionHandlers        : A 500 internal server error exception occurred.
-2021-03-06 11:35:59.087  INFO 16864 --- [http-nio-8080-exec-10] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
-2021-03-06 11:36:26.475  INFO 17588 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 15.0.1 on LAPTOP-5P935E41 with PID 17588 (C:\Users\loujo\Documents\IV1201-application\target\classes started by loujo in C:\Users\loujo\Documents\IV1201-application)
-2021-03-06 11:36:26.478  INFO 17588 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
-2021-03-06 11:36:27.562  INFO 17588 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-06 11:36:27.562  INFO 17588 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
-2021-03-06 11:36:27.654  INFO 17588 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-06 11:36:27.756  INFO 17588 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-03-06 11:36:27.789  INFO 17588 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
-2021-03-06 11:36:27.866  INFO 17588 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-03-06 11:36:27.934  INFO 17588 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-03-06 11:36:28.585  INFO 17588 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-03-06 11:36:28.596  INFO 17588 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2021-03-06 11:36:29.553  INFO 17588 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-03-06 11:36:30.379  INFO 17588 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 4.299 seconds (JVM running for 4.822)
-2021-03-06 11:36:30.410  INFO 17588 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-03-06 11:36:55.505 ERROR 17588 --- [http-nio-8080-exec-8] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
-
-java.lang.IllegalStateException: null
-	at se.kth.iv1201.recruitment.domain.RecruitmentSimpleUrlAuthennticationSuccessHandler.determineTargetUrl(RecruitmentSimpleUrlAuthennticationSuccessHandler.java:70)
-	at se.kth.iv1201.recruitment.domain.RecruitmentSimpleUrlAuthennticationSuccessHandler.handle(RecruitmentSimpleUrlAuthennticationSuccessHandler.java:43)
-	at se.kth.iv1201.recruitment.domain.RecruitmentSimpleUrlAuthennticationSuccessHandler.onAuthenticationSuccess(RecruitmentSimpleUrlAuthennticationSuccessHandler.java:33)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.successfulAuthentication(AbstractAuthenticationProcessingFilter.java:321)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:232)
 	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -175,6 +149,7 @@ java.lang.IllegalStateException: null
 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
@@ -306,3 +281,4 @@ java.lang.IllegalStateException: null
 2021-03-06 14:09:49.715  WARN 7172 --- [http-nio-8080-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@64768175 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
 2021-03-06 14:09:49.717  WARN 7172 --- [http-nio-8080-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@28ebdf11 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
 2021-03-06 14:09:53.063  INFO 7172 --- [http-nio-8080-exec-10] s.k.i.r.p.error.ExceptionHandlers        : An unspecified error occurred.
+
