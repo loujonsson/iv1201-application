@@ -19,6 +19,7 @@ public class LoginController {
     static final String SUCCESS_LOGIN_PAGE_URL = "login-success";
     private static final String CURRENT_ACCT_FORM_OBJ_NAME = "currentAcctForm";
     static final String CREATE_ACCOUNT_PAGE_URL = "create-account";
+    static final String LOGOUT_PAGE_URL = "logout";
 
     @Autowired
     private RecruitmentService service;
@@ -78,7 +79,9 @@ public class LoginController {
         return SUCCESS_LOGIN_PAGE_URL;
     }
 
-    /**
-     * Handles params in request
-     */
+    @PostMapping("/" + LOGOUT_PAGE_URL)
+    public String redirectToLogin(){
+        return "redirect:" + LOGIN_PAGE_URL + "?logout";
+    }
+
 }
