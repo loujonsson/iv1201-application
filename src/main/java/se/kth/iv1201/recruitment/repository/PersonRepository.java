@@ -68,4 +68,6 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
     List<Person> findAll();
 
     Person findPersonByUsernameOrDateOfBirthOrEmailAddress(String username, String dateOfBirth, String email);
+
+    Person update(Person person);
 }

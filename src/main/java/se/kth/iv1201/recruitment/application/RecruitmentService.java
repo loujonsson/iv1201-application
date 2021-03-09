@@ -147,4 +147,25 @@ public class RecruitmentService {
         }
         return currentPerson;
     }
+    //TODO: update this method
+    public PersonDTO updatePerson(String username, String password, String firstName, String lastName, String email, String dateOfBirth, int roleId, boolean isComplete) throws IllegalRecruitmentTransactionException {
+        if (username == "") {
+            throw new IllegalRecruitmentTransactionException("Attempt to update a person without adding attribute: " + username);
+        }if (password == "") {
+            throw new IllegalRecruitmentTransactionException("Attempt to update a person without adding attribute: " + password);
+        }if (firstName == "") {
+            throw new IllegalRecruitmentTransactionException("Attempt to update a person without adding attribute: " + firstName);
+        }if (lastName == "") {
+            throw new IllegalRecruitmentTransactionException("Attempt to update a person without adding attribute: " + lastName);
+        }if (email == "") {
+            throw new IllegalRecruitmentTransactionException("Attempt to update a person without adding attribute: " + email);
+        }if (dateOfBirth == "") {
+            throw new IllegalRecruitmentTransactionException("Attempt to update a person without adding attribute: " + dateOfBirth);
+        }if (roleId == 0) {
+            throw new IllegalRecruitmentTransactionException("Attempt to update a person without adding attribute: " + roleId);
+        }if(isComplete == FALSE){
+            throw new IllegalRecruitmentTransactionException("Attempt to update a person without adding attribute: " + isComplete);
+        }
+        return personRepo.update(new Person(username, password, firstName, lastName, email, dateOfBirth, roleId, isComplete));
+    }
 }
