@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
 import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
 import se.kth.iv1201.recruitment.domain.PersonDTO;
-import se.kth.iv1201.recruitment.presentation.account.CreateAccountController;
 
 import javax.validation.Valid;
 
@@ -45,18 +44,24 @@ public class LoginController {
      */
     @RequestMapping(value = "/" + LOGIN_PAGE_URL, params = {"error", "logout"}, method = RequestMethod.POST)
     public String saveLoginForm(@Valid @ModelAttribute("loginForm") LoginForm loginForm, BindingResult bindingResult, Model model) throws IllegalRecruitmentTransactionException {
+        System.out.println("hello0");
         if(bindingResult.hasErrors()) {
+            System.out.println("hello1");
             model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, loginForm);
             return "/" + LOGIN_PAGE_URL;
         }
         else {
+            System.out.println("hello1");
             PersonDTO applicantLoginSuccess = service.checkLogin(loginForm.getUsername(), loginForm.getPassword());
             if(applicantLoginSuccess != null){
-                if(service.checkIsCompleteFalse(loginForm.getUsername()).getIsComplete()){
-                    return "redirect:" + CREATE_ACCOUNT_PAGE_URL;
-                }else{
+                System.out.println("hello");
+                //If null => person has all fields filled in => can proceed to login page
+                if(service.checkIsCompleteFalse(loginForm.getUsername()) == null){
                     return "redirect:" + SUCCESS_LOGIN_PAGE_URL;
+                    //return "redirect:" + LOGIN_PAGE_URL;
                 }
+                return "redirect:" + CREATE_ACCOUNT_PAGE_URL;
+                //return "redirect:" + LOGIN_PAGE_URL;
             }else{
                 return "redirect:" + LOGIN_PAGE_URL;
             }

@@ -1,0 +1,284 @@
+
+2021-03-06 11:13:25.414  INFO 13392 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 15.0.1 on LAPTOP-5P935E41 with PID 13392 (C:\Users\loujo\Documents\IV1201-application\target\classes started by loujo in C:\Users\loujo\Documents\IV1201-application)
+2021-03-06 11:13:25.420  INFO 13392 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
+2021-03-06 11:13:27.302  INFO 13392 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-06 11:13:27.303  INFO 13392 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-03-06 11:13:27.618  INFO 13392 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-06 11:13:27.761  INFO 13392 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-06 11:13:27.818  INFO 13392 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-03-06 11:13:27.952  INFO 13392 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-06 11:13:28.048  INFO 13392 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-06 11:13:28.849  INFO 13392 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-06 11:13:28.864  INFO 13392 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-06 11:13:30.509  INFO 13392 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-06 11:13:31.422  INFO 13392 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 6.667 seconds (JVM running for 7.892)
+2021-03-06 11:13:31.500  INFO 13392 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-06 11:13:38.344  INFO 13392 --- [http-nio-8080-exec-10] s.k.i.r.p.error.ExceptionHandlers        : An unspecified error occurred.
+2021-03-06 11:13:39.592  INFO 13392 --- [http-nio-8080-exec-3] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-06 11:13:52.868  INFO 3596 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 15.0.1 on LAPTOP-5P935E41 with PID 3596 (C:\Users\loujo\Documents\IV1201-application\target\classes started by loujo in C:\Users\loujo\Documents\IV1201-application)
+2021-03-06 11:13:52.870  INFO 3596 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
+2021-03-06 11:13:53.983  INFO 3596 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-06 11:13:53.984  INFO 3596 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-03-06 11:13:54.077  INFO 3596 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-06 11:13:54.180  INFO 3596 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-06 11:13:54.216  INFO 3596 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-03-06 11:13:54.293  INFO 3596 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-06 11:13:54.360  INFO 3596 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-06 11:13:55.009  INFO 3596 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-06 11:13:55.023  INFO 3596 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-06 11:13:55.984  INFO 3596 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-06 11:13:56.775  INFO 3596 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 4.288 seconds (JVM running for 4.948)
+2021-03-06 11:13:56.809  INFO 3596 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-06 11:14:04.979  INFO 3596 --- [http-nio-8080-exec-8] s.k.i.r.p.error.ExceptionHandlers        : An unspecified error occurred.
+2021-03-06 11:14:06.310  INFO 3596 --- [http-nio-8080-exec-1] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-06 11:14:47.791  INFO 16432 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 15.0.1 on LAPTOP-5P935E41 with PID 16432 (C:\Users\loujo\Documents\IV1201-application\target\classes started by loujo in C:\Users\loujo\Documents\IV1201-application)
+2021-03-06 11:14:47.793  INFO 16432 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
+2021-03-06 11:14:48.960  INFO 16432 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-06 11:14:48.961  INFO 16432 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-03-06 11:14:49.064  INFO 16432 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-06 11:14:49.169  INFO 16432 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-06 11:14:49.199  INFO 16432 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-03-06 11:14:49.267  INFO 16432 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-06 11:14:49.328  INFO 16432 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-06 11:14:49.962  INFO 16432 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-06 11:14:49.972  INFO 16432 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-06 11:14:50.905  INFO 16432 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-06 11:14:51.653  INFO 16432 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 4.213 seconds (JVM running for 4.762)
+2021-03-06 11:15:15.284  INFO 16432 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-06 11:35:32.541  INFO 16864 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 15.0.1 on LAPTOP-5P935E41 with PID 16864 (C:\Users\loujo\Documents\IV1201-application\target\classes started by loujo in C:\Users\loujo\Documents\IV1201-application)
+2021-03-06 11:35:32.544  INFO 16864 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
+2021-03-06 11:35:33.654  INFO 16864 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-06 11:35:33.654  INFO 16864 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-03-06 11:35:33.750  INFO 16864 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-06 11:35:33.852  INFO 16864 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-06 11:35:33.903  INFO 16864 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-03-06 11:35:34.016  INFO 16864 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-06 11:35:34.083  INFO 16864 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-06 11:35:34.821  INFO 16864 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-06 11:35:34.836  INFO 16864 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-06 11:35:35.983  INFO 16864 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-06 11:35:36.790  INFO 16864 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 4.628 seconds (JVM running for 5.207)
+2021-03-06 11:35:51.614  INFO 16864 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-06 11:35:56.887 ERROR 16864 --- [http-nio-8080-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+java.lang.IllegalStateException: null
+	at se.kth.iv1201.recruitment.domain.RecruitmentSimpleUrlAuthennticationSuccessHandler.determineTargetUrl(RecruitmentSimpleUrlAuthennticationSuccessHandler.java:70)
+	at se.kth.iv1201.recruitment.domain.RecruitmentSimpleUrlAuthennticationSuccessHandler.handle(RecruitmentSimpleUrlAuthennticationSuccessHandler.java:43)
+	at se.kth.iv1201.recruitment.domain.RecruitmentSimpleUrlAuthennticationSuccessHandler.onAuthenticationSuccess(RecruitmentSimpleUrlAuthennticationSuccessHandler.java:33)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.successfulAuthentication(AbstractAuthenticationProcessingFilter.java:321)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:232)
+
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:130)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:130)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+
+2021-03-06 11:36:55.508  INFO 17588 --- [http-nio-8080-exec-8] s.k.i.r.p.error.ExceptionHandlers        : A 500 internal server error exception occurred.
+2021-03-06 11:37:39.581  INFO 19020 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 15.0.1 on LAPTOP-5P935E41 with PID 19020 (C:\Users\loujo\Documents\IV1201-application\target\classes started by loujo in C:\Users\loujo\Documents\IV1201-application)
+2021-03-06 11:37:39.583  INFO 19020 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
+2021-03-06 11:37:40.699  INFO 19020 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-06 11:37:40.699  INFO 19020 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-03-06 11:37:40.841  INFO 19020 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-06 11:37:40.989  INFO 19020 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-06 11:37:41.022  INFO 19020 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-03-06 11:37:41.092  INFO 19020 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-06 11:37:41.154  INFO 19020 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-06 11:37:41.804  INFO 19020 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-06 11:37:41.814  INFO 19020 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-06 11:37:42.769  INFO 19020 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-06 11:37:43.560  INFO 19020 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 4.345 seconds (JVM running for 4.922)
+2021-03-06 11:37:43.588  INFO 19020 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-06 11:38:00.747  INFO 19020 --- [http-nio-8080-exec-9] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-06 11:38:02.625  INFO 19020 --- [http-nio-8080-exec-2] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-06 11:54:18.817  INFO 12732 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 15.0.1 on LAPTOP-5P935E41 with PID 12732 (C:\Users\loujo\Documents\IV1201-application\target\classes started by loujo in C:\Users\loujo\Documents\IV1201-application)
+2021-03-06 11:54:18.820  INFO 12732 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
+2021-03-06 11:54:19.950  INFO 12732 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-06 11:54:19.951  INFO 12732 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-03-06 11:54:20.047  INFO 12732 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-06 11:54:20.164  INFO 12732 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-06 11:54:20.220  INFO 12732 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-03-06 11:54:20.345  INFO 12732 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-06 11:54:20.419  INFO 12732 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-06 11:54:21.160  INFO 12732 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-06 11:54:21.197  INFO 12732 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-06 11:54:22.422  INFO 12732 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-06 11:54:23.210  INFO 12732 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 4.773 seconds (JVM running for 5.41)
+2021-03-06 11:54:30.731  INFO 12732 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-06 11:55:13.227  INFO 12732 --- [http-nio-8080-exec-4] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-06 11:55:22.908  INFO 12732 --- [http-nio-8080-exec-8] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-06 11:55:26.215  INFO 12732 --- [http-nio-8080-exec-9] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-06 11:55:39.423  INFO 12732 --- [http-nio-8080-exec-3] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-06 12:25:01.168  WARN 12732 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m39s848ms681µs100ns).
+2021-03-06 13:01:11.498  WARN 12732 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=34m10s320ms281µs).
+2021-03-06 13:01:56.500  INFO 12732 --- [http-nio-8080-exec-3] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-06 13:02:00.444  INFO 12732 --- [http-nio-8080-exec-4] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-06 13:02:05.603  INFO 12732 --- [http-nio-8080-exec-5] s.k.i.r.p.error.ExceptionHandlers        : An unspecified error occurred.
+2021-03-06 13:02:06.843  INFO 12732 --- [http-nio-8080-exec-9] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-06 13:02:26.293  INFO 12732 --- [http-nio-8080-exec-5] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-06 13:02:29.531  INFO 12732 --- [http-nio-8080-exec-9] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-06 13:02:42.758  INFO 12732 --- [http-nio-8080-exec-4] s.k.i.r.p.error.ExceptionHandlers        : An unspecified error occurred.
+2021-03-06 13:02:59.104  INFO 12732 --- [http-nio-8080-exec-5] s.k.i.r.p.error.ExceptionHandlers        : An unspecified error occurred.
+2021-03-06 13:03:16.732  INFO 12732 --- [http-nio-8080-exec-10] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-06 13:03:33.224  INFO 24928 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 15.0.1 on LAPTOP-5P935E41 with PID 24928 (C:\Users\loujo\Documents\IV1201-application\target\classes started by loujo in C:\Users\loujo\Documents\IV1201-application)
+2021-03-06 13:03:33.226  INFO 24928 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
+2021-03-06 13:03:34.439  INFO 24928 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-06 13:03:34.439  INFO 24928 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-03-06 13:03:34.548  INFO 24928 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-06 13:03:34.667  INFO 24928 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-06 13:03:34.722  INFO 24928 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-03-06 13:03:34.840  INFO 24928 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-06 13:03:34.914  INFO 24928 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-06 13:03:35.671  INFO 24928 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-06 13:03:35.738  INFO 24928 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-06 13:03:36.885  INFO 24928 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-06 13:03:37.686  INFO 24928 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 4.848 seconds (JVM running for 5.526)
+2021-03-06 13:03:37.766  INFO 24928 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-06 13:03:51.694  INFO 24928 --- [http-nio-8080-exec-1] s.k.i.r.p.error.ExceptionHandlers        : An unspecified error occurred.
+2021-03-06 13:04:11.140  INFO 24928 --- [http-nio-8080-exec-10] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-06 13:04:15.772  INFO 24928 --- [http-nio-8080-exec-3] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-06 13:05:48.669  INFO 24928 --- [http-nio-8080-exec-7] s.k.i.r.p.error.ExceptionHandlers        : An unspecified error occurred.
+2021-03-06 13:05:51.535  INFO 24928 --- [http-nio-8080-exec-10] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-06 13:09:05.160  INFO 23988 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 15.0.1 on LAPTOP-5P935E41 with PID 23988 (C:\Users\loujo\Documents\IV1201-application\target\classes started by loujo in C:\Users\loujo\Documents\IV1201-application)
+2021-03-06 13:09:05.162  INFO 23988 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
+2021-03-06 13:09:06.300  INFO 23988 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-06 13:09:06.301  INFO 23988 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-03-06 13:09:06.427  INFO 23988 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-06 13:09:06.537  INFO 23988 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-06 13:09:06.567  INFO 23988 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-03-06 13:09:06.637  INFO 23988 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-06 13:09:06.697  INFO 23988 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-06 13:09:07.346  INFO 23988 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-06 13:09:07.356  INFO 23988 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-06 13:09:08.324  INFO 23988 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-06 13:09:09.112  INFO 23988 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 4.397 seconds (JVM running for 4.914)
+2021-03-06 13:09:17.291  INFO 23988 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-06 13:09:25.201  INFO 23988 --- [http-nio-8080-exec-6] s.k.i.r.p.error.ExceptionHandlers        : An unspecified error occurred.
+2021-03-06 13:09:31.390  INFO 23988 --- [http-nio-8080-exec-10] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-06 13:09:42.832  INFO 23988 --- [http-nio-8080-exec-6] s.k.i.r.p.error.ExceptionHandlers        : An unspecified error occurred.
+2021-03-06 13:09:53.973  INFO 23988 --- [http-nio-8080-exec-7] s.k.i.r.p.error.ExceptionHandlers        : An unspecified error occurred.
+2021-03-06 13:11:19.652  INFO 23988 --- [http-nio-8080-exec-8] s.k.i.r.p.error.ExceptionHandlers        : An unspecified error occurred.
+2021-03-06 13:11:20.792  INFO 23988 --- [http-nio-8080-exec-1] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
+2021-03-06 13:11:33.330  INFO 23988 --- [http-nio-8080-exec-5] s.k.i.r.p.error.ExceptionHandlers        : An unspecified error occurred.
+2021-03-06 13:12:30.103  INFO 5724 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 15.0.1 on LAPTOP-5P935E41 with PID 5724 (C:\Users\loujo\Documents\IV1201-application\target\classes started by loujo in C:\Users\loujo\Documents\IV1201-application)
+2021-03-06 13:12:30.106  INFO 5724 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
+2021-03-06 13:12:31.192  INFO 5724 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-06 13:12:31.193  INFO 5724 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-03-06 13:12:31.292  INFO 5724 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-06 13:12:31.415  INFO 5724 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-06 13:12:31.446  INFO 5724 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-03-06 13:12:31.518  INFO 5724 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-06 13:12:31.580  INFO 5724 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-06 13:12:32.257  INFO 5724 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-06 13:12:32.268  INFO 5724 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-06 13:12:33.315  INFO 5724 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-06 13:12:34.262  INFO 5724 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 4.524 seconds (JVM running for 5.04)
+2021-03-06 13:12:37.614  INFO 5724 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-06 13:14:52.344  INFO 7172 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 15.0.1 on LAPTOP-5P935E41 with PID 7172 (C:\Users\loujo\Documents\IV1201-application\target\classes started by loujo in C:\Users\loujo\Documents\IV1201-application)
+2021-03-06 13:14:52.347  INFO 7172 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
+2021-03-06 13:14:53.418  INFO 7172 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-06 13:14:53.418  INFO 7172 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-03-06 13:14:53.509  INFO 7172 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-06 13:14:53.611  INFO 7172 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-06 13:14:53.645  INFO 7172 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-03-06 13:14:53.717  INFO 7172 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-06 13:14:53.779  INFO 7172 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-06 13:14:54.435  INFO 7172 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-06 13:14:54.445  INFO 7172 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-06 13:14:55.430  INFO 7172 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-06 13:14:56.500  INFO 7172 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 4.499 seconds (JVM running for 5.003)
+2021-03-06 13:14:56.684  INFO 7172 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-06 14:05:58.249  WARN 7172 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m3s633ms943µs100ns).
+2021-03-06 14:09:49.536  WARN 7172 --- [http-nio-8080-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@7c5ddac1 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2021-03-06 14:09:49.583  WARN 7172 --- [http-nio-8080-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@6abac98c (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2021-03-06 14:09:49.630  WARN 7172 --- [http-nio-8080-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@172d9d71 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2021-03-06 14:09:49.677  WARN 7172 --- [http-nio-8080-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@534d687 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2021-03-06 14:09:49.705  WARN 7172 --- [http-nio-8080-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@22401014 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2021-03-06 14:09:49.708  WARN 7172 --- [http-nio-8080-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@1e0a5b79 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2021-03-06 14:09:49.710  WARN 7172 --- [http-nio-8080-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@65378bdc (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2021-03-06 14:09:49.713  WARN 7172 --- [http-nio-8080-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@4614f913 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2021-03-06 14:09:49.715  WARN 7172 --- [http-nio-8080-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@64768175 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2021-03-06 14:09:49.717  WARN 7172 --- [http-nio-8080-exec-8] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@28ebdf11 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2021-03-06 14:09:53.063  INFO 7172 --- [http-nio-8080-exec-10] s.k.i.r.p.error.ExceptionHandlers        : An unspecified error occurred.
+
