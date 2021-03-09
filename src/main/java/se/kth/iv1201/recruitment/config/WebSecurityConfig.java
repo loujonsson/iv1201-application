@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import se.kth.iv1201.recruitment.application.RecruitmentUserDetailsService;
 import se.kth.iv1201.recruitment.domain.RecruitmentSimpleUrlAuthenticationSuccessHandler;
 
@@ -29,16 +30,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/", "/create-account", "/error/**").permitAll()
-                .antMatchers("/admin.html", "applicant.html").hasAuthority("ROLE_ADMIN")
-                .antMatchers("/applicant.html").hasAuthority("ROLE_APPLICANT")
+                .antMatchers("/admin", "/applicant").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/applicant").hasAuthority("ROLE_APPLICANT")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .failureUrl("/login?error").permitAll()
                 .successHandler(myAuthenticationSuccessHandler())
                 .permitAll()
                 .and()
                 .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login?logout")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
                 .permitAll();
     }
 
