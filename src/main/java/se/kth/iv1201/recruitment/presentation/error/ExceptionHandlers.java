@@ -60,7 +60,7 @@ public class ExceptionHandlers implements ErrorController {
             model.addAttribute("errortype", "A user with this date of birth already exists!");
         }
 
-        return ERROR_TYPE_KEY;
+        return "/" + ERROR_URL;
     }
 
     /**
