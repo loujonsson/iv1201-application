@@ -7,10 +7,12 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
 import se.kth.iv1201.recruitment.domain.IllegalAttributeInsertionException;
 import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
+import se.kth.iv1201.recruitment.domain.Person;
 import se.kth.iv1201.recruitment.domain.PersonDTO;
 
 import javax.validation.Valid;
@@ -52,6 +54,34 @@ public class UpdateAccountController {
     public String showUpdateAccountView(@ModelAttribute("updateAccountForm") UpdateAccountForm updateAccountForm){
         return UPDATE_ACCOUNT_PAGE_URL;
     }
+    @GetMapping("/update")
+    public String showForm(Model model) {
+        //Person user = new Person();
+        UpdateAccountForm updateAccountForm = new UpdateAccountForm();
+        model.addAttribute("updateAccountForm", updateAccountForm);
+        String username = updateAccountForm.getUsername();
+        //List<String> listProfession = Arrays.asList("Developer", "Tester", "Architect");
+        model.addAttribute("username", username);
+
+        return UPDATE_ACCOUNT_PAGE_URL;
+    }
+
+    @PostMapping("/update")
+    public String submitForm(@ModelAttribute("updateAccountForm") UpdateAccountForm user) {
+        System.out.println(user);
+        PersonDTO person = service.checkUsernameDateOfBirthOrEmailExists(user.getUsername(), user.getDateOfBirth(), user.getEmail());
+        person.setUsername(user.getUsername());
+        person.setPassword(user.getPassword());
+        person.setFirstName(user.getFirstName());
+        person.setLastName(user.getLastName());
+        person.setEmail(user.getEmail());
+        person.setDateOfBirth(user.getDateOfBirth());
+        person.setRoleId(user.getRoleId());
+        person.setIsComplete(user.getIsComplete());
+        service.updatePerson(person);
+
+        return "/" + SUCCESS_UPDATED_ACCOUNT_PAGE_URL;
+    }
 
     /**
      * The update account form has been submitted.
@@ -60,7 +90,7 @@ public class UpdateAccountController {
      * @param bindingResult
      * @param model
      * @return
-     */
+     *
     @PostMapping("/" + UPDATE_ACCOUNT_PAGE_URL)
     public String saveForm(@Valid @ModelAttribute("updateAccountForm") UpdateAccountForm updateAccountForm, BindingResult bindingResult, Model model) throws IllegalAttributeInsertionException, IllegalRecruitmentTransactionException {
         if(bindingResult.hasErrors()) {
@@ -74,8 +104,10 @@ public class UpdateAccountController {
                 return UPDATE_ACCOUNT_PAGE_URL;
             }
 
-            if(service.checkUsernameExists(updateAccountForm.getUsername()) != null){
-                throw new IllegalAttributeInsertionException("A user with this username already exists!");
+           /* if(service.checkUsernameExists(updateAccountForm.getUsername()) != null){
+                if(!updateAccountForm.getUsername().equals(currentPerson.getUsername())) {
+                    throw new IllegalAttributeInsertionException("A user with this username already exists!");
+                }
             }
             if(service.checkEmailExists(updateAccountForm.getEmail()) != null){
                 throw new IllegalAttributeInsertionException("A user with this email already exists!");
@@ -83,11 +115,22 @@ public class UpdateAccountController {
             if(service.checkDateOfBirthExists(updateAccountForm.getDateOfBirth()) != null){
                 throw new IllegalAttributeInsertionException("A user with this date of birth already exists!");
             }
+            currentPerson = service.checkEmailExists(updateAccountForm.getEmail());
 
-            service.updatePerson(updateAccountForm.getUsername(), updateAccountForm.getPassword(), updateAccountForm.getFirstName(), updateAccountForm.getLastName(), updateAccountForm.getEmail(), updateAccountForm.getDateOfBirth(), updateAccountForm.getRoleId(), updateAccountForm.getIsComplete());
+            if(currentPerson != null) {
+                currentPerson.setUsername(updateAccountForm.getUsername());
+                currentPerson.setPassword(updateAccountForm.getPassword());
+                currentPerson.setFirstName(updateAccountForm.getFirstName());
+                currentPerson.setLastName(updateAccountForm.getLastName());
+                currentPerson.setEmail(updateAccountForm.getEmail());
+                currentPerson.setDateOfBirth(updateAccountForm.getDateOfBirth());
+                currentPerson.setRoleId(updateAccountForm.getRoleId());
+                currentPerson.setIsComplete(updateAccountForm.getIsComplete());
+                service.updatePerson((Person) currentPerson);
+            }
             return "redirect:" + SUCCESS_UPDATED_ACCOUNT_PAGE_URL;
         }
-    }
+    }*/
 
     /**
      * View consisting of a success page when account has been successfully created

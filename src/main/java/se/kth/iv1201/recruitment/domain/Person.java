@@ -9,6 +9,11 @@ import javax.persistence.*;
 @Entity
 @Table(name = "person")
 public class Person implements PersonDTO {
+  /*  @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "person_id")
+    private Long personId;
+*/
     @Id
     private String username;
 
@@ -35,7 +40,7 @@ public class Person implements PersonDTO {
     /**
      * Exists only for the sake of JPA
      */
-    protected Person(){}
+    public Person(){}
 
     /**
      * Creates a new instance with the specified username, password, first and last name, date of birth and email
@@ -101,5 +106,45 @@ public class Person implements PersonDTO {
     @Override
     public Boolean getIsComplete() {
         return isComplete;
+    }
+
+    @Override
+    public void setUsername(String username) {
+
+    }
+
+    @Override
+    public void setPassword(String password) {
+
+    }
+
+    @Override
+    public void setFirstName(String firstName) {
+
+    }
+
+    @Override
+    public void setLastName(String lastName) {
+
+    }
+
+    @Override
+    public void setEmail(String email) {
+
+    }
+
+    @Override
+    public void setDateOfBirth(String dateOfBirth) {
+
+    }
+
+    @Override
+    public void setRoleId(int roleId) {
+
+    }
+
+    @Override
+    public void setIsComplete(boolean isComplete) {
+
     }
 }

@@ -18,7 +18,7 @@ public class LoginController {
     static final String LOGIN_PAGE_URL = "login";
     static final String SUCCESS_LOGIN_PAGE_URL = "login-success";
     private static final String CURRENT_ACCT_FORM_OBJ_NAME = "currentAcctForm";
-    static final String CREATE_ACCOUNT_PAGE_URL = "create-account";
+    static final String UPDATE_ACCOUNT_PAGE_URL = "update-account";
     static final String LOGOUT_PAGE_URL = "logout";
 
     @Autowired
@@ -59,9 +59,8 @@ public class LoginController {
                 //If null => person has all fields filled in => can proceed to login page
                 if(service.checkIsCompleteFalse(loginForm.getUsername()) == null){
                     return "redirect:" + SUCCESS_LOGIN_PAGE_URL;
-                    //return "redirect:" + LOGIN_PAGE_URL;
                 }
-                return "redirect:" + CREATE_ACCOUNT_PAGE_URL;
+                return "redirect:" + UPDATE_ACCOUNT_PAGE_URL;
                 //return "redirect:" + LOGIN_PAGE_URL;
             }else{
                 return "redirect:" + LOGIN_PAGE_URL;
@@ -76,11 +75,13 @@ public class LoginController {
      */
     @GetMapping("/" + SUCCESS_LOGIN_PAGE_URL)
     public String showSuccessLoginView(){
+        System.out.println("hello from login");
         return SUCCESS_LOGIN_PAGE_URL;
     }
 
     @PostMapping("/" + LOGOUT_PAGE_URL)
     public String redirectToLogin(){
+        System.out.println("hello from logout");
         return "redirect:" + LOGIN_PAGE_URL + "?logout";
     }
 

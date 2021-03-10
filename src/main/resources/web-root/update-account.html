@@ -12,52 +12,50 @@
     <section>
         <h1>Update Existing Account</h1>
         <p1>Enter missing account details.</p1>
-        <form th:action="@{/update-account}" th:object="${updateAccountForm}" method="post">
+        <form action="#" th:action="@{/update}" method="post" th:object="${updateAccountForm}">
             <p>
-                <label for="create-first-name">First name</label>:
-                <input type="text" th:field="*{firstName}" id="create-first-name">
+                <label>First name</label>:
+                <input type="text" th:field="*{firstName}">
                 <span class="error" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">
                     First Name Error
                 </span>
             </p>
             <p>
-                <label for="create-last-name">Last name</label>:
-                <input type="text" th:field="*{lastName}" id="create-last-name">
+                <label>Last name</label>:
+                <input type="text" th:field="*{lastName}">
                 <span class="error" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">
                     Last Name Error
                 </span>
             </p>
             <p>
-                <label for="create-date-of-birth">Date of birth</label>:
-                <input type="text" th:field="*{dateOfBirth}" id="create-date-of-birth" placeholder="YYMMDDXXXX">
+                <label>Date of birth</label>:
+                <input type="text" th:field="*{dateOfBirth}" placeholder="YYMMDDXXXX">
                 <span class="error" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">
                     Date of Birth Error
                 </span>
             </p>
             <p>
-                <label for="create-email">Email</label>:
-                <input type="text" th:field="*{email}" id="create-email">
+                <label>Email</label>:
+                <input type="text" th:field="*{email}">
                 <span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
                     Email Error
                 </span>
             </p>
             <p>
-                <label for="create-username">Username</label>:
-                <input type="text" th:field="*{username}" id="create-username">
+                <label>Username</label>:
+                <input type="text" th:field="*{username}">
                 <span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">
                     Username Error
                 </span>
             </p>
             <p>
-                <label for="create-password">Password</label>:
-                <input type="text" th:field="*{password}" id="create-password">
+                <label>Password</label>:
+                <input type="text" th:field="*{password}" >
                 <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
                     Password Error
                 </span>
             </p>
-            <p class="submit">
-                <input type="submit" value="Update Account"/>
-            </p>
+                <button type="submit">Update</button>
         </form>
 
     </section>

@@ -2,6 +2,7 @@ package se.kth.iv1201.recruitment.domain;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -9,6 +10,8 @@ import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.stereotype.Service;
+import se.kth.iv1201.recruitment.application.RecruitmentService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,6 +30,9 @@ public class RecruitmentSimpleUrlAuthenticationSuccessHandler implements Authent
     protected Log logger = LogFactory.getLog(this.getClass());
 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+
+    @Autowired
+    private RecruitmentService service;
 
     /**
      * Handles the http request, response and the authentication and then clears the authentication attributes.
@@ -47,8 +53,15 @@ public class RecruitmentSimpleUrlAuthenticationSuccessHandler implements Authent
             Authentication authentication
     ) throws IOException {
 
-        String targetUrl = determineTargetUrl(authentication);
+        String targetUrl = "";
+        System.out.println("in handle ");
+        if(service.checkIsCompleteFalse(authentication.getName()) != null){
+            System.out.println("in handle if old user ");
+             targetUrl = "email-verification";
+        }else {
 
+            targetUrl = determineTargetUrl(authentication);
+        }
         if (response.isCommitted()) {
             logger.debug(
                     "Response has already been committed. Unable to redirect to "
@@ -62,6 +75,7 @@ public class RecruitmentSimpleUrlAuthenticationSuccessHandler implements Authent
 
     protected String determineTargetUrl(final Authentication authentication) {
         Map<String, String> roleTargetUrlMap = new HashMap<>();
+
         roleTargetUrlMap.put("ROLE_APPLICANT", "/application");
         roleTargetUrlMap.put("ROLE_ADMIN", "/admin");
 

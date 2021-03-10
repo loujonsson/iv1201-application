@@ -85,14 +85,6 @@ public class RecruitmentService {
         if(password == ""){
             throw new IllegalRecruitmentTransactionException("Attempt to login without: " + password);
         }
-        /*
-        if(checkUsernameExists(username) != null) {
-            return personRepo.findPersonByUsernameAndPassword(username, password);
-        }if(checkEmailExists(username) != null){
-            return personRepo.findPersonByEmailAddressAndPassword(username, password);
-        }if(checkDateOfBirthExists(username) != null){
-            return personRepo.findPersonByDateOfBirthAndPassword(username, password);
-        }*/
         return personRepo.findPersonByUsernameOrDateOfBirthOrEmailAddressAndPassword(username, username, username, password);
     }
 
@@ -123,9 +115,8 @@ public class RecruitmentService {
         return personRepo.findPersonByDateOfBirth(dateOfBirth);
     }
 
-    public PersonDTO checkUsernameDateOfBirthOrEmailExists(String username) {
-       // System.out.println("isCompleteFalseAndUsername....: " + checkIsCompleteFalse(username).toString());
-        return personRepo.findPersonByUsernameOrDateOfBirthOrEmailAddress(username, username, username);
+    public PersonDTO checkUsernameDateOfBirthOrEmailExists(String username, String dateOfBirth, String email) {
+        return personRepo.findPersonByUsernameOrDateOfBirthOrEmailAddress(username, dateOfBirth, email);
     }
 
     /**
@@ -148,24 +139,16 @@ public class RecruitmentService {
         return currentPerson;
     }
     //TODO: update this method
-    public PersonDTO updatePerson(String username, String password, String firstName, String lastName, String email, String dateOfBirth, int roleId, boolean isComplete) throws IllegalRecruitmentTransactionException {
-        if (username == "") {
-            throw new IllegalRecruitmentTransactionException("Attempt to update a person without adding attribute: " + username);
-        }if (password == "") {
-            throw new IllegalRecruitmentTransactionException("Attempt to update a person without adding attribute: " + password);
-        }if (firstName == "") {
-            throw new IllegalRecruitmentTransactionException("Attempt to update a person without adding attribute: " + firstName);
-        }if (lastName == "") {
-            throw new IllegalRecruitmentTransactionException("Attempt to update a person without adding attribute: " + lastName);
-        }if (email == "") {
-            throw new IllegalRecruitmentTransactionException("Attempt to update a person without adding attribute: " + email);
-        }if (dateOfBirth == "") {
-            throw new IllegalRecruitmentTransactionException("Attempt to update a person without adding attribute: " + dateOfBirth);
-        }if (roleId == 0) {
-            throw new IllegalRecruitmentTransactionException("Attempt to update a person without adding attribute: " + roleId);
-        }if(isComplete == FALSE){
-            throw new IllegalRecruitmentTransactionException("Attempt to update a person without adding attribute: " + isComplete);
-        }
-        return personRepo.update(new Person(username, password, firstName, lastName, email, dateOfBirth, roleId, isComplete));
+    public PersonDTO updatePerson(PersonDTO person) {
+        /*Person person = personRepo.findPersonByUsername(username);
+        person.setUsername(username);
+        person.setPassword(password);
+        person.setFirstName(firstName);
+        person.setLastName(lastName);
+        person.setEmail(emailAddress);
+        person.setDateOfBirth(dateOfBirth);
+        person.setRoleId(roleId);
+        person.setIsComplete(isComplete);*/
+        return personRepo.save((Person) person);
     }
 }
