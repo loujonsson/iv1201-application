@@ -56,13 +56,16 @@ public class UpdateAccountController {
     }
     @GetMapping("/update")
     public String showForm(Model model) {
-        //Person user = new Person();
         UpdateAccountForm updateAccountForm = new UpdateAccountForm();
         model.addAttribute("updateAccountForm", updateAccountForm);
-        String username = updateAccountForm.getUsername();
-        //List<String> listProfession = Arrays.asList("Developer", "Tester", "Architect");
-        model.addAttribute("username", username);
-
+/*
+        model.addAttribute("email", currentPerson.getEmailAddress());
+       model.addAttribute("username", currentPerson.getUsername());
+        model.addAttribute("password", currentPerson.getPassword());
+        model.addAttribute("firstName", currentPerson.getFirstName());
+        model.addAttribute("lastName", currentPerson.getLastName());
+        model.addAttribute("dateOfBirth", currentPerson.getDateOfBirth());
+        */
         return UPDATE_ACCOUNT_PAGE_URL;
     }
 
@@ -76,8 +79,8 @@ public class UpdateAccountController {
         person.setLastName(user.getLastName());
         person.setEmail(user.getEmail());
         person.setDateOfBirth(user.getDateOfBirth());
-        person.setRoleId(user.getRoleId());
-        person.setIsComplete(user.getIsComplete());
+        //person.setIsComplete(user.getIsComplete());
+        //person.setRoleId(currentPerson.getRoleId());
         service.updatePerson(person);
 
         return "/" + SUCCESS_UPDATED_ACCOUNT_PAGE_URL;

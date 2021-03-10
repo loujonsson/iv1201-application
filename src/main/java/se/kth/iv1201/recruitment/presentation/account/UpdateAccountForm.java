@@ -38,8 +38,6 @@ public class UpdateAccountForm {
     @Size(min = 2, max = 30, message = "The password has to be between 2-30 characters.")
     private String password;
 
-    private int roleId;
-
     /**
      * @return The username of the account that will be created.
      */
@@ -134,16 +132,7 @@ public class UpdateAccountForm {
         return Util.toString(this);
     }
 
-
-    public int getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(){
-        this.roleId = roleId;
-    }
-
-    public boolean getIsComplete() {
+    /*public boolean getIsComplete() {
         return true;
-    }
+    }*/
 }

@@ -1,5 +1,7 @@
 package se.kth.iv1201.recruitment.domain;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.*;
 
 /**

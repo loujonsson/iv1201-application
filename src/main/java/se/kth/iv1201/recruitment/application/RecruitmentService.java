@@ -149,6 +149,7 @@ public class RecruitmentService {
         person.setDateOfBirth(dateOfBirth);
         person.setRoleId(roleId);
         person.setIsComplete(isComplete);*/
+        person.setIsComplete(true);
         return personRepo.save((Person) person);
     }
 }
