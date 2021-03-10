@@ -38,6 +38,7 @@ public class UpdateAccountForm {
     @Size(min = 2, max = 30, message = "The password has to be between 2-30 characters.")
     private String password;
 
+    //private long personId;
     /**
      * @return The username of the account that will be created.
      */
@@ -132,7 +133,8 @@ public class UpdateAccountForm {
         return Util.toString(this);
     }
 
-    /*public boolean getIsComplete() {
+
+    public boolean getIsComplete() {
         return true;
-    }*/
+    }
 }

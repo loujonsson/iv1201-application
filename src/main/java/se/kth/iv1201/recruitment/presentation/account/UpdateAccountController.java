@@ -72,16 +72,24 @@ public class UpdateAccountController {
     @PostMapping("/update")
     public String submitForm(@ModelAttribute("updateAccountForm") UpdateAccountForm user) {
         System.out.println(user);
-        PersonDTO person = service.checkUsernameDateOfBirthOrEmailExists(user.getUsername(), user.getDateOfBirth(), user.getEmail());
-        person.setUsername(user.getUsername());
+    PersonDTO person= service.checkUsernameDateOfBirthOrEmailExists(user.getUsername(), user.getDateOfBirth(), user.getEmail());
+       /* person.setUsername(user.getUsername());
         person.setPassword(user.getPassword());
         person.setFirstName(user.getFirstName());
         person.setLastName(user.getLastName());
         person.setEmail(user.getEmail());
         person.setDateOfBirth(user.getDateOfBirth());
-        //person.setIsComplete(user.getIsComplete());
+        person.setIsComplete(user.getIsComplete());*/
         //person.setRoleId(currentPerson.getRoleId());
-        service.updatePerson(person);
+       //ersonDTO person = service.getPersonIdData(user.getPersonId());
+        service.updatePerson(user.getUsername(),
+       user.getPassword(),
+        user.getFirstName(),
+     user.getLastName(),        user.getEmail(),
+        user.getDateOfBirth(), person.getRoleId(),
+        user.getIsComplete());
+
+        //rvice.createPerson(user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getDateOfBirth(), user.getRoleId(), createAccountForm.getIsComplete());
 
         return "/" + SUCCESS_UPDATED_ACCOUNT_PAGE_URL;
     }

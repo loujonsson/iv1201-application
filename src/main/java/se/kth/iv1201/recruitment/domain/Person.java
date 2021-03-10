@@ -11,12 +11,12 @@ import javax.persistence.*;
 @Entity
 @Table(name = "person")
 public class Person implements PersonDTO {
-  /*  @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "person_id")
     private Long personId;
-*/
-    @Id
+
+    @Column(name = "username")
     private String username;
 
     @Column(name = "password")
@@ -70,7 +70,12 @@ public class Person implements PersonDTO {
                 username, password, firstName, lastName, emailAddress, dateOfBirth);
     }
 
-    @Override
+  @Override
+  public Long getPersonId() {
+    return personId;
+  }
+
+  @Override
     public String getFirstName() {
         return firstName;
     }

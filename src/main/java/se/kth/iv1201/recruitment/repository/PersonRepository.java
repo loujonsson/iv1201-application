@@ -58,6 +58,8 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
 
     Person findPersonByIsCompleteFalseAndEmailAddress(String emailAddress);
 
+    //Person findPersonByPersonId(int personId);
+
     List<Person> findPersonByIsCompleteFalse();
 
 
@@ -69,5 +71,7 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
 
     Person findPersonByUsernameOrDateOfBirthOrEmailAddress(String username, String dateOfBirth, String email);
 
-    //Person update(Person person);
+    //Person saveOrUpdate(Person person);
+
+    Person findPersonByPersonId(long personId);
 }

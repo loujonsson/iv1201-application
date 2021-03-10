@@ -5,7 +5,7 @@ package se.kth.iv1201.recruitment.domain;
  * application and domain layers.
  */
 public interface PersonDTO {
-   // Long getPersonId();
+    Long getPersonId();
     /**
      * Returns the First name of the Person
      */

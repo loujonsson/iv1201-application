@@ -67,7 +67,8 @@ public class RecruitmentService {
         }if(isComplete == FALSE){
             throw new IllegalRecruitmentTransactionException("Attempt to create a person missing attribute: " + isComplete);
         }
-        return personRepo.save(new Person(username, password, firstName, lastName, emailAddress, dateOfBirth, roleId, isComplete));
+        Person person = new Person(username, password, firstName, lastName, emailAddress, dateOfBirth, roleId, isComplete);
+        return personRepo.save(person);
     }
 
     /**
@@ -138,9 +139,16 @@ public class RecruitmentService {
         }
         return currentPerson;
     }
+
+    public PersonDTO getPersonIdData(long personId){
+       return personRepo.findPersonByPersonId(personId);
+    }
+
     //TODO: update this method
-    public PersonDTO updatePerson(PersonDTO person) {
-        /*Person person = personRepo.findPersonByUsername(username);
+    public PersonDTO updatePerson(String username, String password, String firstName, String lastName, String emailAddress, String dateOfBirth, int roleId, boolean isComplete) {
+        Person person = personRepo.findPersonByUsernameOrDateOfBirthOrEmailAddress(username, dateOfBirth, emailAddress);
+        person = personRepo.findPersonByPersonId(person.getPersonId());
+        System.out.println("person id: " + person.getPersonId().toString());
         person.setUsername(username);
         person.setPassword(password);
         person.setFirstName(firstName);
@@ -148,8 +156,11 @@ public class RecruitmentService {
         person.setEmail(emailAddress);
         person.setDateOfBirth(dateOfBirth);
         person.setRoleId(roleId);
-        person.setIsComplete(isComplete);*/
-        person.setIsComplete(true);
-        return personRepo.save((Person) person);
+        person.setIsComplete(isComplete);
+        //person.setIsComplete(true);
+        //Person person = new Person(username, password, firstName, lastName, emailAddress, dateOfBirth, roleId, isComplete);
+        return personRepo.save(person);
+      //return personRepo.save((Person) person);
+       // return personRepo.save(new Person(person.getUsername(),person.getPassword(),person.getFirstName(),person.getLastName(),person.getEmailAddress(),person.getDateOfBirth(),person.getRoleId(),person.getIsComplete()));
     }
 }
