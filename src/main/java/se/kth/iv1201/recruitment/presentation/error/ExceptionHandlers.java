@@ -64,7 +64,7 @@ public class ExceptionHandlers implements ErrorController {
             model.addAttribute("errortype", "error.dateOfBirthExists");
         }
 
-        return "/" + ERROR_URL;
+        return ERROR_URL;
     }
 
     /**
@@ -83,7 +83,7 @@ public class ExceptionHandlers implements ErrorController {
         } else {
             model.addAttribute(ERROR_TYPE_KEY, GENERIC_ERROR);
         }
-        return "/" + ERROR_URL;
+        return ERROR_URL;
     }
 
     /**
@@ -113,7 +113,7 @@ public class ExceptionHandlers implements ErrorController {
             }
         }
 
-        return "/" + ERROR_URL;
+        return ERROR_URL;
     }
 
     private void logExceptionDebugLevel(Exception exception) {

@@ -1856,3 +1856,4 @@ Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Message key for
 2021-03-11 21:23:24.610  INFO 15444 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2021-03-11 21:23:26.059  INFO 15444 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 7.887 seconds (JVM running for 8.74)
 2021-03-11 21:23:26.715  INFO 15444 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-11 21:53:54.759  WARN 15444 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=21m2s162ms918µs).
