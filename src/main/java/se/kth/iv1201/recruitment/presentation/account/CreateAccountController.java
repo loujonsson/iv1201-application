@@ -71,7 +71,7 @@ public class CreateAccountController {
     public String saveForm(@Valid @ModelAttribute("createAccountForm") CreateAccountForm createAccountForm, BindingResult bindingResult, Model model) throws IllegalAttributeInsertionException, IllegalRecruitmentTransactionException {
         if(bindingResult.hasErrors()) {
             model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, createAccountForm);
-            return "/" + CREATE_ACCOUNT_PAGE_URL;
+            return CREATE_ACCOUNT_PAGE_URL;
         }
         else {
             if (currentPerson != null) {
