@@ -8,32 +8,38 @@ import se.kth.iv1201.recruitment.util.Util;
  */
 class CreateAccountForm {
 
-    @NotEmpty(message = "This field cannot be empty.")
+    //@NotEmpty(message = "This field cannot be empty.")
+    @NotEmpty(message = "{field.notempty}")
     @Size(min = 2, max = 30, message = "The username should be between 2-30 characters")
     @Pattern(regexp = "\\p{Alnum}*", message = "Only alphanumerical characters are allowed.")
     private String username;
 
-    @NotEmpty(message = "This field cannot be empty.")
+    //@NotEmpty(message = "This field cannot be empty.")
+    @NotEmpty(message = "{field.notempty}")
     @Size(min = 2, max = 30, message = "The first name should be between 2-30 characters")
     @Pattern(regexp = "\\p{Alpha}*", message = "Only alphabetical characters are allowed")
     private String firstName;
 
-    @NotEmpty(message = "This field cannot be empty.")
+    //@NotEmpty(message = "This field cannot be empty.")
+    @NotEmpty(message = "{field.notempty}")
     @Size(min = 2, max = 30, message = "The last name should be between 2-30 characters")
     @Pattern(regexp = "\\p{Alpha}*", message = "Only alphabetical characters are allowed")
     private String lastName;
 
-    @NotEmpty(message = "This field cannot be empty.")
+    //@NotEmpty(message = "This field cannot be empty.")
+    @NotEmpty(message = "{field.notempty}")
     @Size(min = 10, max = 10, message = "Date of birth should be 6 characters on the form YYMMDDXXXX.")
     @Pattern(regexp = "[0-9]+", message = "Only the digits 0-9 are allowed.")
     private String dateOfBirth;
 
-    @NotEmpty(message = "This field cannot be empty.")
+    //@NotEmpty(message = "This field cannot be empty.")
+    @NotEmpty(message = "{field.notempty}")
     @Size(min = 2, max = 30, message = "Only alphabetical characters are allowed")
     @Email(message = "Email should be a valid email")
     private String email;
 
-    @NotEmpty(message = "This field cannot be empty.")
+    //@NotEmpty(message = "This field cannot be empty.")
+    @NotEmpty(message = "{field.notempty}")
     @Size(min = 2, max = 30, message = "The password has to be between 2-30 characters.")
     private String password;
 
