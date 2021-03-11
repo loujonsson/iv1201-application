@@ -1267,22 +1267,6 @@ Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Message key for
 2021-03-11 12:04:42.102  INFO 5704 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
 2021-03-11 12:04:43.309  INFO 5704 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2021-03-11 12:04:44.181  INFO 5704 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 4.808 seconds (JVM running for 5.366
-2021-03-11 20:28:49.659  INFO 8252 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 15.0.1 on LAPTOP-5P935E41 with PID 8252 (C:\Users\loujo\Documents\IV1201-application\target\classes started by loujo in C:\Users\loujo\Documents\IV1201-application)
-2021-03-11 20:28:49.662  INFO 8252 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
-2021-03-11 20:28:51.328  INFO 8252 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-11 20:28:51.328  INFO 8252 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
-2021-03-11 20:28:51.467  INFO 8252 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-11 20:28:51.610  INFO 8252 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-03-11 20:28:51.672  INFO 8252 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
-2021-03-11 20:28:51.824  INFO 8252 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-03-11 20:28:51.938  INFO 8252 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-03-11 20:28:52.906  INFO 8252 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-03-11 20:28:52.943  INFO 8252 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2021-03-11 20:28:54.856  INFO 8252 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-03-11 20:28:56.543  INFO 8252 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 7.509 seconds (JVM running for 8.388)
-2021-03-11 20:29:20.002  INFO 8252 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-03-11 20:29:47.531  INFO 8252 --- [http-nio-8080-exec-2] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
-2021-03-11 20:29:47.547 ERROR 8252 --- [http-nio-8080-exec-2] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-2] Exception processing template "/error": Message key for message resolution must be a non-null and non-empty String (template: "/error" - line 11, col 16)
 
 org.thymeleaf.exceptions.TemplateProcessingException: Message key for message resolution must be a non-null and non-empty String (template: "/error" - line 11, col 16)
 	at org.thymeleaf.standard.expression.MessageExpression.executeMessageExpression(MessageExpression.java:241)
@@ -1367,6 +1351,7 @@ org.thymeleaf.exceptions.TemplateProcessingException: Message key for message re
 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
@@ -1374,6 +1359,7 @@ org.thymeleaf.exceptions.TemplateProcessingException: Message key for message re
 
 2021-03-11 20:29:47.551 ERROR 8252 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] threw exception
 
+
 org.thymeleaf.exceptions.TemplateProcessingException: Message key for message resolution must be a non-null and non-empty String (template: "/error" - line 11, col 16)
 	at org.thymeleaf.standard.expression.MessageExpression.executeMessageExpression(MessageExpression.java:241)
 	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:69)
@@ -1457,6 +1443,7 @@ org.thymeleaf.exceptions.TemplateProcessingException: Message key for message re
 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
@@ -1527,10 +1514,12 @@ org.springframework.web.util.NestedServletException: Request processing failed; 
 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:832)
+
 Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Message key for message resolution must be a non-null and non-empty String (template: "/error" - line 11, col 16)
 	at org.thymeleaf.standard.expression.MessageExpression.executeMessageExpression(MessageExpression.java:241)
 	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:69)
@@ -1558,6 +1547,7 @@ Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Message key for
 2021-03-11 20:29:50.965  INFO 8252 --- [http-nio-8080-exec-6] s.k.i.r.p.error.ExceptionHandlers        : A 404 not found exception occurred.
 2021-03-11 20:29:50.968 ERROR 8252 --- [http-nio-8080-exec-6] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-6] Exception processing template "/error": Message key for message resolution must be a non-null and non-empty String (template: "/error" - line 11, col 16)
 
+
 org.thymeleaf.exceptions.TemplateProcessingException: Message key for message resolution must be a non-null and non-empty String (template: "/error" - line 11, col 16)
 	at org.thymeleaf.standard.expression.MessageExpression.executeMessageExpression(MessageExpression.java:241)
 	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:69)
@@ -1641,6 +1631,7 @@ org.thymeleaf.exceptions.TemplateProcessingException: Message key for message re
 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
@@ -1648,6 +1639,7 @@ org.thymeleaf.exceptions.TemplateProcessingException: Message key for message re
 
 2021-03-11 20:29:50.978 ERROR 8252 --- [http-nio-8080-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] threw exception
 
+
 org.thymeleaf.exceptions.TemplateProcessingException: Message key for message resolution must be a non-null and non-empty String (template: "/error" - line 11, col 16)
 	at org.thymeleaf.standard.expression.MessageExpression.executeMessageExpression(MessageExpression.java:241)
 	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:69)
@@ -1731,12 +1723,7 @@ org.thymeleaf.exceptions.TemplateProcessingException: Message key for message re
 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:832)
 
-2021-03-11 20:29:50.979 ERROR 8252 --- [http-nio-8080-exec-6] o.a.c.c.C.[Tomcat].[localhost]           : Exception Processing ErrorPage[errorCode=0, location=/error]
 
 org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateProcessingException: Message key for message resolution must be a non-null and non-empty String (template: "/error" - line 11, col 16)
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
@@ -1801,10 +1788,12 @@ org.springframework.web.util.NestedServletException: Request processing failed; 
 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:832)
+
 Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Message key for message resolution must be a non-null and non-empty String (template: "/error" - line 11, col 16)
 	at org.thymeleaf.standard.expression.MessageExpression.executeMessageExpression(MessageExpression.java:241)
 	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:69)
@@ -1829,17 +1818,27 @@ Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Message key for
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
 	... 65 common frames omitted
 
-2021-03-11 20:47:10.199  INFO 5556 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 15.0.1 on LAPTOP-5P935E41 with PID 5556 (C:\Users\loujo\Documents\IV1201-application\target\classes started by loujo in C:\Users\loujo\Documents\IV1201-application)
-2021-03-11 20:47:10.202  INFO 5556 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
-2021-03-11 20:47:11.992  INFO 5556 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-03-11 20:47:11.993  INFO 5556 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
-2021-03-11 20:47:12.177  INFO 5556 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-03-11 20:47:12.342  INFO 5556 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-03-11 20:47:12.411  INFO 5556 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
-2021-03-11 20:47:12.589  INFO 5556 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-03-11 20:47:12.708  INFO 5556 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-03-11 20:47:13.750  INFO 5556 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-03-11 20:47:13.808  INFO 5556 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2021-03-11 20:47:15.837  INFO 5556 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-03-11 20:47:17.181  INFO 5556 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 7.515 seconds (JVM running for 8.303)
-2021-03-11 20:47:21.566  INFO 5556 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2021-03-11 20:42:01.144 DEBUG 32576 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : select person0_.person_id as person_i1_3_, person0_.date_of_birth as date_of_2_3_, person0_.email_address as email_ad3_3_, person0_.first_name as first_na4_3_, person0_.is_complete as is_compl5_3_, person0_.last_name as last_nam6_3_, person0_.password as password7_3_, person0_.role_id as role_id8_3_, person0_.username as username9_3_ from person person0_ where person0_.username=? or person0_.date_of_birth=? or person0_.email_address=?
+2021-03-11 20:42:01.145 TRACE 32576 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [hej]
+2021-03-11 20:42:01.145 TRACE 32576 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [1111111111]
+2021-03-11 20:42:01.145 TRACE 32576 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [hej@hej.com]
+2021-03-11 20:42:01.164 DEBUG 32576 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : select competence0_.person_id as person_i1_2_0_, competence0_.competence_id as competen2_2_0_, competence1_.competence_id as competen1_1_1_, competence1_.name_en as name_en2_1_1_, competence1_.name_se as name_se3_1_1_ from competence_profile competence0_ inner join competence competence1_ on competence0_.competence_id=competence1_.competence_id where competence0_.person_id=?
+2021-03-11 20:42:01.166 TRACE 32576 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [25]
+2021-03-11 20:42:01.203 DEBUG 32576 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : select person0_.person_id as person_i1_3_, person0_.date_of_birth as date_of_2_3_, person0_.email_address as email_ad3_3_, person0_.first_name as first_na4_3_, person0_.is_complete as is_compl5_3_, person0_.last_name as last_nam6_3_, person0_.password as password7_3_, person0_.role_id as role_id8_3_, person0_.username as username9_3_ from person person0_ where person0_.username=? or person0_.date_of_birth=? or person0_.email_address=?
+2021-03-11 20:42:01.204 TRACE 32576 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [hej]
+2021-03-11 20:42:01.204 TRACE 32576 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [1111111111]
+2021-03-11 20:42:01.204 TRACE 32576 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [hej@hej.com]
+2021-03-11 20:42:01.254 DEBUG 32576 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : update person set date_of_birth=?, email_address=?, first_name=?, is_complete=?, last_name=?, password=?, role_id=?, username=? where person_id=?
+2021-03-11 20:42:01.255 TRACE 32576 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [1111111111]
+2021-03-11 20:42:01.255 TRACE 32576 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [hej@hej.com]
+2021-03-11 20:42:01.255 TRACE 32576 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [hej]
+2021-03-11 20:42:01.256 TRACE 32576 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BOOLEAN] - [true]
+2021-03-11 20:42:01.257 TRACE 32576 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [hej]
+2021-03-11 20:42:01.257 TRACE 32576 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [hej]
+2021-03-11 20:42:01.257 TRACE 32576 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [INTEGER] - [2]
+2021-03-11 20:42:01.258 TRACE 32576 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [hej]
+2021-03-11 20:42:01.258 TRACE 32576 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [BIGINT] - [25]
+2021-03-11 20:43:16.750  INFO 32576 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-03-11 20:43:18.744  INFO 32576 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
