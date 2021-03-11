@@ -128,46 +128,46 @@ public class Person implements PersonDTO {
 
     @Override
     public void setUsername(String username) {
-
+        this.username = username;
     }
 
     @Override
     public void setPassword(String password) {
-
+        this.password = password;
     }
 
     @Override
     public void setFirstName(String firstName) {
-
+        this.firstName =firstName;
     }
 
     @Override
     public void setLastName(String lastName) {
-
+        this.lastName = lastName;
     }
 
     @Override
     public void setEmail(String email) {
-
+        this.emailAddress = email;
     }
 
     @Override
     public void setDateOfBirth(String dateOfBirth) {
-
+        this.dateOfBirth = dateOfBirth;
     }
 
     @Override
     public void setRoleId(int roleId) {
-
+        this.roleId = roleId;
     }
 
     @Override
     public void setIsComplete(boolean isComplete) {
-
+        this.isComplete = isComplete;
     }
 
     @Override
     public void setPersonId(Long personId) {
-
+        this.personId = personId;
     }
 }
