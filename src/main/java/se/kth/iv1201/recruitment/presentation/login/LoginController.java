@@ -18,7 +18,6 @@ public class LoginController {
     static final String LOGIN_PAGE_URL = "login";
     static final String SUCCESS_LOGIN_PAGE_URL = "login-success";
     private static final String CURRENT_ACCT_FORM_OBJ_NAME = "currentAcctForm";
-    static final String CREATE_ACCOUNT_PAGE_URL = "create-account";
     static final String LOGOUT_PAGE_URL = "logout";
 
     @Autowired
@@ -45,24 +44,14 @@ public class LoginController {
      */
     @RequestMapping(value = "/" + LOGIN_PAGE_URL, params = {"error", "logout"}, method = RequestMethod.POST)
     public String saveLoginForm(@Valid @ModelAttribute("loginForm") LoginForm loginForm, BindingResult bindingResult, Model model) throws IllegalRecruitmentTransactionException {
-        System.out.println("hello0");
         if(bindingResult.hasErrors()) {
-            System.out.println("hello1");
             model.addAttribute(CURRENT_ACCT_FORM_OBJ_NAME, loginForm);
             return "/" + LOGIN_PAGE_URL;
         }
         else {
-            System.out.println("hello1");
             PersonDTO applicantLoginSuccess = service.checkLogin(loginForm.getUsername(), loginForm.getPassword());
             if(applicantLoginSuccess != null){
-                System.out.println("hello");
-                //If null => person has all fields filled in => can proceed to login page
-                if(service.checkIsCompleteFalse(loginForm.getUsername()) == null){
-                    return "redirect:" + SUCCESS_LOGIN_PAGE_URL;
-                    //return "redirect:" + LOGIN_PAGE_URL;
-                }
-                return "redirect:" + CREATE_ACCOUNT_PAGE_URL;
-                //return "redirect:" + LOGIN_PAGE_URL;
+                return "redirect:" + SUCCESS_LOGIN_PAGE_URL;
             }else{
                 return "redirect:" + LOGIN_PAGE_URL;
             }
@@ -76,11 +65,13 @@ public class LoginController {
      */
     @GetMapping("/" + SUCCESS_LOGIN_PAGE_URL)
     public String showSuccessLoginView(){
+        System.out.println("hello from login");
         return SUCCESS_LOGIN_PAGE_URL;
     }
 
     @PostMapping("/" + LOGOUT_PAGE_URL)
     public String redirectToLogin(){
+        System.out.println("hello from logout");
         return "redirect:" + LOGIN_PAGE_URL + "?logout";
     }
 

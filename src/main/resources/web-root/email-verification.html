@@ -3,30 +3,16 @@
       layout:decorate="~{resources/fragments/layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Applicant interface</title>
-
+    <title>Email Verification</title>
     <link th:href="@{css/recruitment.css}" type="text/css" rel="stylesheet" />
-    <style type="text/css">
-        span {
-            display: inline-block;
-            width: 200px;
-            text-align: left;
-        }
-    </style>
-
 </head>
 <body>
-
 <main layout:fragment="content">
     <section>
-<div align="center">
+        <h1>You seem to have an account with missing information.</h1>
 
-        <h1 th:text="#{application-title}"></h1>
-        <p th:text="#{application-info}"></p>
-        <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
-        </form>
-</div>
+        <p>An email was sent for verification</p>
+        <a href="/update-account">Ok</a>
         <br>
     </section>
 </main>

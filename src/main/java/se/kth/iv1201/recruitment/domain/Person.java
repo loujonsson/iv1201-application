@@ -1,6 +1,10 @@
 package se.kth.iv1201.recruitment.domain;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Create an entity for Person so the database can create a table from it
@@ -10,6 +14,11 @@ import javax.persistence.*;
 @Table(name = "person")
 public class Person implements PersonDTO {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "person_id")
+    private Long personId;
+
+    @Column(name = "username")
     private String username;
 
     @Column(name = "password")
@@ -32,10 +41,19 @@ public class Person implements PersonDTO {
 
     @Column(name = "is_complete")
     private boolean isComplete;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "competence_profile",
+            joinColumns = @JoinColumn(name = "person_id"),
+            inverseJoinColumns = @JoinColumn(name = "competence_id")
+    )
+    private Set<Competence> competences = new HashSet<>();
+
     /**
      * Exists only for the sake of JPA
      */
-    protected Person(){}
+    public Person(){}
 
     /**
      * Creates a new instance with the specified username, password, first and last name, date of birth and email
@@ -63,7 +81,12 @@ public class Person implements PersonDTO {
                 username, password, firstName, lastName, emailAddress, dateOfBirth);
     }
 
-    @Override
+  @Override
+  public Long getPersonId() {
+    return personId;
+  }
+
+  @Override
     public String getFirstName() {
         return firstName;
     }
@@ -101,5 +124,50 @@ public class Person implements PersonDTO {
     @Override
     public Boolean getIsComplete() {
         return isComplete;
+    }
+
+    @Override
+    public void setUsername(String username) {
+
+    }
+
+    @Override
+    public void setPassword(String password) {
+
+    }
+
+    @Override
+    public void setFirstName(String firstName) {
+
+    }
+
+    @Override
+    public void setLastName(String lastName) {
+
+    }
+
+    @Override
+    public void setEmail(String email) {
+
+    }
+
+    @Override
+    public void setDateOfBirth(String dateOfBirth) {
+
+    }
+
+    @Override
+    public void setRoleId(int roleId) {
+
+    }
+
+    @Override
+    public void setIsComplete(boolean isComplete) {
+
+    }
+
+    @Override
+    public void setPersonId(Long personId) {
+
     }
 }

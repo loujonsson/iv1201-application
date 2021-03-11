@@ -3,6 +3,7 @@ package se.kth.iv1201.recruitment.repository;
 import org.springframework.data.repository.CrudRepository;
 import se.kth.iv1201.recruitment.domain.Person;
 import se.kth.iv1201.recruitment.domain.PersonDTO;
+import se.kth.iv1201.recruitment.presentation.account.UpdateAccountForm;
 
 import java.util.List;
 
@@ -50,16 +51,7 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
 
     Person findPersonByUsernameOrDateOfBirthOrEmailAddressAndPassword(String username, String dateOfBirth, String email, String password);
 
-    Person findPersonByIsCompleteFalseAndUsernameOrDateOfBirthOrEmailAddress(String username, String dateOfBirth, String email);
-
-    Person findPersonByIsCompleteFalseAndUsername(String username);
-
-    Person findPersonByIsCompleteFalseAndDateOfBirth(String dateOfBirth);
-
-    Person findPersonByIsCompleteFalseAndEmailAddress(String emailAddress);
-
     List<Person> findPersonByIsCompleteFalse();
-
 
     @Override
     Person save(Person person);
@@ -68,4 +60,7 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
     List<Person> findAll();
 
     Person findPersonByUsernameOrDateOfBirthOrEmailAddress(String username, String dateOfBirth, String email);
+
+    Person findPersonByPersonId(long personId);
+
 }

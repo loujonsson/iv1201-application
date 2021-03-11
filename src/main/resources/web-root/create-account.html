@@ -27,6 +27,7 @@
                 </span>
             </p>
             <p>
+
                 <label for="create-date-of-birth" th:text="#{caf-date-of-birth}"></label>:
                 <input type="text" th:field="*{dateOfBirth}" id="create-date-of-birth" placeholder="YYMMDDXXXX">
                 <span class="error" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">
