@@ -2,6 +2,9 @@ package se.kth.iv1201.recruitment.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import se.kth.iv1201.recruitment.domain.Person;
+import se.kth.iv1201.recruitment.domain.PersonDTO;
+import se.kth.iv1201.recruitment.presentation.account.UpdateAccountForm;
+
 import java.util.List;
 
 public interface PersonRepository extends CrudRepository<Person, Long> {
@@ -59,4 +62,5 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
     Person findPersonByUsernameOrDateOfBirthOrEmailAddress(String username, String dateOfBirth, String email);
 
     Person findPersonByPersonId(long personId);
+
 }

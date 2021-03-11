@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
 import se.kth.iv1201.recruitment.domain.Person;
 import se.kth.iv1201.recruitment.domain.PersonDTO;
+import se.kth.iv1201.recruitment.presentation.account.UpdateAccountForm;
 import se.kth.iv1201.recruitment.repository.PersonRepository;
 
 import java.util.List;
@@ -139,20 +140,40 @@ public class RecruitmentService {
        return personRepo.findPersonByPersonId(personId);
     }
 
-    public PersonDTO updatePerson(String username, String password, String firstName, String lastName, String emailAddress, String dateOfBirth, int roleId, boolean isComplete) {
-        Person person = personRepo.findPersonByUsernameOrDateOfBirthOrEmailAddress(username, dateOfBirth, emailAddress);
-        person = personRepo.findPersonByPersonId(person.getPersonId());
-        System.out.println("person id: " + person.getPersonId().toString());
-        person.setUsername(username);
-        person.setPassword(password);
-        person.setFirstName(firstName);
-        person.setLastName(lastName);
-        person.setEmail(emailAddress);
-        person.setDateOfBirth(dateOfBirth);
-        person.setRoleId(roleId);
-        person.setIsComplete(isComplete);
-        //person.setIsComplete(true);
-        //Person person = new Person(username, password, firstName, lastName, emailAddress, dateOfBirth, roleId, isComplete);
-        return personRepo.save(person);
+    public PersonDTO updatePerson(String username, String password, String firstName, String lastName, String emailAddress, String dateOfBirth, boolean isComplete) {
+        Person oldPerson = personRepo.findPersonByUsernameOrDateOfBirthOrEmailAddress(username, dateOfBirth, emailAddress);
+        System.out.println("person id: " + oldPerson.getPersonId().toString());
+        System.out.println("oldperson in update: " + oldPerson);
+        oldPerson.setUsername(username);
+        oldPerson.setPassword(password);
+        oldPerson.setFirstName(firstName);
+        oldPerson.setLastName(lastName);
+        oldPerson.setEmail(emailAddress);
+        oldPerson.setDateOfBirth(dateOfBirth);
+        oldPerson.setIsComplete(isComplete);
+        System.out.println("person.getUsername(): " + oldPerson.getUsername());
+        System.out.println("person in update person: " + oldPerson);
+
+        //Person person = new Person(username, password, firstName, lastName, emailAddress, dateOfBirth, oldPerson.getRoleId(), isComplete);
+        return personRepo.save(oldPerson);
      }
+     public void updatePerson(PersonDTO person, UpdateAccountForm user ){
+        System.out.println("user_id: "+ user.getPersonId());
+         person = personRepo.findPersonByPersonId(person.getPersonId());
+         person.setUsername(user.getUsername());
+         person.setPassword(user.getPassword());
+         person.setFirstName(user.getFirstName());
+         person.setLastName(user.getLastName());
+         person.setEmail(user.getEmail());
+         person.setDateOfBirth(user.getDateOfBirth());
+         person.setIsComplete(user.getIsComplete());
+         System.out.println("person in update person: " + person);
+         System.out.println("person id: " + person.getPersonId().toString());
+         //return personRepo.save((Person) person);
+    }
+
+    public PersonDTO savePerson(PersonDTO person){
+        System.out.println("Person in savePerson: " + person);
+        return personRepo.save((Person) person);
+    }
 }

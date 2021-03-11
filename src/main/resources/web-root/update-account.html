@@ -13,6 +13,7 @@
         <h1>Update Existing Account</h1>
         <p1>Enter missing account details.</p1>
         <form action="#" th:action="@{/update}" method="post" th:object="${updateAccountForm}">
+            <input type="hidden" th:field="*{personId}" />
             <p>
                 <label>First name</label>:
                 <input type="text" th:field="*{firstName}">

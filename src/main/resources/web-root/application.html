@@ -5,13 +5,23 @@
     <meta charset="UTF-8">
     <title>Applicant interface</title>
     <link th:href="@{css/recruitment.css}" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+        span {
+            display: inline-block;
+            width: 200px;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
+<div align="center">
+    <h1>Your application</h1>
+    <h2>APPLICANT INTERFACE</h2>
+    <p>Shall show current user's application</p>
+
+</div>
 <main layout:fragment="content">
     <section>
-        <h1>Your application</h1>
-        <h2>APPLICANT INTERFACE</h2>
-        <p>Shall show current user's application</p>
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/>
         </form>
