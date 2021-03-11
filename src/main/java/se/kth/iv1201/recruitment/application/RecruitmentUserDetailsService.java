@@ -26,7 +26,7 @@ public class RecruitmentUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         System.out.println("username: " + username);
         PersonDTO person = service.checkUsernameDateOfBirthOrEmailExists(username);
-        System.out.println("person: " + person.toString());
+       // System.out.println("person: " + person.toString());
         if(person == null){
             throw new UsernameNotFoundException("No username, date of birth or email was found");
         }
@@ -43,6 +43,6 @@ public class RecruitmentUserDetailsService implements UserDetailsService {
             currentRole = new SimpleGrantedAuthority(applicant);
         }
 
-        return new org.springframework.security.core.userdetails.User(person.getUsername(), person.getPassword(), Collections.singleton(currentRole));
+        return new org.springframework.security.core.userdetails.User(username, person.getPassword(), Collections.singleton(currentRole));
     }
 }

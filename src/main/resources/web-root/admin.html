@@ -4,13 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin interface</title>
+    <link th:href="@{css/recruitment.css}" type="text/css" rel="stylesheet" />
 </head>
 <body>
-<h1 th:text="#{admin-title}"></h1>
-<p th:text="#{admin-to-be-continued}"></p>
+    <main layout:fragment="content">
+        <section>
+            <h1 th:text="#{admin-title}"></h1>
+            <p th:text="#{admin-to-be-continued}"></p>
 
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
-</form>
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Sign Out"/>
+            </form>
+            <br>
+        </section>
+    </main>
 </body>
 </html>
