@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Table(name = "person")
 public class Person implements PersonDTO {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "person_id")
     private Long personId;
 

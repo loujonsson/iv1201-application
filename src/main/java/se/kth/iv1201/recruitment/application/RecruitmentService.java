@@ -1,17 +1,12 @@
 package se.kth.iv1201.recruitment.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
 import se.kth.iv1201.recruitment.domain.Person;
 import se.kth.iv1201.recruitment.domain.PersonDTO;
-import se.kth.iv1201.recruitment.domain.Role;
 import se.kth.iv1201.recruitment.repository.PersonRepository;
 
 import java.util.List;
@@ -144,7 +139,6 @@ public class RecruitmentService {
        return personRepo.findPersonByPersonId(personId);
     }
 
-    //TODO: update this method
     public PersonDTO updatePerson(String username, String password, String firstName, String lastName, String emailAddress, String dateOfBirth, int roleId, boolean isComplete) {
         Person person = personRepo.findPersonByUsernameOrDateOfBirthOrEmailAddress(username, dateOfBirth, emailAddress);
         person = personRepo.findPersonByPersonId(person.getPersonId());
@@ -160,7 +154,5 @@ public class RecruitmentService {
         //person.setIsComplete(true);
         //Person person = new Person(username, password, firstName, lastName, emailAddress, dateOfBirth, roleId, isComplete);
         return personRepo.save(person);
-      //return personRepo.save((Person) person);
-       // return personRepo.save(new Person(person.getUsername(),person.getPassword(),person.getFirstName(),person.getLastName(),person.getEmailAddress(),person.getDateOfBirth(),person.getRoleId(),person.getIsComplete()));
-    }
+     }
 }

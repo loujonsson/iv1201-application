@@ -24,7 +24,6 @@ public class RecruitmentUserDetailsService implements UserDetailsService {
      * @throws UsernameNotFoundException
      */
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        System.out.println("username: " + username);
         PersonDTO person = service.checkUsernameDateOfBirthOrEmailExists(username, username, username);
         if(person == null){
             throw new UsernameNotFoundException("No username, date of birth or email was found");
