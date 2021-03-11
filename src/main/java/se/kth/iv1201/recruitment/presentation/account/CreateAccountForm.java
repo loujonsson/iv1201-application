@@ -6,7 +6,7 @@ import se.kth.iv1201.recruitment.util.Util;
 /**
  * A form bean for the account creation form.
  */
-class CreateAccountForm {
+public class CreateAccountForm {
 
     @NotEmpty(message = "{field.notempty}")
     @Size(min = 2, max = 30, message = "{username.size}")
@@ -142,5 +142,8 @@ class CreateAccountForm {
         this.roleId = 2;
     }
 
+    public boolean getIsComplete() {
+        return true;
+    }
 }
 

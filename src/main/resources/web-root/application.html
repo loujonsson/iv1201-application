@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{resources/fragments/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Applicant interface</title>
+    <link th:href="@{css/recruitment.css}" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<main layout:fragment="content">
+    <section>
+        <h1>Your application</h1>
+        <h2>APPLICANT INTERFACE</h2>
+        <p>Shall show current user's application</p>
+    </section>
+</main>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+</body>
+</html>

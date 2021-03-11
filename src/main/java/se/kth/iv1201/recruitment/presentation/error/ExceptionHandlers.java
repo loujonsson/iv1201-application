@@ -32,7 +32,7 @@ public class ExceptionHandlers implements ErrorController {
      * @return Redirection to /error/username
      */
     @ExceptionHandler(IllegalAttributeInsertionException.class)
-    public String handleIllegalUsernameException(IllegalAttributeInsertionException exception){
+    public String handleIllegalAttributeInsertionException(IllegalAttributeInsertionException exception){
         String str = exception.toString();
         String prefix = "se.kth.iv1201.recruitment.domain.IllegalAttributeInsertionException: ";
         String param = "";
@@ -101,19 +101,15 @@ public class ExceptionHandlers implements ErrorController {
 
             if(statusCode == HttpStatus.NOT_FOUND.value()) { //404
                 logger.info("A 404 not found exception occurred.");
-                model.addAttribute("errortype", "A 404 not found exception occurred!");
             }
             else if(statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) { //500
                 logger.info("A 500 internal server error exception occurred.");
-                model.addAttribute("errortype", "A 500 internal server error exception occurred!");
             }
             else if(statusCode == HttpStatus.BAD_REQUEST.value()) { //400
                 logger.info("A 400 bad request occurred.");
-                model.addAttribute("errortype", "A 400 bad request occurred!");
             }
             else {
                 logger.info("An unspecified error occurred.");
-                model.addAttribute("errortype", "An unspecified error occurred!");
             }
         }
 
