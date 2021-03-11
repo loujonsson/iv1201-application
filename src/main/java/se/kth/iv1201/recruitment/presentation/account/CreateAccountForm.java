@@ -8,33 +8,33 @@ import se.kth.iv1201.recruitment.util.Util;
  */
 public class CreateAccountForm {
 
-    @NotEmpty(message = "This field cannot be empty.")
-    @Size(min = 2, max = 30, message = "The username should be between 2-30 characters")
-    @Pattern(regexp = "\\p{Alnum}*", message = "Only alphanumerical characters are allowed.")
+    @NotEmpty(message = "{field.notempty}")
+    @Size(min = 2, max = 30, message = "{username.size}")
+    @Pattern(regexp = "\\p{Alnum}*", message = "{alphanum.pattern}")
     private String username;
 
-    @NotEmpty(message = "This field cannot be empty.")
-    @Size(min = 2, max = 30, message = "The first name should be between 2-30 characters")
-    @Pattern(regexp = "\\p{Alpha}*", message = "Only alphabetical characters are allowed")
+    @NotEmpty(message = "{field.notempty}")
+    @Size(min = 2, max = 30, message = "{firstname.size}")
+    @Pattern(regexp = "\\p{Alpha}*", message = "{alpha.pattern}")
     private String firstName;
 
-    @NotEmpty(message = "This field cannot be empty.")
-    @Size(min = 2, max = 30, message = "The last name should be between 2-30 characters")
-    @Pattern(regexp = "\\p{Alpha}*", message = "Only alphabetical characters are allowed")
+    @NotEmpty(message = "{field.notempty}")
+    @Size(min = 2, max = 30, message = "{lastname.size}")
+    @Pattern(regexp = "\\p{Alpha}*", message = "{alpha.pattern}")
     private String lastName;
 
-    @NotEmpty(message = "This field cannot be empty.")
-    @Size(min = 10, max = 10, message = "Date of birth should be 6 characters on the form YYMMDDXXXX.")
-    @Pattern(regexp = "[0-9]+", message = "Only the digits 0-9 are allowed.")
+    @NotEmpty(message = "{field.notempty}")
+    @Size(min = 10, max = 10, message = "{dateofbirth.size}")
+    @Pattern(regexp = "[0-9]+", message = "{regexp.pattern}")
     private String dateOfBirth;
 
-    @NotEmpty(message = "This field cannot be empty.")
-    @Size(min = 2, max = 30, message = "Only alphabetical characters are allowed")
-    @Email(message = "Email should be a valid email")
+    @NotEmpty(message = "{field.notempty}")
+    @Size(min = 2, max = 320, message = "{email.size}")
+    @Email(message = "{email.message}")
     private String email;
 
-    @NotEmpty(message = "This field cannot be empty.")
-    @Size(min = 2, max = 30, message = "The password has to be between 2-30 characters.")
+    @NotEmpty(message = "{field.notempty}")
+    @Size(min = 2, max = 30, message = "{password.size}")
     private String password;
 
     private int roleId = 2;

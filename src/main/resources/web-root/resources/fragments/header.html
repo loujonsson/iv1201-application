@@ -6,7 +6,19 @@
 </head>
     <body>
         <header th:fragment="header">
-            <p>Recruitment Service</p>
+            <script type="text/javascript">
+                function setLanguage(val) {
+                    const selectedOption = val;
+                    if (selectedOption != ''){
+                        window.location.replace('create-account?lang=' + selectedOption);
+                    }
+                }
+            </script>
+            <p>Recruitment Service
+            </p>
+            <span th:text="#{lang.change}"></span>
+            <button value="en" type="button" onClick="setLanguage(value)">EN</button>
+            <button value="se" type="button" onClick="setLanguage(value)">SE</button>
         </header>
     </body>
 </html>
