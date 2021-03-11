@@ -123,7 +123,7 @@ public class RecruitmentService {
         return personRepo.findPersonByDateOfBirth(dateOfBirth);
     }
 
-    public PersonDTO checkUsernameDateOfBirthOrEmailExists(String username){
+    public PersonDTO checkUsernameDateOfBirthOrEmailExists(String username) {
        // System.out.println("isCompleteFalseAndUsername....: " + checkIsCompleteFalse(username).toString());
         return personRepo.findPersonByUsernameOrDateOfBirthOrEmailAddress(username, username, username);
     }
