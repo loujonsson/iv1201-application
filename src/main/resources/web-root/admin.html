@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{resources/fragments/layout}">
 <head>
     <meta charset="UTF-8">
     <title>Admin interface</title>
 </head>
 <body>
-<p>Admin interface to be continued...</p>
+<h1 th:text="#{admin-title}"></h1>
+<p th:text="#{admin-to-be-continued}"></p>
 
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sign Out"/>

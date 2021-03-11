@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Applicant interface</title>
-    <link th:href="@{css/recruitment.css}" type="text/css" rel="stylesheet" />
+    <!--<link th:href="@{css/recruitment.css}" type="text/css" rel="stylesheet" />-->
 </head>
 <body>
 <main layout:fragment="content">
     <section>
-        <h1>Your application</h1>
-        <h2>APPLICANT INTERFACE</h2>
-        <p>Shall show current user's application</p>
+        <h1 th:text="#{application-title}"></h1>
+        <p th:text="#{application-info}"></p>
     </section>
 </main>
 

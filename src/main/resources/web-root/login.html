@@ -11,10 +11,10 @@
         <h1 th:text="#{login}"></h1>
         <p1 th:text="#{login-already-have-account}"></p1>
         <div th:if="${param.error}">
-            Invalid username and password.
+            <p th:text="#{invalid-username-password}"></p>
         </div>
         <div th:if="${param.logout}">
-            You have been logged out.
+            <p th:text="#{logged-out}"></p>
         </div>
         <form th:action="@{/login}" th:object="${loginForm}" method="post">
             <p>
