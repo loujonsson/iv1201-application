@@ -154,26 +154,6 @@ public class RecruitmentService {
         System.out.println("person.getUsername(): " + oldPerson.getUsername());
         System.out.println("person in update person: " + oldPerson);
 
-        //Person person = new Person(username, password, firstName, lastName, emailAddress, dateOfBirth, oldPerson.getRoleId(), isComplete);
         return personRepo.save(oldPerson);
      }
-     public void updatePerson(PersonDTO person, UpdateAccountForm user ){
-        System.out.println("user_id: "+ user.getPersonId());
-         person = personRepo.findPersonByPersonId(person.getPersonId());
-         person.setUsername(user.getUsername());
-         person.setPassword(user.getPassword());
-         person.setFirstName(user.getFirstName());
-         person.setLastName(user.getLastName());
-         person.setEmail(user.getEmail());
-         person.setDateOfBirth(user.getDateOfBirth());
-         person.setIsComplete(user.getIsComplete());
-         System.out.println("person in update person: " + person);
-         System.out.println("person id: " + person.getPersonId().toString());
-         //return personRepo.save((Person) person);
-    }
-
-    public PersonDTO savePerson(PersonDTO person){
-        System.out.println("Person in savePerson: " + person);
-        return personRepo.save((Person) person);
-    }
 }
