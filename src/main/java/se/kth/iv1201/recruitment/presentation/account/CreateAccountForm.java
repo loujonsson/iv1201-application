@@ -133,7 +133,6 @@ public class CreateAccountForm {
         return Util.toString(this);
     }
 
-
     public int getRoleId() {
         return roleId;
     }
