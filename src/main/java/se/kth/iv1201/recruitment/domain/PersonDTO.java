@@ -61,4 +61,6 @@ public interface PersonDTO {
     void setRoleId(int roleId);
 
     void setIsComplete(boolean isComplete);
+
+    void setPersonId(Long personId);
 }

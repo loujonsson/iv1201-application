@@ -3,6 +3,8 @@ package se.kth.iv1201.recruitment.domain;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Create an entity for Person so the database can create a table from it
@@ -39,6 +41,15 @@ public class Person implements PersonDTO {
 
     @Column(name = "is_complete")
     private boolean isComplete;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "competence_profile",
+            joinColumns = @JoinColumn(name = "person_id"),
+            inverseJoinColumns = @JoinColumn(name = "competence_id")
+    )
+    private Set<Competence> competences = new HashSet<>();
+
     /**
      * Exists only for the sake of JPA
      */
@@ -152,6 +163,11 @@ public class Person implements PersonDTO {
 
     @Override
     public void setIsComplete(boolean isComplete) {
+
+    }
+
+    @Override
+    public void setPersonId(Long personId) {
 
     }
 }
