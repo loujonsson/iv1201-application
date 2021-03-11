@@ -11,7 +11,7 @@
     <section>
         <h1 th:text="#{caf-create-account}"></h1>
         <p1 th:text="#{caf-account-details}"></p1>
-        <form th:action="@{create-account}" th:object="${createAccountForm}" method="post">
+        <form th:action="@{/create-account}" th:object="${createAccountForm}" method="post">
             <p>
                 <label for="create-first-name" th:text="#{caf-first-name}"></label>:
                 <input type="text" th:field="*{firstName}" id="create-first-name">
