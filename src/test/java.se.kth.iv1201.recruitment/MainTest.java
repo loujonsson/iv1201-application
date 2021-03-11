@@ -23,9 +23,15 @@ public class MainTest {
     @Autowired
     private MockMvc mockMvc;
 
+    /**
+     * Example test for CI
+     * @throws Exception
+     */
     @Test
     public void exampleTest() throws Exception {
-        this.mockMvc.perform(get("/hello")).andDo(print()).andExpect(status().is(404));
+        this.mockMvc.perform(get("/hello")).andDo(print()).andExpect(status().is(302));
     }
+
+
     
 }

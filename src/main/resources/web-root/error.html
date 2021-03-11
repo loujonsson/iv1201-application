@@ -6,7 +6,7 @@
     </head>
     <body>
         <h1 th:text="#{somethingWrong}"></h1>
-        <div th:id="${errorType != null}">
+        <div th:if="${errorType != null}">
             <p><b th:text="#{errorOccured}"></b></p>
             <p th:text="#{${errortype}}"></p>
         </div>
