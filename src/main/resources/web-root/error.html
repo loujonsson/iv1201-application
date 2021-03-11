@@ -5,10 +5,11 @@
         <title>Title</title>
     </head>
     <body>
-        <h1>Something went wrong!</h1>
-        <h2>Our Engineers are on it</h2>
-        <p><b>An error occurred:</b></p>
-        <p th:text="${errortype}"></p>
+        <h1 th:text="#{somethingWrong}"></h1>
+        <div th:id="${errorType != null}">
+            <p><b th:text="#{errorOccured}"></b></p>
+            <p th:text="#{${errortype}}"></p>
+        </div>
         <a href="/">Go Back</a>
     </body>
 </html>

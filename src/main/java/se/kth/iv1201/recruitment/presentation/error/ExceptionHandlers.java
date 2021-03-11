@@ -4,6 +4,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import se.kth.iv1201.recruitment.domain.*;
+
+import java.util.Locale;
 
 @Controller
 @ControllerAdvice
@@ -53,11 +56,12 @@ public class ExceptionHandlers implements ErrorController {
     @GetMapping("/" + ERROR_URL + "/{errorType}")
     public String showErrorView(@PathVariable("errorType") String errorType, Model model){
         if(errorType.equals("username")){
-            model.addAttribute("errortype", "A user with this username already exists!");
+            model.addAttribute("errortype", "error.usernameExists");
         }else if(errorType.equals("email")){
-            model.addAttribute("errortype", "A user with this email already exists!");
+            model.addAttribute("errortype", "error.emailExists");
+            System.out.println();
         }else{
-            model.addAttribute("errortype", "A user with this date of birth already exists!");
+            model.addAttribute("errortype", "error.dateOfBirthExists");
         }
 
         return "/" + ERROR_URL;

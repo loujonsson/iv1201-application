@@ -1,5 +1,7 @@
 package se.kth.iv1201.recruitment.util;
 
+import org.springframework.context.i18n.LocaleContextHolder;
+
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -29,5 +31,12 @@ public class Util {
         }).collect(Collectors.joining(", ")));
         builder.append("]");
         return builder.toString();
+    }
+
+    /**
+     * Get Locale
+     */
+    public static String getLocale(){
+        return LocaleContextHolder.getLocale().getLanguage();
     }
 }

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Applicant interface</title>
+
     <link th:href="@{css/recruitment.css}" type="text/css" rel="stylesheet" />
     <style type="text/css">
         span {
@@ -12,20 +13,20 @@
             text-align: left;
         }
     </style>
+
 </head>
 <body>
-<div align="center">
-    <h1>Your application</h1>
-    <h2>APPLICANT INTERFACE</h2>
-    <p>Shall show current user's application</p>
 
-</div>
 <main layout:fragment="content">
     <section>
+<div align="center">
+
+        <h1 th:text="#{application-title}"></h1>
+        <p th:text="#{application-info}"></p>
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/>
         </form>
-
+</div>
         <br>
     </section>
 </main>
