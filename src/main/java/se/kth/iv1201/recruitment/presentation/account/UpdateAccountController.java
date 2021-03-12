@@ -18,7 +18,6 @@ public class UpdateAccountController {
 
     static final String UPDATE_ACCOUNT_PAGE_URL = "update-account";
     static final String SUCCESS_UPDATED_ACCOUNT_PAGE_URL = "update-account-success";
-    static final String LOGIN_PAGE_URL = "login";
 
     @Autowired
     private RecruitmentService service;
@@ -52,7 +51,7 @@ public class UpdateAccountController {
      * @param user
      * @param model
      * @param result
-     * @return login url
+     * @return url
      */
     @PostMapping("/update")
     public String submitForm(@ModelAttribute("updateAccountForm") UpdateAccountForm user, Model model, BindingResult result){
@@ -63,7 +62,7 @@ public class UpdateAccountController {
         user.setPersonId(personFromDB.getPersonId());
         service.updatePerson(user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getDateOfBirth(), user.getIsComplete());
 
-        return LOGIN_PAGE_URL;
+        return SUCCESS_UPDATED_ACCOUNT_PAGE_URL;
     }
 
     /**
