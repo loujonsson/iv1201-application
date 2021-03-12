@@ -8,5 +8,8 @@
 
 <h1 th:text="#{update-account-success}"></h1>
 <a href="/" th:text="#{go-back-button}"></a>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" th:value="#{logout}"/>
+</form>
 </body>
 </html>
