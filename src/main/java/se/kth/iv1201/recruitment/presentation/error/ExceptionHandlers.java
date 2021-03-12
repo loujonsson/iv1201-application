@@ -101,15 +101,23 @@ public class ExceptionHandlers implements ErrorController {
 
             if(statusCode == HttpStatus.NOT_FOUND.value()) { //404
                 logger.info("A 404 not found exception occurred.");
+                model.addAttribute("errortype", "error.404");
             }
             else if(statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) { //500
                 logger.info("A 500 internal server error exception occurred.");
+                model.addAttribute("errortype", "error.500");
             }
             else if(statusCode == HttpStatus.BAD_REQUEST.value()) { //400
                 logger.info("A 400 bad request occurred.");
+                model.addAttribute("errortype", "error.400");
+            }
+            else if(statusCode == HttpStatus.FORBIDDEN.value()){ // 500
+                logger.info("A 403 forbidden request occured.");
+                model.addAttribute("errortype", "error.403");
             }
             else {
                 logger.info("An unspecified error occurred.");
+                model.addAttribute("errortype", "error.unknown");
             }
         }
 
