@@ -1,11 +1,14 @@
 package se.kth.iv1201.recruitment.repository;
 
 import org.springframework.data.repository.CrudRepository;
+import se.kth.iv1201.recruitment.domain.Competence;
+import se.kth.iv1201.recruitment.domain.CompetenceProfile;
 import se.kth.iv1201.recruitment.domain.Person;
 import se.kth.iv1201.recruitment.domain.PersonDTO;
 import se.kth.iv1201.recruitment.presentation.account.UpdateAccountForm;
 
 import java.util.List;
+import java.util.Set;
 
 public interface PersonRepository extends CrudRepository<Person, Long> {
     /**

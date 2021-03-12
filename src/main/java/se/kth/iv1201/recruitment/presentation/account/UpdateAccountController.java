@@ -39,7 +39,6 @@ public class UpdateAccountController {
         return UPDATE_ACCOUNT_PAGE_URL;
     }
 
-
     @PostMapping("/update")
     public String submitForm(@ModelAttribute("updateAccountForm") UpdateAccountForm user, Model model, BindingResult result){
         if(result.hasErrors()){
@@ -50,6 +49,7 @@ public class UpdateAccountController {
         System.out.println("person in submit form: " + personFromDB);
         user.setPersonId(personFromDB.getPersonId());
         System.out.println("user2: "+user);
+        //TODO: kontot uppdateras ej om man inte loggar in
         service.updatePerson(user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getDateOfBirth(), user.getIsComplete());
 
         return "/" + SUCCESS_UPDATED_ACCOUNT_PAGE_URL;

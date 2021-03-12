@@ -4,13 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
-import se.kth.iv1201.recruitment.domain.Person;
-import se.kth.iv1201.recruitment.domain.PersonDTO;
-import se.kth.iv1201.recruitment.presentation.account.UpdateAccountForm;
+import se.kth.iv1201.recruitment.domain.*;
+import se.kth.iv1201.recruitment.repository.CompetenceRepository;
 import se.kth.iv1201.recruitment.repository.PersonRepository;
 
 import java.util.List;
+import java.util.Set;
 
 import static java.lang.Boolean.FALSE;
 
@@ -32,6 +31,13 @@ import static java.lang.Boolean.FALSE;
 public class RecruitmentService {
     @Autowired
     private PersonRepository personRepo;
+
+    @Autowired
+    private CompetenceRepository competenceRepo;
+/*
+    public List<Competence> getAllCompetences(){
+        return competenceRepo.listAllCompetences();
+    }*/
 
     /**
      * Creates a new Person with the specified username, password, first name, last name, email address and date of birth.
@@ -127,7 +133,6 @@ public class RecruitmentService {
 
         Person currentPerson = null;
         for (Person person : isCompleteFalseList) {
-            System.out.println("in for loop");
             if (person.equals(personRepo.findPersonByUsernameOrDateOfBirthOrEmailAddress(givenLoginValue,givenLoginValue,givenLoginValue))){
                 System.out.println("currentPerson: " + person.toString());
                 currentPerson = person;
@@ -135,6 +140,24 @@ public class RecruitmentService {
         }
         return currentPerson;
     }
+/*
+    public List<Person> getPersonCompetence(){
+        System.out.println("in getPersonCompetence");
+        List<Person> allPersons = personRepo.findAll();
+        List<Person> competenceList; //personRepo.findAllByCompetences();
+        System.out.println("List: " + competenceList.toString());
+        Person currentPersonCompetence = null;
+        for(Person person : allPersons){
+            System.out.println("in for loop");
+            if(person.getCompetences() != null){
+                competenceList.add(person.getCompetences());
+            }else{
+                System.out.println("in getPersonCompetence else ");
+               // throw new IllegalRecruitmentTransactionException("No competences to show" +);
+            }
+        }
+        return personCompetence;
+    }*/
 
     public PersonDTO getPersonIdData(long personId){
        return personRepo.findPersonByPersonId(personId);
