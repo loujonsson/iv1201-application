@@ -4,7 +4,6 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,8 +13,9 @@ import org.slf4j.LoggerFactory;
 
 import se.kth.iv1201.recruitment.domain.*;
 
-import java.util.Locale;
-
+/**
+ * Controller for errors that occur in the web application
+ */
 @Controller
 @ControllerAdvice
 public class ExceptionHandlers implements ErrorController {
@@ -29,7 +29,7 @@ public class ExceptionHandlers implements ErrorController {
     /**
      * Handles when IllegalUsernameInsertion exception is thrown
      * @param exception
-     * @return Redirection to /error/username
+     * @return Redirection to /error/{param} where param describes the exception
      */
     @ExceptionHandler(IllegalAttributeInsertionException.class)
     public String handleIllegalAttributeInsertionException(IllegalAttributeInsertionException exception){
@@ -99,19 +99,19 @@ public class ExceptionHandlers implements ErrorController {
         if (status != null) {
             Integer statusCode = Integer.valueOf(status.toString());
 
-            if(statusCode == HttpStatus.NOT_FOUND.value()) { //404
+            if(statusCode == HttpStatus.NOT_FOUND.value()) {
                 logger.info("A 404 not found exception occurred.");
                 model.addAttribute("errortype", "error.404");
             }
-            else if(statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) { //500
+            else if(statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) {
                 logger.info("A 500 internal server error exception occurred.");
                 model.addAttribute("errortype", "error.500");
             }
-            else if(statusCode == HttpStatus.BAD_REQUEST.value()) { //400
+            else if(statusCode == HttpStatus.BAD_REQUEST.value()) {
                 logger.info("A 400 bad request occurred.");
                 model.addAttribute("errortype", "error.400");
             }
-            else if(statusCode == HttpStatus.FORBIDDEN.value()){ // 500
+            else if(statusCode == HttpStatus.FORBIDDEN.value()){
                 logger.info("A 403 forbidden request occured.");
                 model.addAttribute("errortype", "error.403");
             }

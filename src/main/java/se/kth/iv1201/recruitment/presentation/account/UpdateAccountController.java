@@ -18,6 +18,7 @@ public class UpdateAccountController {
 
     static final String UPDATE_ACCOUNT_PAGE_URL = "update-account";
     static final String SUCCESS_UPDATED_ACCOUNT_PAGE_URL = "update-account-success";
+    static final String LOGIN_PAGE_URL = "login";
 
     @Autowired
     private RecruitmentService service;
@@ -32,6 +33,12 @@ public class UpdateAccountController {
         return UPDATE_ACCOUNT_PAGE_URL;
     }
 
+    /**
+     * Shows update account form
+     *
+     * @param model
+     * @return update account page url
+     */
     @GetMapping("/update")
     public String showForm(Model model) {
         UpdateAccountForm updateAccountForm = new UpdateAccountForm();
@@ -39,20 +46,24 @@ public class UpdateAccountController {
         return UPDATE_ACCOUNT_PAGE_URL;
     }
 
-
+    /**
+     * Submits update account form and redirect to login for non-repudiation
+     *
+     * @param user
+     * @param model
+     * @param result
+     * @return login url
+     */
     @PostMapping("/update")
     public String submitForm(@ModelAttribute("updateAccountForm") UpdateAccountForm user, Model model, BindingResult result){
         if(result.hasErrors()){
-            return "/"+UPDATE_ACCOUNT_PAGE_URL;
+            return "/" + UPDATE_ACCOUNT_PAGE_URL;
         }
-        System.out.println("user: "+user);
         PersonDTO personFromDB = service.checkUsernameDateOfBirthOrEmailExists(user.getUsername(), user.getDateOfBirth(), user.getEmail());
-        System.out.println("person in submit form: " + personFromDB);
         user.setPersonId(personFromDB.getPersonId());
-        System.out.println("user2: "+user);
         service.updatePerson(user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getDateOfBirth(), user.getIsComplete());
 
-        return "/" + SUCCESS_UPDATED_ACCOUNT_PAGE_URL;
+        return "/" + LOGIN_PAGE_URL;
     }
 
     /**

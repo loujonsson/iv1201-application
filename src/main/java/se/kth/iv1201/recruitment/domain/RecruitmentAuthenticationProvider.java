@@ -10,11 +10,21 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import se.kth.iv1201.recruitment.application.RecruitmentUserDetailsService;
 
+/**
+ * Handles authentication in the web application
+ */
 @Component
 public class RecruitmentAuthenticationProvider implements AuthenticationProvider {
     @Autowired
     private RecruitmentUserDetailsService service;
 
+    /**
+     * Authenticates the user
+     *
+     * @param auth
+     * @return Authentication token for the user
+     * @throws AuthenticationException
+     */
     @Override
     public Authentication authenticate(Authentication auth)
             throws AuthenticationException {
@@ -32,6 +42,12 @@ public class RecruitmentAuthenticationProvider implements AuthenticationProvider
         }
     }
 
+    /**
+     * This method returns true if the given authentication is found in the class, else it returns false
+     *
+     * @param auth
+     * @return true if authentication found in the class, else false
+     */
     @Override
     public boolean supports(Class<?> auth) {
         return auth.equals(UsernamePasswordAuthenticationToken.class);

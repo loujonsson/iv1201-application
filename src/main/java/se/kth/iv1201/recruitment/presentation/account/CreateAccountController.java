@@ -2,14 +2,12 @@ package se.kth.iv1201.recruitment.presentation.account;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
 import se.kth.iv1201.recruitment.domain.*;
-import se.kth.iv1201.recruitment.util.Util;
 
 import javax.validation.Valid;
 
@@ -21,14 +19,14 @@ import javax.validation.Valid;
 public class CreateAccountController {
     static final String DEFAULT_PAGE_URL = "/";
     static final String CREATE_ACCOUNT_PAGE_URL = "create-account";
-    static final String SUCCESS_CREATE_ACCOUNT_PAGE_URL = "create-account-success";
+    static final String APPLICANT_PAGE_URL = "applicant";
     static final String FAVICON_GET = "favicon.ico";
-    private static final String CURRENT_ACCT_OBJ_NAME = "currentAcct";
     private static final String CURRENT_ACCT_FORM_OBJ_NAME = "currentAcctForm";
 
     @Autowired
     private RecruitmentService service;
     private PersonDTO currentPerson;
+
     /**
      * Currently default view is Create account
      *
@@ -65,7 +63,7 @@ public class CreateAccountController {
      * @param createAccountForm
      * @param bindingResult
      * @param model
-     * @return
+     * @return redirect to create account success page
      */
     @PostMapping("/" + CREATE_ACCOUNT_PAGE_URL)
     public String saveForm(@Valid @ModelAttribute("createAccountForm") CreateAccountForm createAccountForm, BindingResult bindingResult, Model model) throws IllegalAttributeInsertionException, IllegalRecruitmentTransactionException {
@@ -90,18 +88,7 @@ public class CreateAccountController {
             }
 
             service.createPerson(createAccountForm.getUsername(), createAccountForm.getPassword(), createAccountForm.getFirstName(), createAccountForm.getLastName(), createAccountForm.getEmail(), createAccountForm.getDateOfBirth(), createAccountForm.getRoleId(), createAccountForm.getIsComplete());
-            return "redirect:" + SUCCESS_CREATE_ACCOUNT_PAGE_URL;
+            return "redirect:" + APPLICANT_PAGE_URL;
         }
     }
-
-    /**
-     * View consisting a success page when account has been successfully created
-     *
-     * @return url for success create account view
-     */
-    @GetMapping("/" + SUCCESS_CREATE_ACCOUNT_PAGE_URL)
-    public String showSuccessCreateAccountView(){
-        return SUCCESS_CREATE_ACCOUNT_PAGE_URL;
-    }
-
 }

@@ -2,6 +2,9 @@ package se.kth.iv1201.recruitment.domain;
 
 import javax.persistence.*;
 
+/**
+ * Entity for Competence table in database
+ */
 @Entity
 public class Competence {
     @Id
@@ -14,7 +17,6 @@ public class Competence {
 
     @Column(name = "name_en")
     private String nameEn;
-
 
     public String getNameSe() {
         return nameSe;
