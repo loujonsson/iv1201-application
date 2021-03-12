@@ -6,7 +6,6 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -51,7 +50,7 @@ public class RecruitmentConfig implements WebMvcConfigurer, ApplicationContextAw
     public ThymeleafViewResolver viewResolver() {
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
         viewResolver.setCharacterEncoding("UTF-8");
-        viewResolver.setContentType("text/html; charset=UTF-8");
+       // viewResolver.setContentType("text/html; charset=UTF-8");
         viewResolver.setTemplateEngine(templateEngine());
         return viewResolver;
     }
@@ -82,6 +81,7 @@ public class RecruitmentConfig implements WebMvcConfigurer, ApplicationContextAw
         templateResolver.setPrefix("classpath:/web-root/");
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode(TemplateMode.HTML);
+        templateResolver.setCharacterEncoding("UTF-8");
         templateResolver.setCacheable(true);
         return templateResolver;
     }
@@ -123,6 +123,11 @@ public class RecruitmentConfig implements WebMvcConfigurer, ApplicationContextAw
         return lci;
     }
 
+    /**
+     * Resolves messages from resource bundles for different locales
+     *
+     * @return A message source
+     */
     @Bean
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource
@@ -133,6 +138,11 @@ public class RecruitmentConfig implements WebMvcConfigurer, ApplicationContextAw
         return messageSource;
     }
 
+    /**
+     * To use custom name messages in a properties file like we need to define a LocalValidatorFactoryBean and register the messageSource
+     *
+     * @return Local Validator Factory Bean
+     */
     @Bean
     public LocalValidatorFactoryBean getValidator() {
         LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();

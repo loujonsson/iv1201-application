@@ -1,7 +1,5 @@
 package se.kth.iv1201.recruitment.domain;
 
-import org.hibernate.annotations.DynamicUpdate;
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -83,12 +81,12 @@ public class Person implements PersonDTO {
                 username, password, firstName, lastName, emailAddress, dateOfBirth);
     }
 
-  @Override
-  public Long getPersonId() {
+    @Override
+    public Long getPersonId() {
     return personId;
   }
 
-  @Override
+    @Override
     public String getFirstName() {
         return firstName;
     }

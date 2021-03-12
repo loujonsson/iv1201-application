@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
       layout:decorate="~{resources/fragments/layout}">
 <head>
     <meta charset="UTF-8">
     <title>Email Verification</title>
-    <link th:href="@{css/recruitment.css}" type="text/css" rel="stylesheet" />
+   <!-- <link th:href="@{css/recruitment.css}" type="text/css" rel="stylesheet" />-->
 </head>
 <body>
 <main layout:fragment="content">
     <section>
-        <h1>You seem to have an account with missing information.</h1>
+        <h1 th:text="#{email-verification-missing}"></h1>
 
-        <p>An email was sent for verification</p>
+        <p th:text="#{email-sent}"></p>
         <a href="/update-account">Ok</a>
         <br>
     </section>
 </main>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" th:value="#{logout}"/>
+</form>
 </body>
 </html>

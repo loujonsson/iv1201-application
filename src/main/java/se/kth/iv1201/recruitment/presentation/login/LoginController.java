@@ -12,6 +12,9 @@ import se.kth.iv1201.recruitment.domain.PersonDTO;
 
 import javax.validation.Valid;
 
+/**
+ * Controller for the login page
+ */
 @Controller
 @Scope("session")
 public class LoginController {
@@ -65,13 +68,16 @@ public class LoginController {
      */
     @GetMapping("/" + SUCCESS_LOGIN_PAGE_URL)
     public String showSuccessLoginView(){
-        System.out.println("hello from login");
         return SUCCESS_LOGIN_PAGE_URL;
     }
 
+    /**
+     * Redirection to login page from logout page
+     *
+     * @return redirect to login
+     */
     @PostMapping("/" + LOGOUT_PAGE_URL)
     public String redirectToLogin(){
-        System.out.println("hello from logout");
         return "redirect:" + LOGIN_PAGE_URL + "?logout";
     }
 

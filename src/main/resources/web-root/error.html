@@ -6,13 +6,12 @@
     </head>
     <body>
         <h1 th:text="#{somethingWrong}"></h1>
-        <div th:if="${errorType != null}">
+        <div th:if="${errortype != null}">
             <p><b th:text="#{errorOccured}"></b></p>
             <p th:text="#{${errortype}}"></p>
         </div>
-        <div th:unless></div>
 
-        <a href="/">Go Back</a>
+        <a href="/" th:text="#{go-back-button}"></a>
     </body>
 </html>
 

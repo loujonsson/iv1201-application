@@ -1,16 +1,12 @@
 package se.kth.iv1201.recruitment.domain;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.stereotype.Service;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,11 +19,8 @@ import java.util.Map;
 
 /**
  * Handles when authentication has been done successfully and authorizes the user depending on role
- * Code inspired by: https://www.baeldung.com/spring_redirect_after_login
  */
 public class RecruitmentSimpleUrlAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
-    // TODO: Ska fråga de andra om loggern här?, ta bort!?
-    protected Log logger = LogFactory.getLog(this.getClass());
 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
@@ -54,16 +47,11 @@ public class RecruitmentSimpleUrlAuthenticationSuccessHandler implements Authent
     ) throws IOException {
 
         String targetUrl = "";
+        System.out.println("TEST" + authentication.getName());
         if(service.checkIsCompleteFalse(authentication.getName()) != null){
              targetUrl = "email-verification";
         }else {
             targetUrl = determineTargetUrl(authentication);
-        }
-        if (response.isCommitted()) {
-            logger.debug(
-                    "Response has already been committed. Unable to redirect to "
-                            + targetUrl);
-            return;
         }
 
         redirectStrategy.sendRedirect(request, response, targetUrl);

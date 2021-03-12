@@ -40,6 +40,48 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
     Person findPersonByEmailAddress(String emailAddress);
 
     /**
+     * Finds person using wither username, date of birth or email and password.
+     * @param username
+     * @param dateOfBirth
+     * @param email
+     * @param password
+     * @return Found person in db
+     */
+    Person findPersonByUsernameOrDateOfBirthOrEmailAddressAndPassword(String username, String dateOfBirth, String email, String password);
+
+    /**
+     * Finds all persons with a isComplete flag that is false.
+     * @return list of found persons
+     */
+    List<Person> findPersonByIsCompleteFalse();
+
+    /**
+     * Makes insertion in database
+     * @param person
+     * @return Person
+     */
+    @Override
+    Person save(Person person);
+
+    /**
+     * Finds all available persons in database
+     * @return a list of all persons
+     */
+    @Override
+    List<Person> findAll();
+
+    /**
+     * Finds person using wither username, date of birth or email.
+     * @param username
+     * @param dateOfBirth
+     * @param email
+     * @return Found person
+     */
+    Person findPersonByUsernameOrDateOfBirthOrEmailAddress(String username, String dateOfBirth, String email);
+
+    Person findPersonByPersonId(long personId);
+
+    /**
      * Searches for all Person in the database with the specified username and password
      *
      * @param username username of the user
@@ -51,19 +93,5 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
     Person findPersonByDateOfBirthAndPassword(String dateOfBirth, String password);
 
     Person findPersonByEmailAddressAndPassword(String email, String password);
-
-    Person findPersonByUsernameOrDateOfBirthOrEmailAddressAndPassword(String username, String dateOfBirth, String email, String password);
-
-    List<Person> findPersonByIsCompleteFalse();
-
-    @Override
-    Person save(Person person);
-
-    @Override
-    List<Person> findAll();
-
-    Person findPersonByUsernameOrDateOfBirthOrEmailAddress(String username, String dateOfBirth, String email);
-
-    Person findPersonByPersonId(long personId);
 
 }

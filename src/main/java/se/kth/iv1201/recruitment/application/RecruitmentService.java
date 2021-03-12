@@ -4,8 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import se.kth.iv1201.recruitment.domain.*;
 import se.kth.iv1201.recruitment.repository.CompetenceRepository;
+
+import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
+import se.kth.iv1201.recruitment.domain.Person;
+import se.kth.iv1201.recruitment.domain.PersonDTO;
+
 import se.kth.iv1201.recruitment.repository.PersonRepository;
 
 import java.util.List;
@@ -118,23 +122,28 @@ public class RecruitmentService {
         return personRepo.findPersonByDateOfBirth(dateOfBirth);
     }
 
+    /**
+     * Method checks if one of these parameters: username, date of birth or email exists in the database
+     * @param username
+     * @param dateOfBirth
+     * @param email
+     * @return User with one of these parameters
+     */
     public PersonDTO checkUsernameDateOfBirthOrEmailExists(String username, String dateOfBirth, String email) {
         return personRepo.findPersonByUsernameOrDateOfBirthOrEmailAddress(username, dateOfBirth, email);
     }
 
     /**
      * This method checks if the Person is complete (all attributes exists in the table)
+     * @param givenLoginValue can be email, username or date of birth
      * @return Person if all attribute values exists in database, false if there is an empty string in one of them
      */
     public PersonDTO checkIsCompleteFalse(String givenLoginValue) {
-        System.out.println("in checkIsCompleteFalse");
         List<Person> isCompleteFalseList = personRepo.findPersonByIsCompleteFalse();
-        System.out.println("List: " + isCompleteFalseList.toString());
 
         Person currentPerson = null;
         for (Person person : isCompleteFalseList) {
             if (person.equals(personRepo.findPersonByUsernameOrDateOfBirthOrEmailAddress(givenLoginValue,givenLoginValue,givenLoginValue))){
-                System.out.println("currentPerson: " + person.toString());
                 currentPerson = person;
             }
         }
@@ -159,14 +168,20 @@ public class RecruitmentService {
         return personCompetence;
     }*/
 
-    public PersonDTO getPersonIdData(long personId){
-       return personRepo.findPersonByPersonId(personId);
-    }
-
+    /**
+     * Updates person in database
+     *
+     * @param username
+     * @param password
+     * @param firstName
+     * @param lastName
+     * @param emailAddress
+     * @param dateOfBirth
+     * @param isComplete
+     * @return updated person
+     */
     public PersonDTO updatePerson(String username, String password, String firstName, String lastName, String emailAddress, String dateOfBirth, boolean isComplete) {
         Person oldPerson = personRepo.findPersonByUsernameOrDateOfBirthOrEmailAddress(username, dateOfBirth, emailAddress);
-        System.out.println("person id: " + oldPerson.getPersonId().toString());
-        System.out.println("oldperson in update: " + oldPerson);
         oldPerson.setUsername(username);
         oldPerson.setPassword(password);
         oldPerson.setFirstName(firstName);
@@ -174,8 +189,6 @@ public class RecruitmentService {
         oldPerson.setEmail(emailAddress);
         oldPerson.setDateOfBirth(dateOfBirth);
         oldPerson.setIsComplete(isComplete);
-        System.out.println("person.getUsername(): " + oldPerson.getUsername());
-        System.out.println("person in update person: " + oldPerson);
 
         return personRepo.save(oldPerson);
      }

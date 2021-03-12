@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
 
+/**
+ * Controller for the admin interface
+ */
 @Controller
 @Scope("session")
 public class AdminInterfaceController {
