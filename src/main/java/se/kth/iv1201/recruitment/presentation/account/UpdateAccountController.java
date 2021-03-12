@@ -57,13 +57,13 @@ public class UpdateAccountController {
     @PostMapping("/update")
     public String submitForm(@ModelAttribute("updateAccountForm") UpdateAccountForm user, Model model, BindingResult result){
         if(result.hasErrors()){
-            return "/" + UPDATE_ACCOUNT_PAGE_URL;
+            return UPDATE_ACCOUNT_PAGE_URL;
         }
         PersonDTO personFromDB = service.checkUsernameDateOfBirthOrEmailExists(user.getUsername(), user.getDateOfBirth(), user.getEmail());
         user.setPersonId(personFromDB.getPersonId());
         service.updatePerson(user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getDateOfBirth(), user.getIsComplete());
 
-        return "/" + LOGIN_PAGE_URL;
+        return LOGIN_PAGE_URL;
     }
 
     /**

@@ -19,7 +19,7 @@ public class EmailVerificationController {
      */
     @GetMapping("/" + EMAIL_VERIFICATION)
     public String showEmailView(){
-        return "/" + EMAIL_VERIFICATION;
+        return EMAIL_VERIFICATION;
     }
 
 }
