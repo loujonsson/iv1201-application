@@ -113,7 +113,7 @@ public class ExceptionHandlers implements ErrorController {
             }
         }
 
-        return "/" + ERROR_URL;
+        return ERROR_URL;
     }
 
     private void logExceptionDebugLevel(Exception exception) {
