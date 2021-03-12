@@ -64,7 +64,7 @@ public class ExceptionHandlers implements ErrorController {
             model.addAttribute("errortype", "error.dateOfBirthExists");
         }
 
-        return "/" + ERROR_URL;
+        return ERROR_URL;
     }
 
     /**

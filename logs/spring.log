@@ -4096,3 +4096,17 @@ Caused by: java.lang.IllegalStateException: Can't configure antMatchers after an
 2021-03-12 12:00:34.794  INFO 3992 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2021-03-12 12:00:35.623  INFO 3992 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 5.202 seconds (JVM running for 5.795)
 2021-03-12 12:00:35.827  INFO 3992 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-12 14:08:32.069  INFO 25624 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 15.0.1 on LAPTOP-5P935E41 with PID 25624 (C:\Users\loujo\Documents\IV1201-application\target\classes started by loujo in C:\Users\loujo\Documents\IV1201-application)
+2021-03-12 14:08:32.074  INFO 25624 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
+2021-03-12 14:08:33.929  INFO 25624 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-12 14:08:33.930  INFO 25624 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-03-12 14:08:34.059  INFO 25624 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-12 14:08:34.199  INFO 25624 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-12 14:08:34.260  INFO 25624 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-03-12 14:08:34.420  INFO 25624 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-12 14:08:34.534  INFO 25624 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-12 14:08:35.672  INFO 25624 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-12 14:08:35.703  INFO 25624 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-12 14:08:37.780  INFO 25624 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-12 14:08:39.164  INFO 25624 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 7.843 seconds (JVM running for 8.937)
+2021-03-12 14:08:51.607  INFO 25624 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
