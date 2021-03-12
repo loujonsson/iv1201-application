@@ -24,8 +24,8 @@ public class RecruitmentAuthenticationProvider implements AuthenticationProvider
 
         UserDetails user = service.loadUserByUsername(username);
         if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                return new UsernamePasswordAuthenticationToken
-                    (user.getUsername(), user.getPassword(), user.getAuthorities());
+            return new UsernamePasswordAuthenticationToken
+                (user.getUsername(), user.getPassword(), user.getAuthorities());
         } else {
             throw new
                     BadCredentialsException("External system authentication failed");

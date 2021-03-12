@@ -13,14 +13,14 @@
         <p1 th:text="#{caf-account-details}"></p1>
         <form th:action="@{/create-account}" th:object="${createAccountForm}" method="post">
             <p>
-                <label for="create-first-name" th:text="#{caf-first-name}"></label>:
+                <label for="create-first-name" th:text="#{first-name}"></label>:
                 <input type="text" th:field="*{firstName}" id="create-first-name">
                 <span class="error" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">
                     First Name Error
                 </span>
             </p>
             <p>
-                <label for="create-last-name" th:text="#{caf-last-name}"></label>:
+                <label for="create-last-name" th:text="#{last-name}"></label>:
                 <input type="text" th:field="*{lastName}" id="create-last-name">
                 <span class="error" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">
                     Last Name Error
@@ -28,14 +28,14 @@
             </p>
             <p>
 
-                <label for="create-date-of-birth" th:text="#{caf-date-of-birth}"></label>:
+                <label for="create-date-of-birth" th:text="#{date-of-birth}"></label>:
                 <input type="text" th:field="*{dateOfBirth}" id="create-date-of-birth" placeholder="YYMMDDXXXX">
                 <span class="error" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">
                     Date of Birth Error
                 </span>
             </p>
             <p>
-                <label for="create-email" th:text="#{caf-email}"></label>:
+                <label for="create-email" th:text="#{email}"></label>:
                 <input type="text" th:field="*{email}" id="create-email">
                 <span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
                     Email Error
@@ -56,7 +56,7 @@
                 </span>
             </p>
             <p class="submit">
-                <input type="submit" th:text="#{caf-create-account}"/>
+                <input type="submit" th:value="#{caf-create-account}"/>
             </p>
         </form>
 
@@ -64,7 +64,7 @@
         <form method="GET" th:action="@{/login}">
             <p th:text="#{caf-log-in-to-existing-account}"></p>
             <p class="submit">
-                <input type="submit" th:text="#{login}"/>
+                <input type="submit" th:value="#{login}"/>
             </p>
         </form>
     </section>

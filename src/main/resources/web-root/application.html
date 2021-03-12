@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Applicant interface</title>
 
-    <link th:href="@{css/recruitment.css}" type="text/css" rel="stylesheet" />
+ <!--   <link th:href="@{css/recruitment.css}" type="text/css" rel="stylesheet" /> -->
     <style type="text/css">
         span {
             display: inline-block;
@@ -22,6 +22,7 @@
 <div align="center">
 
         <h1 th:text="#{application-title}"></h1>
+        <h2>Applicant interface</h2>
         <p th:text="#{application-info}"></p>
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/>

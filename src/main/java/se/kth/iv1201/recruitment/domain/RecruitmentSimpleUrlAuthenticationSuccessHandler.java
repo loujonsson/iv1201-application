@@ -54,6 +54,7 @@ public class RecruitmentSimpleUrlAuthenticationSuccessHandler implements Authent
     ) throws IOException {
 
         String targetUrl = "";
+        System.out.println("TEST" + authentication.getName());
         if(service.checkIsCompleteFalse(authentication.getName()) != null){
              targetUrl = "email-verification";
         }else {
