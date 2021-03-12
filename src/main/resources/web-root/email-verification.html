@@ -9,9 +9,9 @@
 <body>
 <main layout:fragment="content">
     <section>
-        <h1>You seem to have an account with missing information.</h1>
+        <h1 th:text="#{email-verification-missing}"></h1>
 
-        <p>An email was sent for verification</p>
+        <p th:text="#{email-sent}"></p>
         <a href="/update-account">Ok</a>
         <br>
     </section>
