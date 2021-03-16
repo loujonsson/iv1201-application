@@ -6,23 +6,26 @@
     <title>Applicant interface</title>
 </head>
 <body>
-<h1 th:text="#{application-title}"></h1>
-<p th:text="#{application-info}"></p>
+<main layout:fragment="content">
+    <section>
+    <h1 th:text="#{application-title}"></h1>
+    <p th:text="#{application-info}"></p>
 
-    <div th:if="${ not#lists.isEmpty(competenceProfiles)}">
-        <table>
-            <tr>
-                <th>Id</th>
-                <th>Name English</th>
-                <th>name swedish</th>
-            </tr>
-            <tr th:each="product : ${competenceProfiles}">
-                <td th:text="${product.id}"></td>
-                <td th:text="${product.nameEn}"></td>
-                <td th:text="${product.nameSe}"></td>
-            </tr>
+        <div th:if="${ not#lists.isEmpty(competenceProfiles)}">
             <table>
-    </div>
-</table>
+                <tr>
+                    <th>Id</th>
+                    <th>Name English</th>
+                    <th>name swedish</th>
+                </tr>
+                <tr th:each="product : ${competenceProfiles}">
+                    <td th:text="${product.id}"></td>
+                    <td th:text="${product.nameEn}"></td>
+                    <td th:text="${product.nameSe}"></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</main>
 </body>
 </html>

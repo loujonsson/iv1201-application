@@ -43,8 +43,19 @@ public class CompetenceProfileController {
     @RequestMapping("/competence-profile")
     private String listCompetences(Model model){
         List<Competence> list = service.getAllCompetences();
+        System.out.println("list: " + list);
         model.addAttribute("competenceProfiles", list);
 
         return COMPETENCE_PROFILE_PAGE_URL;
     }
+
+    /*
+    @RequestMapping("/competence-profile")
+    private String listCompetencesSE(Model model){
+        List<Competence> listSE = service.getAllCompetencesSE();
+        System.out.println("list: " + listSE);
+        model.addAttribute("competenceProfilesSE", listSE);
+
+        return COMPETENCE_PROFILE_PAGE_URL;
+    }*/
 }

@@ -1,9 +1,11 @@
 package se.kth.iv1201.recruitment.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import se.kth.iv1201.recruitment.domain.Competence;
 import se.kth.iv1201.recruitment.repository.CompetenceRepository;
 
 import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
@@ -38,9 +40,13 @@ public class RecruitmentService {
 
     @Autowired
     private CompetenceRepository competenceRepo;
-/*
+
     public List<Competence> getAllCompetences(){
-        return competenceRepo.listAllCompetences();
+        return competenceRepo.findAll(); //listAllCompetences();
+    }
+
+   /* public List<Competence> getAllCompetencesSE(){
+        return competenceRepo.findAllNameSe();
     }*/
 
     /**
