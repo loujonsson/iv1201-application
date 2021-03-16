@@ -30,16 +30,10 @@ public class CompetenceProfileController {
     private RecruitmentService service;
 
     /**
-     * A get request for the update account page.
+     * A get request to show all competences
      *
-     * @return The update account page url
-     *
-    @GetMapping("/" + COMPETENCE_PROFILE_PAGE_URL)
-    public String showUpdateAccountView(@ModelAttribute("competenceProfiles") CompetenceProfile competenceProfile){
-        System.out.println("competenceprofile: "+competenceProfile);
-        return COMPETENCE_PROFILE_PAGE_URL;
-    }*/
-
+     * @return All competences n the database
+     */
     @RequestMapping("/competence-profile")
     private String listCompetences(Model model){
         List<Competence> list = service.getAllCompetences();
@@ -48,14 +42,4 @@ public class CompetenceProfileController {
 
         return COMPETENCE_PROFILE_PAGE_URL;
     }
-
-    /*
-    @RequestMapping("/competence-profile")
-    private String listCompetencesSE(Model model){
-        List<Competence> listSE = service.getAllCompetencesSE();
-        System.out.println("list: " + listSE);
-        model.addAttribute("competenceProfilesSE", listSE);
-
-        return COMPETENCE_PROFILE_PAGE_URL;
-    }*/
 }

@@ -61,9 +61,7 @@ public class UpdateAccountController {
         PersonDTO personFromDB = service.checkUsernameDateOfBirthOrEmailExists(user.getUsername(), user.getDateOfBirth(), user.getEmail());
         user.setPersonId(personFromDB.getPersonId());
 
-        System.out.println("user2: "+user);
         //TODO: kontot uppdateras ej om man inte loggar in
-
         service.updatePerson(user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getDateOfBirth(), user.getIsComplete());
 
         return SUCCESS_UPDATED_ACCOUNT_PAGE_URL;
