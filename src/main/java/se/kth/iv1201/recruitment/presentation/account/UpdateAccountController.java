@@ -7,7 +7,12 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import se.kth.iv1201.recruitment.application.RecruitmentService;
+import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
+import se.kth.iv1201.recruitment.domain.Person;
 import se.kth.iv1201.recruitment.domain.PersonDTO;
+import se.kth.iv1201.recruitment.presentation.login.LoginForm;
+
+import javax.validation.Valid;
 
 /**
  * Handles HTTP requests for when user with missing attributes updates the existing account
@@ -15,9 +20,12 @@ import se.kth.iv1201.recruitment.domain.PersonDTO;
 @Controller
 @Scope("session")
 public class UpdateAccountController {
-
     static final String UPDATE_ACCOUNT_PAGE_URL = "update-account";
     static final String SUCCESS_UPDATED_ACCOUNT_PAGE_URL = "update-account-success";
+    static final String VERIFICATION_PAGE_URL = "verification";
+    static final String EMAIL_VERIFICATION_PAGE_URL = "non-repudiation-email";
+    private PersonDTO currentUser;
+    private PersonDTO personFromDB;
 
     @Autowired
     private RecruitmentService service;
@@ -58,13 +66,16 @@ public class UpdateAccountController {
         if(result.hasErrors()){
             return UPDATE_ACCOUNT_PAGE_URL;
         }
-        PersonDTO personFromDB = service.checkUsernameDateOfBirthOrEmailExists(user.getUsername(), user.getDateOfBirth(), user.getEmail());
+        personFromDB = service.checkUsernameDateOfBirthOrEmailExists(user.getUsername(), user.getDateOfBirth(), user.getEmail());
         user.setPersonId(personFromDB.getPersonId());
 
+        System.out.println(personFromDB);
         //TODO: kontot uppdateras ej om man inte loggar in
-        service.updatePerson(user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getDateOfBirth(), user.getIsComplete());
+        //service.updatePerson(user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getDateOfBirth(), user.getIsComplete());
+        currentUser = new Person(user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getDateOfBirth(), Math.toIntExact(personFromDB.getPersonId()), personFromDB.getIsComplete());
 
-        return SUCCESS_UPDATED_ACCOUNT_PAGE_URL;
+        System.out.println(currentUser);
+        return "redirect:" + VERIFICATION_PAGE_URL;
     }
 
     /**
@@ -76,5 +87,59 @@ public class UpdateAccountController {
     public String showSuccessCreateAccountView(){
         return SUCCESS_UPDATED_ACCOUNT_PAGE_URL;
     }
+
+    /**
+     * Verification
+     *
+     * @param loginForm
+     * @param model
+     * @return Login success page URL
+     * @throws IllegalRecruitmentTransactionException
+     */
+    //@RequestMapping(value = "/" + VERIFICATION_PAGE_URL, params = {"error"}, method = RequestMethod.POST)
+    @PostMapping("/" + VERIFICATION_PAGE_URL)
+    public String saveVerificationForm(@Valid @ModelAttribute("verificationForm") LoginForm loginForm, Model model) throws IllegalRecruitmentTransactionException {
+        System.out.println("hello");
+        PersonDTO userVerificationSuccess = service.checkLogin(loginForm.getUsername(), loginForm.getPassword());
+        if(userVerificationSuccess == null){
+            return "redirect:" + VERIFICATION_PAGE_URL + "?error";
+        }
+
+        if(personFromDB.getPassword().equals("") /*&& userVerificationSuccess.getUsername().equals(personFromDB.getUsername())*/){
+            System.out.println("HEJHEJE");
+            return "redirect:" + EMAIL_VERIFICATION_PAGE_URL;
+        }
+        else if(userVerificationSuccess != null){
+            service.updatePerson(currentUser.getUsername(), currentUser.getPassword(), currentUser.getFirstName(), currentUser.getLastName(), currentUser.getEmailAddress(), currentUser.getDateOfBirth(), true);
+            return "redirect:" + SUCCESS_UPDATED_ACCOUNT_PAGE_URL;
+        }else{
+            System.out.println("hejhej2");
+            return "redirect:" + VERIFICATION_PAGE_URL ;
+        }
+
+    }
+
+    /**
+     * Handles get request for verification page
+     *
+     * @return The login page url
+     */
+    @GetMapping("/" + VERIFICATION_PAGE_URL)
+    public String showVerificationView(@ModelAttribute("verificationForm") LoginForm loginForm){
+        return VERIFICATION_PAGE_URL;
+    }
+
+
+    /**
+     * Handles get request for non-repudiation email verification page
+     *
+     * @return The login page url
+     */
+    @GetMapping("/" + EMAIL_VERIFICATION_PAGE_URL)
+    public String showNonRepudiationEmail(){
+        return EMAIL_VERIFICATION_PAGE_URL;
+    }
+
+
 
 }

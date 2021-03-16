@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      layout:decorate="~{resources/fragments/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Non-Repudiation Verification Email</title>
+</head>
+<body>
+<main layout:fragment="content">
+    <section>
+        <h1 th:text="#{email-verification-non-repudiation}"></h1>
+
+        <p th:text="#{email-sent}"></p>
+        <a href="/update-account-success">Ok</a>
+        <br>
+    </section>
+</main>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" th:value="#{logout}"/>
+</form>
+</body>
+</html>
