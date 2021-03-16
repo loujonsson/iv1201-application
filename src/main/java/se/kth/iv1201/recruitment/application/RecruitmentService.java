@@ -35,6 +35,10 @@ public class RecruitmentService {
     @Autowired
     private CompetenceRepository competenceRepo;
 
+    /**
+     * Gets all information in the competence table
+     * @return a list of all the competences (all columns)
+     */
     public List<Competence> getAllCompetences(){
         return competenceRepo.findAll();
     }

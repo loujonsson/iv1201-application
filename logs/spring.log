@@ -258,3 +258,24 @@ org.thymeleaf.exceptions.TemplateProcessingException: Cannot set containing clos
 2021-03-16 13:38:36.048 DEBUG 27211 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : select competence0_.competence_id as competen1_1_, competence0_.name_en as name_en2_1_, competence0_.name_se as name_se3_1_ from competence competence0_
 2021-03-16 13:38:40.078  INFO 27211 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2021-03-16 13:38:40.250  INFO 27211 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-03-16 17:39:48.168  INFO 6514 --- [main] se.kth.iv1201.recruitment.Main           : Starting Main using Java 11.0.10 on veronika-HP-EliteBook-840-G2 with PID 6514 (/home/veronika/Documents/KTH/architecture-global-apps/recruitment-project/iv1201-application/target/classes started by veronika in /home/veronika/Documents/KTH/architecture-global-apps/recruitment-project/iv1201-application)
+2021-03-16 17:39:48.172  INFO 6514 --- [main] se.kth.iv1201.recruitment.Main           : No active profile set, falling back to default profiles: default
+2021-03-16 17:39:50.267  INFO 6514 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-16 17:39:50.268  INFO 6514 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-03-16 17:39:50.352  INFO 6514 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-16 17:39:50.491  INFO 6514 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-16 17:39:50.529  INFO 6514 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-03-16 17:39:50.618  INFO 6514 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-16 17:39:50.703  INFO 6514 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-16 17:39:51.207  INFO 6514 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-16 17:39:51.221  INFO 6514 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-16 17:39:52.276  INFO 6514 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-16 17:39:53.385  INFO 6514 --- [main] se.kth.iv1201.recruitment.Main           : Started Main in 6.185 seconds (JVM running for 7.213)
+2021-03-16 17:40:19.232  INFO 6514 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-16 17:40:19.504 DEBUG 6514 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : select competence0_.competence_id as competen1_1_, competence0_.name_en as name_en2_1_, competence0_.name_se as name_se3_1_ from competence competence0_
+2021-03-16 17:40:24.565 DEBUG 6514 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select competence0_.competence_id as competen1_1_, competence0_.name_en as name_en2_1_, competence0_.name_se as name_se3_1_ from competence competence0_
+2021-03-16 17:40:26.998 DEBUG 6514 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : select competence0_.competence_id as competen1_1_, competence0_.name_en as name_en2_1_, competence0_.name_se as name_se3_1_ from competence competence0_
+2021-03-16 17:40:33.158 DEBUG 6514 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : select competence0_.competence_id as competen1_1_, competence0_.name_en as name_en2_1_, competence0_.name_se as name_se3_1_ from competence competence0_
+2021-03-16 17:40:42.224 DEBUG 6514 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : select competence0_.competence_id as competen1_1_, competence0_.name_en as name_en2_1_, competence0_.name_se as name_se3_1_ from competence competence0_
+2021-03-16 17:40:59.624  INFO 6514 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-03-16 17:40:59.806  INFO 6514 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
