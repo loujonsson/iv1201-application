@@ -40,13 +40,15 @@ public class Person implements PersonDTO {
     @Column(name = "is_complete")
     private boolean isComplete;
 
+    /*
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "competence_profile",
             joinColumns = @JoinColumn(name = "person_id"),
             inverseJoinColumns = @JoinColumn(name = "competence_id")
-    )
-    private Set<Competence> competences = new HashSet<>();
+    )*/
+    @OneToMany(mappedBy = "person")
+    Set<CompetenceProfile> competences;
 
     /**
      * Exists only for the sake of JPA
@@ -122,6 +124,10 @@ public class Person implements PersonDTO {
     @Override
     public Boolean getIsComplete() {
         return isComplete;
+    }
+
+    public Set<CompetenceProfile> getCompetences() {
+        return competences;
     }
 
     @Override
