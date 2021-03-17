@@ -24,6 +24,7 @@ public class UpdateAccountController {
     static final String SUCCESS_UPDATED_ACCOUNT_PAGE_URL = "update-account-success";
     static final String VERIFICATION_PAGE_URL = "verification";
     static final String EMAIL_VERIFICATION_PAGE_URL = "non-repudiation-email";
+    private static final String CURRENT_ACCT_FORM_OBJ_NAME = "currentAcctForm";
     private PersonDTO currentUser;
     private PersonDTO personFromDB;
 
@@ -91,16 +92,16 @@ public class UpdateAccountController {
     /**
      * Verification
      *
-     * @param loginForm
-     * @param model
+     * @param verificationForm
      * @return Login success page URL
      * @throws IllegalRecruitmentTransactionException
      */
-    //@RequestMapping(value = "/" + VERIFICATION_PAGE_URL, params = {"error"}, method = RequestMethod.POST)
-    @PostMapping("/" + VERIFICATION_PAGE_URL)
-    public String saveVerificationForm(@Valid @ModelAttribute("verificationForm") LoginForm loginForm, Model model) throws IllegalRecruitmentTransactionException {
-        System.out.println("hello");
-        PersonDTO userVerificationSuccess = service.checkLogin(loginForm.getUsername(), loginForm.getPassword());
+    @RequestMapping(value = "/" + VERIFICATION_PAGE_URL, method = RequestMethod.POST)
+  //  @PostMapping("/" + VERIFICATION_PAGE_URL)
+    public String saveVerificationForm(@Valid @ModelAttribute("verificationForm") VerificationForm verificationForm, BindingResult bindingResult, Model model) throws IllegalRecruitmentTransactionException {
+
+
+        PersonDTO userVerificationSuccess = service.checkLogin(verificationForm.getUsername(), verificationForm.getPassword());
         if(userVerificationSuccess == null){
             return "redirect:" + VERIFICATION_PAGE_URL + "?error";
         }
@@ -125,7 +126,7 @@ public class UpdateAccountController {
      * @return The login page url
      */
     @GetMapping("/" + VERIFICATION_PAGE_URL)
-    public String showVerificationView(@ModelAttribute("verificationForm") LoginForm loginForm){
+    public String showVerificationView(@ModelAttribute("verificationForm") VerificationForm verificationForm){
         return VERIFICATION_PAGE_URL;
     }
 
@@ -139,7 +140,5 @@ public class UpdateAccountController {
     public String showNonRepudiationEmail(){
         return EMAIL_VERIFICATION_PAGE_URL;
     }
-
-
 
 }
