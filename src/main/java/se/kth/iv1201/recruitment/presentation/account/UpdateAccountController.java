@@ -70,12 +70,8 @@ public class UpdateAccountController {
         personFromDB = service.checkUsernameDateOfBirthOrEmailExists(user.getUsername(), user.getDateOfBirth(), user.getEmail());
         user.setPersonId(personFromDB.getPersonId());
 
-        System.out.println(personFromDB);
-        //TODO: kontot uppdateras ej om man inte loggar in
-        //service.updatePerson(user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getDateOfBirth(), user.getIsComplete());
         currentUser = new Person(user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getDateOfBirth(), Math.toIntExact(personFromDB.getPersonId()), personFromDB.getIsComplete());
 
-        System.out.println(currentUser);
         return "redirect:" + VERIFICATION_PAGE_URL;
     }
 
@@ -97,10 +93,7 @@ public class UpdateAccountController {
      * @throws IllegalRecruitmentTransactionException
      */
     @RequestMapping(value = "/" + VERIFICATION_PAGE_URL, method = RequestMethod.POST)
-  //  @PostMapping("/" + VERIFICATION_PAGE_URL)
     public String saveVerificationForm(@Valid @ModelAttribute("verificationForm") VerificationForm verificationForm, BindingResult bindingResult, Model model) throws IllegalRecruitmentTransactionException {
-
-
         PersonDTO userVerificationSuccess = service.checkLogin(verificationForm.getUsername(), verificationForm.getPassword());
         if(userVerificationSuccess == null){
             return "redirect:" + VERIFICATION_PAGE_URL + "?error";
