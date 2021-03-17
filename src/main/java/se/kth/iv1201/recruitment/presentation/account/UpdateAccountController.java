@@ -20,6 +20,7 @@ import javax.validation.Valid;
 @Controller
 @Scope("session")
 public class UpdateAccountController {
+    static final String UPDATE_PAGE_URL = "update";
     static final String UPDATE_ACCOUNT_PAGE_URL = "update-account";
     static final String SUCCESS_UPDATED_ACCOUNT_PAGE_URL = "update-account-success";
     static final String VERIFICATION_PAGE_URL = "verification";
@@ -47,7 +48,7 @@ public class UpdateAccountController {
      * @param model
      * @return update account page url
      */
-    @GetMapping("/update")
+    @GetMapping("/" + UPDATE_PAGE_URL)
     public String showForm(Model model) {
         UpdateAccountForm updateAccountForm = new UpdateAccountForm();
         model.addAttribute("updateAccountForm", updateAccountForm);
@@ -62,7 +63,7 @@ public class UpdateAccountController {
      * @param result
      * @return url
      */
-    @PostMapping("/update")
+    @PostMapping("/" + UPDATE_PAGE_URL)
     public String submitForm(@ModelAttribute("updateAccountForm") UpdateAccountForm user, Model model, BindingResult result){
         if(result.hasErrors()){
             return UPDATE_ACCOUNT_PAGE_URL;
