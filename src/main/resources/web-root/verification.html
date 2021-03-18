@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      layout:decorate="~{resources/fragments/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<main layout:fragment="content">
+    <section>
+        <h1 th:text="#{verification}"></h1>
+        <p1 th:text="#{verification-text}"></p1>
+        <div th:if="${param.error}">
+            <p th:text="#{invalid-username-password}"></p>
+        </div>
+        <form th:action="@{/verification}" th:object="${loginForm}" method="post">
+            <p>
+                <label for="username" th:text="#{username}"></label>:
+                <input type="text" th:field="*{username}" id="username">
+                <span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">
+                    Username error
+                </span>
+            </p>
+            <p>
+                <label for="password" th:text="#{password}"></label>:
+                <input type="text" th:field="*{password}" id="password">
+                <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+                    Password error
+                </span>
+            </p>
+            <p class="submit">
+                <input type="submit" th:value="#{login}"/>
+            </p>
+        </form>
+    </section>
+</main>
+</body>
+</html>

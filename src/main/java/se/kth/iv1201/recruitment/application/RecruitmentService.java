@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import se.kth.iv1201.recruitment.domain.Competence;
+import se.kth.iv1201.recruitment.repository.CompetenceRepository;
 import se.kth.iv1201.recruitment.domain.IllegalRecruitmentTransactionException;
 import se.kth.iv1201.recruitment.domain.Person;
 import se.kth.iv1201.recruitment.domain.PersonDTO;
 import se.kth.iv1201.recruitment.repository.PersonRepository;
-
 import java.util.List;
-
 import static java.lang.Boolean.FALSE;
 
 /**
@@ -31,6 +31,17 @@ import static java.lang.Boolean.FALSE;
 public class RecruitmentService {
     @Autowired
     private PersonRepository personRepo;
+
+    @Autowired
+    private CompetenceRepository competenceRepo;
+
+    /**
+     * Gets all information in the competence table
+     * @return a list of all the competences (all columns)
+     */
+    public List<Competence> getAllCompetences(){
+        return competenceRepo.findAll();
+    }
 
     /**
      * Creates a new Person with the specified username, password, first name, last name, email address and date of birth.

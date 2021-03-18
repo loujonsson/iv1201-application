@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      layout:decorate="~{resources/fragments/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Applicant interface</title>
+</head>
+<body>
+<main layout:fragment="content">
+    <section>
+        <h1 th:text="#{application-title}"></h1>
+        <p th:text="#{application-info}"></p>
+
+        <div th:if="${ not#lists.isEmpty(competenceProfiles)}">
+            <table th:if="${languageEN}">
+                <tr>
+                    <th>Competence Id</th>
+                    <th>Competences</th>
+                </tr>
+                <tr th:each="product : ${competenceProfiles}">
+                    <td th:text="${product.id}"></td>
+                    <td th:text="${product.nameEn}"></td>
+                </tr>
+            </table>
+            <table th:if="${languageSE}">
+                <tr>
+                    <th>Kompetens Id</th>
+                    <th>Kompetenser</th>
+                </tr>
+                <tr th:each="product : ${competenceProfiles}">
+                    <td th:text="${product.id}"></td>
+                    <td th:text="${product.nameSe}"></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</main>
+</body>
+</html>

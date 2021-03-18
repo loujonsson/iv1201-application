@@ -1,11 +1,13 @@
 package se.kth.iv1201.recruitment.domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Entity for Competence table in database
  */
 @Entity
+@Table(name = "competence")
 public class Competence {
     @Id
     @Column(name = "competence_id")
@@ -17,6 +19,9 @@ public class Competence {
 
     @Column(name = "name_en")
     private String nameEn;
+
+    @OneToMany(mappedBy = "competence")
+    Set<CompetenceProfile> competences;
 
     public String getNameSe() {
         return nameSe;

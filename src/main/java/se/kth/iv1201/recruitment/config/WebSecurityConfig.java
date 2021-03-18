@@ -29,8 +29,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/create-account", "/error/**").permitAll()
-                .antMatchers("/email-verification", "/update-account").hasAnyAuthority("ROLE_APPLICANT", "ROLE_ADMIN")
+                .antMatchers("/", "/create-account", "/competence-profile", "/error/**").permitAll()
+                .antMatchers("/email-verification", "/update-account", "/non-repudiation-email", "/verification", "/update-account-success").hasAnyAuthority("ROLE_APPLICANT", "ROLE_ADMIN")
                 .antMatchers("/applicant").hasAuthority("ROLE_APPLICANT")
                 .antMatchers("/admin", "/applicant").hasAuthority("ROLE_ADMIN")
                 .anyRequest().authenticated()
