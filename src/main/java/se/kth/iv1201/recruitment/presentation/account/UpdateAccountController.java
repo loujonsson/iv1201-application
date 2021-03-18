@@ -86,10 +86,10 @@ public class UpdateAccountController {
     }
 
     /**
-     * Verification
+     * Verification, non repudiation
      *
-     * @param verificationForm
-     * @return Login success page URL
+     * @param verificationForm input from the user in the verificationForm object
+     * @return Verification success page URL
      * @throws IllegalRecruitmentTransactionException
      */
     @RequestMapping(value = "/" + VERIFICATION_PAGE_URL, method = RequestMethod.POST)
