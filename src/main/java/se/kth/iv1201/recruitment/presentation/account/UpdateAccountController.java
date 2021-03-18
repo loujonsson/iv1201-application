@@ -58,13 +58,12 @@ public class UpdateAccountController {
     /**
      * Submits update account form and redirect to login for non-repudiation
      *
-     * @param user
-     * @param model
-     * @param result
-     * @return url
+     * @param user user information from the UpdateAccountForm
+     * @param result for validation
+     * @return url to verification page
      */
     @PostMapping("/" + UPDATE_PAGE_URL)
-    public String submitForm(@ModelAttribute("updateAccountForm") UpdateAccountForm user, Model model, BindingResult result){
+    public String submitForm(@ModelAttribute("updateAccountForm") UpdateAccountForm user, BindingResult result){
         if(result.hasErrors()){
             return UPDATE_ACCOUNT_PAGE_URL;
         }
@@ -94,7 +93,7 @@ public class UpdateAccountController {
      * @throws IllegalRecruitmentTransactionException
      */
     @RequestMapping(value = "/" + VERIFICATION_PAGE_URL, method = RequestMethod.POST)
-    public String saveVerificationForm(@Valid @ModelAttribute("verificationForm") VerificationForm verificationForm) throws IllegalRecruitmentTransactionException {
+    public String saveVerificationForm(@Valid @ModelAttribute("verificationForm") LoginForm verificationForm) throws IllegalRecruitmentTransactionException {
         PersonDTO userVerificationSuccess = service.checkLogin(verificationForm.getUsername(), verificationForm.getPassword());
         if(userVerificationSuccess == null){
             return "redirect:" + VERIFICATION_PAGE_URL + "?error";
@@ -117,7 +116,7 @@ public class UpdateAccountController {
      * @return The login page url
      */
     @GetMapping("/" + VERIFICATION_PAGE_URL)
-    public String showVerificationView(@ModelAttribute("verificationForm") VerificationForm verificationForm){
+    public String showVerificationView(@ModelAttribute("verificationForm") LoginForm verificationForm){
         return VERIFICATION_PAGE_URL;
     }
 
