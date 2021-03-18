@@ -107,7 +107,6 @@ public class UpdateAccountController {
         }else{
             return "redirect:" + VERIFICATION_PAGE_URL ;
         }
-
     }
 
     /**
